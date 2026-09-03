@@ -1,0 +1,15 @@
+beautifulsoup4>=4.12,<5
+fastapi>=0.115,<1
+google-api-python-client>=2.160,<3
+google-auth-httplib2>=0.2,<1
+google-auth-oauthlib>=1.2,<2
+pydantic>=2.10,<3
+pydantic-settings>=2.7,<3
+python-dateutil>=2.9,<3
+uvicorn[standard]>=0.34,<1
+
+# Development and tests
+httpx>=0.28,<1
+pytest>=8.3,<9
+pytest-cov>=6,<7
+
