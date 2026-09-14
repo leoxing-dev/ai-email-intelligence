@@ -4,6 +4,7 @@ from __future__ import annotations
 
 import re
 from abc import ABC, abstractmethod
+from dataclasses import dataclass
 from datetime import date, datetime, timedelta, tzinfo
 
 from dateutil import parser as date_parser
@@ -106,7 +107,8 @@ _EVENT = re.compile(
     r"\b(?:event|career fair|job fair|meeting|appointment|interview|webinar|"
     r"interview session|information session|workshop|fair|session|seminar|panel|"
     r"open house|orientation|student welcome|welcome event|tech talk|expo|"
-    r"reception|conference|meet\b.{0,30}\brecruiters?|takes place|scheduled for)\b",
+    r"reception|conference|lecture|briefing|forum|tour|gathering|office hours|"
+    r"meet\b.{0,30}\brecruiters?|takes place|scheduled for|will (?:meet|gather|begin))\b",
     re.IGNORECASE,
 )
 _NEWSLETTER = re.compile(r"\b(?:newsletter|weekly digest|monthly update)\b", re.IGNORECASE)
@@ -134,35 +136,84 @@ _REGISTRATION_REQUIRED = re.compile(
 _NO_REGISTRATION = re.compile(r"\bno registration (?:is )?required\b", re.IGNORECASE)
 _REGISTRATION_COMPLETE = re.compile(
     r"\b(?:(?:your )?registration (?:is |was )?(?:successful|confirmed|complete)|"
-    r"you(?: are|'re) registered|rsvp (?:is )?confirmed)\b",
+    r"you(?: are|'re) registered|rsvp (?:is )?(?:confirmed|received)|"
+    r"(?:seat|place|booking|roster (?:entry)?|name|credential) (?:is |was |has been )?"
+    r"(?:confirmed|reserved|booked|accepted|added|issued))\b",
     re.IGNORECASE,
 )
 _REGISTRATION_OPTIONAL = re.compile(
     r"\b(?:registration (?:is )?optional|rsvp (?:is )?optional|"
     r"register here if you(?:'d| would) like to attend|"
     r"register (?:here )?if (?:you are|you're|interested)|"
-    r"register (?:here )?if you (?:want|choose|wish))\b",
+    r"register (?:here )?if you (?:want|choose|wish)|walk[- ]ins? (?:are )?welcome|"
+    r"may attend without|can attend without|registration is not necessary)\b",
     re.IGNORECASE,
 )
 _REGISTRATION_AVAILABLE = re.compile(
     r"\b(?:registration (?:is )?(?:open|available)|register here|register online|"
-    r"sign up|rsvp)\b",
+    r"sign up|rsvp|reserve (?:a|your) (?:seat|place)|book (?:a|your) (?:slot|place)|"
+    r"add (?:your )?name (?:to|on) (?:the )?roster|request (?:a|your) credential)\b",
     re.IGNORECASE,
 )
 _REGISTRATION_CONTEXT = re.compile(r"\b(?:registration|register|rsvp)\b", re.IGNORECASE)
 
 _DEADLINE_CONTEXT = re.compile(
-    r"\b(?:deadline|due(?: by)?|respond by|reply by|submit by|complete by|"
-    r"required by|no later than|registration closes?)\b|"
-    r"\b(?:submit|complete|respond|reply|finish|turn in|register|registration|rsvp)"
-    r"\b.{0,60}\bby\b",
+    r"\b(?:deadline|cutoff|due(?: by)?|respond(?:ed)? by|repl(?:y|ied) by|"
+    r"submit(?:ted)? by|complet(?:e|ed) by|required by|before|no later than|"
+    r"registration closes?|ends? unless|after\b.{0,40}\b(?:cannot|unable|hold))\b|"
+    r"\b(?:submit(?:ted)?|complete(?:d)?|respond(?:ed)?|repl(?:y|ied)|finish(?:ed)?|"
+    r"turn(?:ed)? in|register(?:ed)?|registration|rsvp|provide(?:d)?|file(?:d)?|"
+    r"arrive(?:d|s)?|reach(?:ed|es)?|receive(?:d)?|upload(?:ed)?)"
+    r"\b.{0,60}\b(?:by|before|no later than)\b",
     re.IGNORECASE,
 )
 _PUBLICATION_CONTEXT = re.compile(
     r"\b(?:published|publication date|posted|issued|released)\b", re.IGNORECASE
 )
 _HISTORICAL_CONTEXT = re.compile(
-    r"\b(?:was|occurred|previous|formerly|last attended|had been)\b", re.IGNORECASE
+    r"\b(?:occurred|previous|formerly|last attended|had been|was held|were held|"
+    r"took place|gathered|recap|archive[ds]?|photos?|recordings?|completed on|"
+    r"received on|accepted on)\b",
+    re.IGNORECASE,
+)
+
+_FUTURE_EVENT_CONTEXT = re.compile(
+    r"\b(?:will (?:begin|meet|gather|take place|be held)|begins?|starts?|"
+    r"scheduled|planned|upcoming|join us|takes place|is on|are on)\b",
+    re.IGNORECASE,
+)
+
+_OPERATIONAL_CONTEXT = re.compile(
+    r"\b(?:account|access|acknowledg(?:e)?ment|application|balance|course|"
+    r"credential|documentation|document|eligibility|enrollment|file|form|"
+    r"identity|payment|portal|record|residency|roster|verification)\b",
+    re.IGNORECASE,
+)
+_APPLICABILITY = re.compile(
+    r"\b(?:your|you|we (?:do not|don't) have|not (?:yet )?(?:received|submitted|"
+    r"completed|provided)|has not|have not|missing|incomplete|lacking|remains?\b)",
+    re.IGNORECASE,
+)
+_ADVERSE_CONSEQUENCE = re.compile(
+    r"\b(?:cannot|can't|will not|won't|unable to|(?:will be |is )?suspended|"
+    r"(?:will be |is )?blocked|will (?:end|stop|expire)|(?:will be )?dropped|"
+    r"(?:will )?(?:receive|place|result in) (?:an? )?hold|lose access|"
+    r"denied|not be (?:processed|considered|eligible)|processing will stop)\b",
+    re.IGNORECASE,
+)
+_CONSEQUENCE_LINK = re.compile(
+    r"\b(?:unless|without|if\b.{0,60}\bnot|after\b.{0,60}\b(?:cannot|unable|"
+    r"suspended|blocked|hold)|before\b.{0,60}\b(?:or|otherwise))\b",
+    re.IGNORECASE,
+)
+_REGISTRATION_GATE = re.compile(
+    r"\b(?:only\b.{0,60}\b(?:roster|visitor list|credential)|"
+    r"cannot\b.{0,50}\b(?:enter|attend|join|interview)|"
+    r"need(?:s|ed)?\b.{0,45}\b(?:roster|booking|credential|reserve|registration)|"
+    r"(?:roster|booking|credential|reservation) (?:is )?necessary|"
+    r"reserve\b.{0,35}\bto (?:attend|enter|receive)|"
+    r"add\b.{0,30}\b(?:roster|visitor list)\b.{0,30}\b(?:before|to attend))\b",
+    re.IGNORECASE,
 )
 
 _ADMINISTRATIVE_CONSEQUENCE = re.compile(
@@ -177,15 +228,29 @@ _ACTION_COMPLETE = re.compile(
     r"required documentation has been received|we (?:have )?received your documentation)\b",
     re.IGNORECASE,
 )
+_NO_ACTION_REQUIRED = re.compile(
+    r"\b(?:no action (?:is )?required|nothing (?:else|further) is needed|"
+    r"no remaining (?:steps?|action)|(?:form|record|request) "
+    r"(?:was|is|has been) accepted)\b",
+    re.IGNORECASE,
+)
 _CONDITIONAL_ACTION = re.compile(
     r"\b(?:if you (?:want|choose|wish|plan)|if (?:you are|you're )?interested|"
     r"optional)\b.{0,100}\b(?:submit|register|complete|provide|apply)\b",
     re.IGNORECASE,
 )
+_OPTIONAL_APPLICABILITY = re.compile(
+    r"\b(?:if you (?:want|choose|wish|plan|intend)|if (?:you are|you're )?interested|"
+    r"optional|depending on|may be necessary|for a chance to|to enter (?:a )?"
+    r"(?:drawing|raffle)|if this applies to you)\b",
+    re.IGNORECASE,
+)
 _DEADLINE_ACTION = re.compile(
     r"\b(?:submit|complete|respond|reply|finish|turn in|register|rsvp|"
-    r"pay|provide|file)\b.{0,80}\b(?:by|deadline|due)\b|"
-    r"\b(?:due|deadline)\b.{0,80}\b(?:submit|complete|respond|reply|pay|provide|file)\b",
+    r"pay|provide|file|upload|send|select|choose|reserve|book|request|add)\b"
+    r".{0,80}\b(?:by|before|deadline|due|no later than)\b|"
+    r"\b(?:due|deadline|cutoff)\b.{0,80}\b(?:submit|complete|respond|reply|"
+    r"pay|provide|file|upload|send|select|reserve|book|request|add)\b",
     re.IGNORECASE,
 )
 _REGISTER_BY = re.compile(r"\b(?:register|rsvp)\b.{0,40}\bby\b", re.IGNORECASE)
@@ -307,8 +372,11 @@ def _parse_explicit_date(
             }
             target = weekdays[match.group(2)]
             days_ahead = (target - received_at.weekday()) % 7
-            if match.group(1) == "next" and days_ahead == 0:
-                days_ahead = 7
+            if match.group(1) == "next" and target >= received_at.weekday():
+                # "Next Friday" contrasts with "this Friday" when both occur
+                # later in the current calendar week. A weekday already passed
+                # naturally resolves into the following week.
+                days_ahead += 7
             base = received_at + timedelta(days=days_ahead)
             relative_label = match.group(0)
         else:
@@ -325,6 +393,8 @@ def _parse_explicit_date(
             )
             if parsed.tzinfo is None:
                 parsed = parsed.replace(tzinfo=received_at.tzinfo)
+            if has_clock_time and not re.search(r"\d{1,2}:\d{2}", time_phrase):
+                parsed = parsed.replace(minute=0, second=0, microsecond=0)
             return parsed.date(), parsed if has_clock_time else None, Confidence.MEDIUM
         except (ValueError, OverflowError):
             return None, None, Confidence.LOW
@@ -340,50 +410,115 @@ def _parse_explicit_date(
         )
         if parsed.tzinfo is None:
             parsed = parsed.replace(tzinfo=received_at.tzinfo)
+        if has_clock_time and not re.search(r"\d{1,2}:\d{2}", phrase):
+            parsed = parsed.replace(minute=0, second=0, microsecond=0)
         confidence = Confidence.MEDIUM if pattern_kind == "numeric" else Confidence.HIGH
         return parsed.date(), parsed if has_clock_time else None, confidence
     except (ValueError, OverflowError):
         return None, None, Confidence.LOW
 
 
-def _surrounding_sentence(text: str, start: int, end: int) -> str:
-    left = max(text.rfind(".", 0, start), text.rfind("\n", 0, start), text.rfind("?", 0, start))
-    right_candidates = [position for delimiter in ".?\n" if (position := text.find(delimiter, end)) >= 0]
+@dataclass(frozen=True)
+class _DateContext:
+    text: str
+    start: int
+    end: int
+
+    @property
+    def before(self) -> str:
+        return self.text[max(0, self.start - 100) : self.start]
+
+    @property
+    def after(self) -> str:
+        return self.text[self.end : min(len(self.text), self.end + 100)]
+
+    @property
+    def local(self) -> str:
+        return self.text[max(0, self.start - 100) : min(len(self.text), self.end + 100)]
+
+
+def _sentence_bounds(text: str, start: int, end: int) -> tuple[int, int]:
+    left = max(
+        text.rfind(".", 0, start),
+        text.rfind("\n", 0, start),
+        text.rfind("?", 0, start),
+        text.rfind(";", 0, start),
+    )
+    right_candidates = [
+        position
+        for delimiter in ".?\n;"
+        if (position := text.find(delimiter, end)) >= 0
+    ]
     right = min(right_candidates) if right_candidates else len(text)
-    return text[left + 1 : right + 1]
+    return left + 1, right + 1
 
 
-def _date_context(text: str, start: int, end: int, subject_end: int) -> str:
-    """Return subject-wide or narrow nearby context for a detected date."""
+def _date_context(text: str, start: int, end: int, subject_end: int) -> _DateContext:
+    """Return clause-local evidence while preserving the date's relative span."""
 
     if start < subject_end:
-        return text[:subject_end]
-    sentence = _surrounding_sentence(text, start, end)
-    if _EVENT.search(sentence) or _DEADLINE_CONTEXT.search(sentence):
-        return sentence
-    nearby = text[max(subject_end + 1, start - 100) : min(len(text), end + 100)]
-    if _EVENT.search(nearby) or _REGISTRATION_CONTEXT.search(nearby):
-        return nearby
-    return sentence
+        return _DateContext(text=text[:subject_end], start=start, end=end)
+    left, right = _sentence_bounds(text, start, end)
+    return _DateContext(text=text[left:right], start=start - left, end=end - left)
+
+
+def _near(pattern: re.Pattern[str], context: _DateContext) -> bool:
+    """Require a semantic cue to occur in the date's local clause."""
+
+    return bool(pattern.search(context.local))
+
+
+def _deadline_near_date(context: _DateContext) -> bool:
+    before = context.before
+    after = context.after
+    return bool(
+        re.search(
+            r"\b(?:by|before|no later than|due|deadline|cutoff|closes?|ends?)\b"
+            r"[^.;!?]{0,75}$",
+            before,
+            re.IGNORECASE,
+        )
+        or re.search(
+            r"\b(?:suspended|blocked|dropped|expires?|ends?|stops?|unable)\b"
+            r"[^.;!?]{0,45}\bafter\b[^.;!?]{0,15}$",
+            before,
+            re.IGNORECASE,
+        )
+        or re.match(
+            r"^[^.;!?]{0,45}\b(?:deadline|cutoff|is due|or (?:access|enrollment|"
+            r"service|processing) will|otherwise)\b",
+            after,
+            re.IGNORECASE,
+        )
+        or _near(_DEADLINE_CONTEXT, context)
+    )
 
 
 def _date_semantic(
-    context: str,
+    context: _DateContext,
     interpreted_date: date | None,
     received_at: datetime,
     promotional: bool,
+    meaningful_context: bool,
 ) -> DateSemanticType:
-    if _DEADLINE_CONTEXT.search(context):
-        if _REGISTRATION_CONTEXT.search(context):
-            return DateSemanticType.REGISTRATION_DEADLINE
-        return DateSemanticType.DEADLINE
-    if _PUBLICATION_CONTEXT.search(context):
+    local = context.local
+    if _near(_PUBLICATION_CONTEXT, context):
         return DateSemanticType.PUBLICATION_DATE
-    if _HISTORICAL_CONTEXT.search(context) or (
+    if _near(_HISTORICAL_CONTEXT, context) or (
         interpreted_date is not None and interpreted_date < received_at.date()
     ):
         return DateSemanticType.HISTORICAL_DATE
-    if _EVENT.search(context):
+    if _deadline_near_date(context):
+        if promotional and not meaningful_context and not _REGISTRATION_CONTEXT.search(local):
+            return DateSemanticType.PROMOTION_DATE
+        if _REGISTRATION_CONTEXT.search(local):
+            return DateSemanticType.REGISTRATION_DEADLINE
+        return DateSemanticType.DEADLINE
+    if _EVENT.search(local) and (
+        _FUTURE_EVENT_CONTEXT.search(local)
+        or interpreted_date is None
+        or interpreted_date >= received_at.date()
+    ):
         return DateSemanticType.EVENT_TIME
     if promotional:
         return DateSemanticType.PROMOTION_DATE
@@ -395,6 +530,7 @@ def detect_dates(
     *,
     clean_body: str | None = None,
     promotional: bool = False,
+    meaningful_context: bool = False,
     local_timezone: tzinfo | None = None,
 ) -> list[DetectedDate]:
     """Detect dates and label their semantics without turning all dates into deadlines."""
@@ -444,6 +580,7 @@ def detect_dates(
             interpreted_date,
             local_received_at,
             promotional,
+            meaningful_context,
         )
         if (
             semantic is DateSemanticType.EVENT_TIME
@@ -509,6 +646,7 @@ class LocalSummarizer(EmailSummarizer):
             and bool(_REPLY.search(analysis_text) or _REQUIRED.search(analysis_text))
         )
         administrative = bool(_ADMINISTRATIVE.search(analysis_text))
+        operational = bool(_OPERATIONAL_CONTEXT.search(analysis_text))
         recruiting = bool(_RECRUITING.search(analysis_text))
         event_signal = not digest_container and bool(_EVENT.search(analysis_text))
         newsletter = bool(_NEWSLETTER.search(analysis_text))
@@ -516,8 +654,13 @@ class LocalSummarizer(EmailSummarizer):
         explicit_reply = bool(_REPLY.search(analysis_text))
         optional_signal = bool(_OPTIONAL.search(analysis_text)) or promotional
         action_completed = bool(_ACTION_COMPLETE.search(analysis_text))
-        conditional_action = bool(_CONDITIONAL_ACTION.search(analysis_text))
+        no_action_required = bool(_NO_ACTION_REQUIRED.search(analysis_text))
+        conditional_action = bool(
+            _CONDITIONAL_ACTION.search(analysis_text)
+            or _OPTIONAL_APPLICABILITY.search(analysis_text)
+        )
         explicit_required = bool(_REQUIRED.search(analysis_text)) and not action_completed
+        meaningful_context = security or academic or administrative or operational
 
         dates = (
             []
@@ -526,6 +669,7 @@ class LocalSummarizer(EmailSummarizer):
                 email,
                 clean_body=clean_body,
                 promotional=promotional,
+                meaningful_context=meaningful_context,
                 local_timezone=self._local_timezone,
             )
         )
@@ -585,6 +729,7 @@ class LocalSummarizer(EmailSummarizer):
             event_status = EventStatus.PAST
         else:
             event_status = EventStatus.UNCERTAIN
+        active_event = event_status in {EventStatus.UPCOMING, EventStatus.ONGOING}
 
         no_registration = bool(_NO_REGISTRATION.search(analysis_text))
         registration_complete = bool(_REGISTRATION_COMPLETE.search(analysis_text))
@@ -594,6 +739,7 @@ class LocalSummarizer(EmailSummarizer):
         registration_available_signal = bool(
             _REGISTRATION_AVAILABLE.search(analysis_text)
         )
+        registration_gate = bool(_REGISTRATION_GATE.search(analysis_text))
         registration_deadline = next(
             (
                 item.interpreted_at or item.interpreted_date
@@ -609,6 +755,7 @@ class LocalSummarizer(EmailSummarizer):
         registration_required_signal = (
             bool(_REGISTRATION_REQUIRED.search(analysis_text))
             or bool(has_registration_deadline and _REGISTER_BY.search(analysis_text))
+            or bool(active_event and registration_gate)
         ) and not (
             no_registration
             or registration_complete
@@ -616,10 +763,19 @@ class LocalSummarizer(EmailSummarizer):
             or conditional_action
         )
 
-        meaningful_context = security or academic or administrative
-        active_event = event_status in {EventStatus.UPCOMING, EventStatus.ONGOING}
         administrative_consequence = administrative and bool(
             _ADMINISTRATIVE_CONSEQUENCE.search(analysis_text)
+        )
+        consequence_obligation = (
+            meaningful_context
+            and bool(_ADVERSE_CONSEQUENCE.search(analysis_text))
+            and bool(_APPLICABILITY.search(analysis_text))
+            and (
+                bool(_CONSEQUENCE_LINK.search(analysis_text))
+                or has_future_deadline
+            )
+            and not conditional_action
+            and not action_completed
         )
         deadline_action = bool(_DEADLINE_ACTION.search(analysis_text))
         applicable_deadline = (
@@ -628,6 +784,7 @@ class LocalSummarizer(EmailSummarizer):
         independent_obligation = (
             mandatory_safety
             or administrative_consequence
+            or consequence_obligation
             or registration_required_signal
             or (security and explicit_required)
             or (academic and (explicit_required or applicable_deadline))
@@ -642,6 +799,7 @@ class LocalSummarizer(EmailSummarizer):
                 and not conditional_action
             )
             or administrative_consequence
+            or consequence_obligation
             or (
                 applicable_deadline
                 and (meaningful_context or explicit_reply or deadline_action)
@@ -663,7 +821,9 @@ class LocalSummarizer(EmailSummarizer):
             action_kind = ActionKind.REQUIRED
         elif digest_container:
             action_kind = ActionKind.NONE
-        elif action_completed or registration_complete:
+        elif action_completed or registration_complete or (
+            no_action_required and not security
+        ):
             action_kind = ActionKind.NONE
         elif conditional_deadline:
             action_kind = ActionKind.OPTIONAL
@@ -713,7 +873,9 @@ class LocalSummarizer(EmailSummarizer):
             email_type = EmailType.DIGEST
         elif security or safety_advisory or mandatory_safety:
             email_type = EmailType.SECURITY
-        elif administrative:
+        elif administrative or (
+            operational and not academic and (required or consequence_obligation)
+        ):
             email_type = EmailType.ADMINISTRATIVE
         elif academic:
             email_type = EmailType.ACADEMIC
@@ -815,6 +977,7 @@ class LocalSummarizer(EmailSummarizer):
                 Assessment.TRUE
                 if registration_available_signal
                 or registration_required_signal
+                or registration_gate
                 or registration_optional
                 or registration_complete
                 or has_registration_deadline
@@ -841,6 +1004,8 @@ class LocalSummarizer(EmailSummarizer):
             reasons.append("conditional deadline applies only if the user chooses to participate")
         if action_completed:
             reasons.append("message says the administrative action is already complete")
+        if consequence_obligation:
+            reasons.append("applicable operational consequence implies an obligation")
         if contains_event:
             reasons.append("event semantics detected")
         if event_status is EventStatus.UPCOMING:

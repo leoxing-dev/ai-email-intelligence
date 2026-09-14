@@ -1,0 +1,5426 @@
+{
+  "baseline_id": "deterministic-rules-v2",
+  "dataset_version": "synthetic-email-benchmark-v2",
+  "dataset_fingerprint": "09d718d52fa39940b85c23a6e81262a2b42456cd4803fd69711420115e0aadb7",
+  "split": "v2_dev",
+  "case_count": 100,
+  "split_counts": {
+    "v2_dev": 100
+  },
+  "binary_metrics": {
+    "required_action": {
+      "tp": 28,
+      "fp": 0,
+      "fn": 0,
+      "tn": 72,
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1": 1.0
+    },
+    "contains_event": {
+      "tp": 41,
+      "fp": 1,
+      "fn": 0,
+      "tn": 58,
+      "precision": 0.9761904761904762,
+      "recall": 1.0,
+      "f1": 0.9879518072289156
+    },
+    "upcoming_event": {
+      "tp": 36,
+      "fp": 0,
+      "fn": 1,
+      "tn": 63,
+      "precision": 1.0,
+      "recall": 0.972972972972973,
+      "f1": 0.9863013698630138
+    },
+    "registration_required": {
+      "tp": 5,
+      "fp": 0,
+      "fn": 0,
+      "tn": 95,
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1": 1.0
+    },
+    "registration_completed": {
+      "tp": 2,
+      "fp": 0,
+      "fn": 0,
+      "tn": 98,
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1": 1.0
+    },
+    "deadline_detection": {
+      "tp": 20,
+      "fp": 0,
+      "fn": 0,
+      "tn": 80,
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1": 1.0
+    },
+    "needs_reply": {
+      "tp": 4,
+      "fp": 0,
+      "fn": 0,
+      "tn": 96,
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1": 1.0
+    }
+  },
+  "route_labels": [
+    "urgent",
+    "needs_action",
+    "needs_reply",
+    "upcoming_events",
+    "informational",
+    "low_priority",
+    "manual_review"
+  ],
+  "route_confusion": {
+    "urgent": {
+      "urgent": 7,
+      "needs_action": 0,
+      "needs_reply": 0,
+      "upcoming_events": 0,
+      "informational": 0,
+      "low_priority": 0,
+      "manual_review": 0
+    },
+    "needs_action": {
+      "urgent": 0,
+      "needs_action": 21,
+      "needs_reply": 0,
+      "upcoming_events": 0,
+      "informational": 0,
+      "low_priority": 0,
+      "manual_review": 0
+    },
+    "needs_reply": {
+      "urgent": 0,
+      "needs_action": 0,
+      "needs_reply": 2,
+      "upcoming_events": 0,
+      "informational": 0,
+      "low_priority": 0,
+      "manual_review": 0
+    },
+    "upcoming_events": {
+      "urgent": 0,
+      "needs_action": 0,
+      "needs_reply": 0,
+      "upcoming_events": 33,
+      "informational": 0,
+      "low_priority": 0,
+      "manual_review": 0
+    },
+    "informational": {
+      "urgent": 0,
+      "needs_action": 0,
+      "needs_reply": 0,
+      "upcoming_events": 0,
+      "informational": 22,
+      "low_priority": 1,
+      "manual_review": 1
+    },
+    "low_priority": {
+      "urgent": 0,
+      "needs_action": 0,
+      "needs_reply": 0,
+      "upcoming_events": 0,
+      "informational": 0,
+      "low_priority": 11,
+      "manual_review": 0
+    },
+    "manual_review": {
+      "urgent": 0,
+      "needs_action": 0,
+      "needs_reply": 0,
+      "upcoming_events": 0,
+      "informational": 2,
+      "low_priority": 0,
+      "manual_review": 0
+    }
+  },
+  "route_accuracy": 0.96,
+  "date_metrics": {
+    "expected_count": 70,
+    "predicted_count": 70,
+    "date_only_match_count": 70,
+    "extraction_precision": 1.0,
+    "extraction_recall": 1.0,
+    "exact_normalized_match_count": 69,
+    "exact_normalized_match_rate": 0.9857142857142858,
+    "timed_expected_count": 11,
+    "time_tolerance_match_count": 10,
+    "time_tolerance_accuracy": 0.9090909090909091,
+    "tolerance_minutes": 15
+  },
+  "abstention": {
+    "total": 100,
+    "accepted": 99,
+    "abstained": 1,
+    "coverage": 0.99,
+    "accepted_route_errors": 3,
+    "error_rate_among_accepted": 0.030303030303030304
+  },
+  "protected_metrics": {
+    "false_required_action_count": 0,
+    "false_required_action_rate": 0.0,
+    "required_action_false_negative_count": 0,
+    "upcoming_event_false_negative_count": 1,
+    "deadline_false_negative_count": 0
+  },
+  "by_tag": {
+    "academic": {
+      "cases": 8,
+      "route_correct": 7,
+      "route_accuracy": 0.875,
+      "binary_metrics": {
+        "required_action": {
+          "tp": 5,
+          "fp": 0,
+          "fn": 0,
+          "tn": 3,
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0
+        },
+        "contains_event": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 0,
+          "tn": 8,
+          "precision": null,
+          "recall": null,
+          "f1": null
+        },
+        "upcoming_event": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 0,
+          "tn": 8,
+          "precision": null,
+          "recall": null,
+          "f1": null
+        },
+        "registration_required": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 0,
+          "tn": 8,
+          "precision": null,
+          "recall": null,
+          "f1": null
+        },
+        "registration_completed": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 0,
+          "tn": 8,
+          "precision": null,
+          "recall": null,
+          "f1": null
+        },
+        "deadline_detection": {
+          "tp": 7,
+          "fp": 0,
+          "fn": 0,
+          "tn": 1,
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0
+        },
+        "needs_reply": {
+          "tp": 1,
+          "fp": 0,
+          "fn": 0,
+          "tn": 7,
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0
+        }
+      },
+      "date_metrics": {
+        "expected_count": 7,
+        "predicted_count": 7,
+        "date_only_match_count": 7,
+        "extraction_precision": 1.0,
+        "extraction_recall": 1.0,
+        "exact_normalized_match_count": 7,
+        "exact_normalized_match_rate": 1.0,
+        "timed_expected_count": 0,
+        "time_tolerance_match_count": 0,
+        "time_tolerance_accuracy": null,
+        "tolerance_minutes": 15
+      }
+    },
+    "administrative": {
+      "cases": 13,
+      "route_correct": 13,
+      "route_accuracy": 1.0,
+      "binary_metrics": {
+        "required_action": {
+          "tp": 10,
+          "fp": 0,
+          "fn": 0,
+          "tn": 3,
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0
+        },
+        "contains_event": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 0,
+          "tn": 13,
+          "precision": null,
+          "recall": null,
+          "f1": null
+        },
+        "upcoming_event": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 0,
+          "tn": 13,
+          "precision": null,
+          "recall": null,
+          "f1": null
+        },
+        "registration_required": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 0,
+          "tn": 13,
+          "precision": null,
+          "recall": null,
+          "f1": null
+        },
+        "registration_completed": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 0,
+          "tn": 13,
+          "precision": null,
+          "recall": null,
+          "f1": null
+        },
+        "deadline_detection": {
+          "tp": 9,
+          "fp": 0,
+          "fn": 0,
+          "tn": 4,
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0
+        },
+        "needs_reply": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 0,
+          "tn": 13,
+          "precision": null,
+          "recall": null,
+          "f1": null
+        }
+      },
+      "date_metrics": {
+        "expected_count": 9,
+        "predicted_count": 9,
+        "date_only_match_count": 9,
+        "extraction_precision": 1.0,
+        "extraction_recall": 1.0,
+        "exact_normalized_match_count": 9,
+        "exact_normalized_match_rate": 1.0,
+        "timed_expected_count": 0,
+        "time_tolerance_match_count": 0,
+        "time_tolerance_accuracy": null,
+        "tolerance_minutes": 15
+      }
+    },
+    "all_day": {
+      "cases": 1,
+      "route_correct": 1,
+      "route_accuracy": 1.0,
+      "binary_metrics": {
+        "required_action": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 0,
+          "tn": 1,
+          "precision": null,
+          "recall": null,
+          "f1": null
+        },
+        "contains_event": {
+          "tp": 1,
+          "fp": 0,
+          "fn": 0,
+          "tn": 0,
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0
+        },
+        "upcoming_event": {
+          "tp": 1,
+          "fp": 0,
+          "fn": 0,
+          "tn": 0,
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0
+        },
+        "registration_required": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 0,
+          "tn": 1,
+          "precision": null,
+          "recall": null,
+          "f1": null
+        },
+        "registration_completed": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 0,
+          "tn": 1,
+          "precision": null,
+          "recall": null,
+          "f1": null
+        },
+        "deadline_detection": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 0,
+          "tn": 1,
+          "precision": null,
+          "recall": null,
+          "f1": null
+        },
+        "needs_reply": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 0,
+          "tn": 1,
+          "precision": null,
+          "recall": null,
+          "f1": null
+        }
+      },
+      "date_metrics": {
+        "expected_count": 1,
+        "predicted_count": 1,
+        "date_only_match_count": 1,
+        "extraction_precision": 1.0,
+        "extraction_recall": 1.0,
+        "exact_normalized_match_count": 1,
+        "exact_normalized_match_rate": 1.0,
+        "timed_expected_count": 0,
+        "time_tolerance_match_count": 0,
+        "time_tolerance_accuracy": null,
+        "tolerance_minutes": 15
+      }
+    },
+    "automated": {
+      "cases": 2,
+      "route_correct": 2,
+      "route_accuracy": 1.0,
+      "binary_metrics": {
+        "required_action": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 0,
+          "tn": 2,
+          "precision": null,
+          "recall": null,
+          "f1": null
+        },
+        "contains_event": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 0,
+          "tn": 2,
+          "precision": null,
+          "recall": null,
+          "f1": null
+        },
+        "upcoming_event": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 0,
+          "tn": 2,
+          "precision": null,
+          "recall": null,
+          "f1": null
+        },
+        "registration_required": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 0,
+          "tn": 2,
+          "precision": null,
+          "recall": null,
+          "f1": null
+        },
+        "registration_completed": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 0,
+          "tn": 2,
+          "precision": null,
+          "recall": null,
+          "f1": null
+        },
+        "deadline_detection": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 0,
+          "tn": 2,
+          "precision": null,
+          "recall": null,
+          "f1": null
+        },
+        "needs_reply": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 0,
+          "tn": 2,
+          "precision": null,
+          "recall": null,
+          "f1": null
+        }
+      },
+      "date_metrics": {
+        "expected_count": 0,
+        "predicted_count": 0,
+        "date_only_match_count": 0,
+        "extraction_precision": null,
+        "extraction_recall": null,
+        "exact_normalized_match_count": 0,
+        "exact_normalized_match_rate": null,
+        "timed_expected_count": 0,
+        "time_tolerance_match_count": 0,
+        "time_tolerance_accuracy": null,
+        "tolerance_minutes": 15
+      }
+    },
+    "boilerplate": {
+      "cases": 3,
+      "route_correct": 1,
+      "route_accuracy": 0.3333333333333333,
+      "binary_metrics": {
+        "required_action": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 0,
+          "tn": 3,
+          "precision": null,
+          "recall": null,
+          "f1": null
+        },
+        "contains_event": {
+          "tp": 1,
+          "fp": 0,
+          "fn": 0,
+          "tn": 2,
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0
+        },
+        "upcoming_event": {
+          "tp": 1,
+          "fp": 0,
+          "fn": 0,
+          "tn": 2,
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0
+        },
+        "registration_required": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 0,
+          "tn": 3,
+          "precision": null,
+          "recall": null,
+          "f1": null
+        },
+        "registration_completed": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 0,
+          "tn": 3,
+          "precision": null,
+          "recall": null,
+          "f1": null
+        },
+        "deadline_detection": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 0,
+          "tn": 3,
+          "precision": null,
+          "recall": null,
+          "f1": null
+        },
+        "needs_reply": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 0,
+          "tn": 3,
+          "precision": null,
+          "recall": null,
+          "f1": null
+        }
+      },
+      "date_metrics": {
+        "expected_count": 1,
+        "predicted_count": 1,
+        "date_only_match_count": 1,
+        "extraction_precision": 1.0,
+        "extraction_recall": 1.0,
+        "exact_normalized_match_count": 1,
+        "exact_normalized_match_rate": 1.0,
+        "timed_expected_count": 0,
+        "time_tolerance_match_count": 0,
+        "time_tolerance_accuracy": null,
+        "tolerance_minutes": 15
+      }
+    },
+    "conditional": {
+      "cases": 11,
+      "route_correct": 9,
+      "route_accuracy": 0.8181818181818182,
+      "binary_metrics": {
+        "required_action": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 0,
+          "tn": 11,
+          "precision": null,
+          "recall": null,
+          "f1": null
+        },
+        "contains_event": {
+          "tp": 3,
+          "fp": 0,
+          "fn": 0,
+          "tn": 8,
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0
+        },
+        "upcoming_event": {
+          "tp": 3,
+          "fp": 0,
+          "fn": 0,
+          "tn": 8,
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0
+        },
+        "registration_required": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 0,
+          "tn": 11,
+          "precision": null,
+          "recall": null,
+          "f1": null
+        },
+        "registration_completed": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 0,
+          "tn": 11,
+          "precision": null,
+          "recall": null,
+          "f1": null
+        },
+        "deadline_detection": {
+          "tp": 4,
+          "fp": 0,
+          "fn": 0,
+          "tn": 7,
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0
+        },
+        "needs_reply": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 0,
+          "tn": 11,
+          "precision": null,
+          "recall": null,
+          "f1": null
+        }
+      },
+      "date_metrics": {
+        "expected_count": 7,
+        "predicted_count": 7,
+        "date_only_match_count": 7,
+        "extraction_precision": 1.0,
+        "extraction_recall": 1.0,
+        "exact_normalized_match_count": 7,
+        "exact_normalized_match_rate": 1.0,
+        "timed_expected_count": 0,
+        "time_tolerance_match_count": 0,
+        "time_tolerance_accuracy": null,
+        "tolerance_minutes": 15
+      }
+    },
+    "date": {
+      "cases": 7,
+      "route_correct": 7,
+      "route_accuracy": 1.0,
+      "binary_metrics": {
+        "required_action": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 0,
+          "tn": 7,
+          "precision": null,
+          "recall": null,
+          "f1": null
+        },
+        "contains_event": {
+          "tp": 6,
+          "fp": 0,
+          "fn": 0,
+          "tn": 1,
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0
+        },
+        "upcoming_event": {
+          "tp": 5,
+          "fp": 0,
+          "fn": 0,
+          "tn": 2,
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0
+        },
+        "registration_required": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 0,
+          "tn": 7,
+          "precision": null,
+          "recall": null,
+          "f1": null
+        },
+        "registration_completed": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 0,
+          "tn": 7,
+          "precision": null,
+          "recall": null,
+          "f1": null
+        },
+        "deadline_detection": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 0,
+          "tn": 7,
+          "precision": null,
+          "recall": null,
+          "f1": null
+        },
+        "needs_reply": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 0,
+          "tn": 7,
+          "precision": null,
+          "recall": null,
+          "f1": null
+        }
+      },
+      "date_metrics": {
+        "expected_count": 7,
+        "predicted_count": 7,
+        "date_only_match_count": 7,
+        "extraction_precision": 1.0,
+        "extraction_recall": 1.0,
+        "exact_normalized_match_count": 7,
+        "exact_normalized_match_rate": 1.0,
+        "timed_expected_count": 1,
+        "time_tolerance_match_count": 1,
+        "time_tolerance_accuracy": 1.0,
+        "tolerance_minutes": 15
+      }
+    },
+    "deadline": {
+      "cases": 22,
+      "route_correct": 22,
+      "route_accuracy": 1.0,
+      "binary_metrics": {
+        "required_action": {
+          "tp": 16,
+          "fp": 0,
+          "fn": 0,
+          "tn": 6,
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0
+        },
+        "contains_event": {
+          "tp": 3,
+          "fp": 0,
+          "fn": 0,
+          "tn": 19,
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0
+        },
+        "upcoming_event": {
+          "tp": 2,
+          "fp": 0,
+          "fn": 1,
+          "tn": 19,
+          "precision": 1.0,
+          "recall": 0.6666666666666666,
+          "f1": 0.8
+        },
+        "registration_required": {
+          "tp": 3,
+          "fp": 0,
+          "fn": 0,
+          "tn": 19,
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0
+        },
+        "registration_completed": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 0,
+          "tn": 22,
+          "precision": null,
+          "recall": null,
+          "f1": null
+        },
+        "deadline_detection": {
+          "tp": 20,
+          "fp": 0,
+          "fn": 0,
+          "tn": 2,
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0
+        },
+        "needs_reply": {
+          "tp": 2,
+          "fp": 0,
+          "fn": 0,
+          "tn": 20,
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0
+        }
+      },
+      "date_metrics": {
+        "expected_count": 23,
+        "predicted_count": 23,
+        "date_only_match_count": 23,
+        "extraction_precision": 1.0,
+        "extraction_recall": 1.0,
+        "exact_normalized_match_count": 23,
+        "exact_normalized_match_rate": 1.0,
+        "timed_expected_count": 0,
+        "time_tolerance_match_count": 0,
+        "time_tolerance_accuracy": null,
+        "tolerance_minutes": 15
+      }
+    },
+    "digest": {
+      "cases": 7,
+      "route_correct": 7,
+      "route_accuracy": 1.0,
+      "binary_metrics": {
+        "required_action": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 0,
+          "tn": 7,
+          "precision": null,
+          "recall": null,
+          "f1": null
+        },
+        "contains_event": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 0,
+          "tn": 7,
+          "precision": null,
+          "recall": null,
+          "f1": null
+        },
+        "upcoming_event": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 0,
+          "tn": 7,
+          "precision": null,
+          "recall": null,
+          "f1": null
+        },
+        "registration_required": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 0,
+          "tn": 7,
+          "precision": null,
+          "recall": null,
+          "f1": null
+        },
+        "registration_completed": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 0,
+          "tn": 7,
+          "precision": null,
+          "recall": null,
+          "f1": null
+        },
+        "deadline_detection": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 0,
+          "tn": 7,
+          "precision": null,
+          "recall": null,
+          "f1": null
+        },
+        "needs_reply": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 0,
+          "tn": 7,
+          "precision": null,
+          "recall": null,
+          "f1": null
+        }
+      },
+      "date_metrics": {
+        "expected_count": 0,
+        "predicted_count": 0,
+        "date_only_match_count": 0,
+        "extraction_precision": null,
+        "extraction_recall": null,
+        "exact_normalized_match_count": 0,
+        "exact_normalized_match_rate": null,
+        "timed_expected_count": 0,
+        "time_tolerance_match_count": 0,
+        "time_tolerance_accuracy": null,
+        "tolerance_minutes": 15
+      }
+    },
+    "dst_boundary": {
+      "cases": 1,
+      "route_correct": 1,
+      "route_accuracy": 1.0,
+      "binary_metrics": {
+        "required_action": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 0,
+          "tn": 1,
+          "precision": null,
+          "recall": null,
+          "f1": null
+        },
+        "contains_event": {
+          "tp": 1,
+          "fp": 0,
+          "fn": 0,
+          "tn": 0,
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0
+        },
+        "upcoming_event": {
+          "tp": 1,
+          "fp": 0,
+          "fn": 0,
+          "tn": 0,
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0
+        },
+        "registration_required": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 0,
+          "tn": 1,
+          "precision": null,
+          "recall": null,
+          "f1": null
+        },
+        "registration_completed": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 0,
+          "tn": 1,
+          "precision": null,
+          "recall": null,
+          "f1": null
+        },
+        "deadline_detection": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 0,
+          "tn": 1,
+          "precision": null,
+          "recall": null,
+          "f1": null
+        },
+        "needs_reply": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 0,
+          "tn": 1,
+          "precision": null,
+          "recall": null,
+          "f1": null
+        }
+      },
+      "date_metrics": {
+        "expected_count": 1,
+        "predicted_count": 1,
+        "date_only_match_count": 1,
+        "extraction_precision": 1.0,
+        "extraction_recall": 1.0,
+        "exact_normalized_match_count": 1,
+        "exact_normalized_match_rate": 1.0,
+        "timed_expected_count": 1,
+        "time_tolerance_match_count": 1,
+        "time_tolerance_accuracy": 1.0,
+        "tolerance_minutes": 15
+      }
+    },
+    "emergency": {
+      "cases": 4,
+      "route_correct": 4,
+      "route_accuracy": 1.0,
+      "binary_metrics": {
+        "required_action": {
+          "tp": 4,
+          "fp": 0,
+          "fn": 0,
+          "tn": 0,
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0
+        },
+        "contains_event": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 0,
+          "tn": 4,
+          "precision": null,
+          "recall": null,
+          "f1": null
+        },
+        "upcoming_event": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 0,
+          "tn": 4,
+          "precision": null,
+          "recall": null,
+          "f1": null
+        },
+        "registration_required": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 0,
+          "tn": 4,
+          "precision": null,
+          "recall": null,
+          "f1": null
+        },
+        "registration_completed": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 0,
+          "tn": 4,
+          "precision": null,
+          "recall": null,
+          "f1": null
+        },
+        "deadline_detection": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 0,
+          "tn": 4,
+          "precision": null,
+          "recall": null,
+          "f1": null
+        },
+        "needs_reply": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 0,
+          "tn": 4,
+          "precision": null,
+          "recall": null,
+          "f1": null
+        }
+      },
+      "date_metrics": {
+        "expected_count": 0,
+        "predicted_count": 0,
+        "date_only_match_count": 0,
+        "extraction_precision": null,
+        "extraction_recall": null,
+        "exact_normalized_match_count": 0,
+        "exact_normalized_match_rate": null,
+        "timed_expected_count": 0,
+        "time_tolerance_match_count": 0,
+        "time_tolerance_accuracy": null,
+        "tolerance_minutes": 15
+      }
+    },
+    "event": {
+      "cases": 43,
+      "route_correct": 43,
+      "route_accuracy": 1.0,
+      "binary_metrics": {
+        "required_action": {
+          "tp": 5,
+          "fp": 0,
+          "fn": 0,
+          "tn": 38,
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0
+        },
+        "contains_event": {
+          "tp": 40,
+          "fp": 0,
+          "fn": 0,
+          "tn": 3,
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0
+        },
+        "upcoming_event": {
+          "tp": 36,
+          "fp": 0,
+          "fn": 1,
+          "tn": 6,
+          "precision": 1.0,
+          "recall": 0.972972972972973,
+          "f1": 0.9863013698630138
+        },
+        "registration_required": {
+          "tp": 5,
+          "fp": 0,
+          "fn": 0,
+          "tn": 38,
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0
+        },
+        "registration_completed": {
+          "tp": 2,
+          "fp": 0,
+          "fn": 0,
+          "tn": 41,
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0
+        },
+        "deadline_detection": {
+          "tp": 3,
+          "fp": 0,
+          "fn": 0,
+          "tn": 40,
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0
+        },
+        "needs_reply": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 0,
+          "tn": 43,
+          "precision": null,
+          "recall": null,
+          "f1": null
+        }
+      },
+      "date_metrics": {
+        "expected_count": 51,
+        "predicted_count": 51,
+        "date_only_match_count": 51,
+        "extraction_precision": 1.0,
+        "extraction_recall": 1.0,
+        "exact_normalized_match_count": 50,
+        "exact_normalized_match_rate": 0.9803921568627451,
+        "timed_expected_count": 11,
+        "time_tolerance_match_count": 10,
+        "time_tolerance_accuracy": 0.9090909090909091,
+        "tolerance_minutes": 15
+      }
+    },
+    "financial": {
+      "cases": 4,
+      "route_correct": 4,
+      "route_accuracy": 1.0,
+      "binary_metrics": {
+        "required_action": {
+          "tp": 4,
+          "fp": 0,
+          "fn": 0,
+          "tn": 0,
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0
+        },
+        "contains_event": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 0,
+          "tn": 4,
+          "precision": null,
+          "recall": null,
+          "f1": null
+        },
+        "upcoming_event": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 0,
+          "tn": 4,
+          "precision": null,
+          "recall": null,
+          "f1": null
+        },
+        "registration_required": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 0,
+          "tn": 4,
+          "precision": null,
+          "recall": null,
+          "f1": null
+        },
+        "registration_completed": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 0,
+          "tn": 4,
+          "precision": null,
+          "recall": null,
+          "f1": null
+        },
+        "deadline_detection": {
+          "tp": 4,
+          "fp": 0,
+          "fn": 0,
+          "tn": 0,
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0
+        },
+        "needs_reply": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 0,
+          "tn": 4,
+          "precision": null,
+          "recall": null,
+          "f1": null
+        }
+      },
+      "date_metrics": {
+        "expected_count": 4,
+        "predicted_count": 4,
+        "date_only_match_count": 4,
+        "extraction_precision": 1.0,
+        "extraction_recall": 1.0,
+        "exact_normalized_match_count": 4,
+        "exact_normalized_match_rate": 1.0,
+        "timed_expected_count": 0,
+        "time_tolerance_match_count": 0,
+        "time_tolerance_accuracy": null,
+        "tolerance_minutes": 15
+      }
+    },
+    "historical_date": {
+      "cases": 3,
+      "route_correct": 3,
+      "route_accuracy": 1.0,
+      "binary_metrics": {
+        "required_action": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 0,
+          "tn": 3,
+          "precision": null,
+          "recall": null,
+          "f1": null
+        },
+        "contains_event": {
+          "tp": 3,
+          "fp": 0,
+          "fn": 0,
+          "tn": 0,
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0
+        },
+        "upcoming_event": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 0,
+          "tn": 3,
+          "precision": null,
+          "recall": null,
+          "f1": null
+        },
+        "registration_required": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 0,
+          "tn": 3,
+          "precision": null,
+          "recall": null,
+          "f1": null
+        },
+        "registration_completed": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 0,
+          "tn": 3,
+          "precision": null,
+          "recall": null,
+          "f1": null
+        },
+        "deadline_detection": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 0,
+          "tn": 3,
+          "precision": null,
+          "recall": null,
+          "f1": null
+        },
+        "needs_reply": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 0,
+          "tn": 3,
+          "precision": null,
+          "recall": null,
+          "f1": null
+        }
+      },
+      "date_metrics": {
+        "expected_count": 3,
+        "predicted_count": 3,
+        "date_only_match_count": 3,
+        "extraction_precision": 1.0,
+        "extraction_recall": 1.0,
+        "exact_normalized_match_count": 3,
+        "exact_normalized_match_rate": 1.0,
+        "timed_expected_count": 0,
+        "time_tolerance_match_count": 0,
+        "time_tolerance_accuracy": null,
+        "tolerance_minutes": 15
+      }
+    },
+    "html_noise": {
+      "cases": 5,
+      "route_correct": 3,
+      "route_accuracy": 0.6,
+      "binary_metrics": {
+        "required_action": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 0,
+          "tn": 5,
+          "precision": null,
+          "recall": null,
+          "f1": null
+        },
+        "contains_event": {
+          "tp": 3,
+          "fp": 0,
+          "fn": 0,
+          "tn": 2,
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0
+        },
+        "upcoming_event": {
+          "tp": 3,
+          "fp": 0,
+          "fn": 0,
+          "tn": 2,
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0
+        },
+        "registration_required": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 0,
+          "tn": 5,
+          "precision": null,
+          "recall": null,
+          "f1": null
+        },
+        "registration_completed": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 0,
+          "tn": 5,
+          "precision": null,
+          "recall": null,
+          "f1": null
+        },
+        "deadline_detection": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 0,
+          "tn": 5,
+          "precision": null,
+          "recall": null,
+          "f1": null
+        },
+        "needs_reply": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 0,
+          "tn": 5,
+          "precision": null,
+          "recall": null,
+          "f1": null
+        }
+      },
+      "date_metrics": {
+        "expected_count": 3,
+        "predicted_count": 3,
+        "date_only_match_count": 3,
+        "extraction_precision": 1.0,
+        "extraction_recall": 1.0,
+        "exact_normalized_match_count": 3,
+        "exact_normalized_match_rate": 1.0,
+        "timed_expected_count": 0,
+        "time_tolerance_match_count": 0,
+        "time_tolerance_accuracy": null,
+        "tolerance_minutes": 15
+      }
+    },
+    "informational": {
+      "cases": 3,
+      "route_correct": 2,
+      "route_accuracy": 0.6666666666666666,
+      "binary_metrics": {
+        "required_action": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 0,
+          "tn": 3,
+          "precision": null,
+          "recall": null,
+          "f1": null
+        },
+        "contains_event": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 0,
+          "tn": 3,
+          "precision": null,
+          "recall": null,
+          "f1": null
+        },
+        "upcoming_event": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 0,
+          "tn": 3,
+          "precision": null,
+          "recall": null,
+          "f1": null
+        },
+        "registration_required": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 0,
+          "tn": 3,
+          "precision": null,
+          "recall": null,
+          "f1": null
+        },
+        "registration_completed": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 0,
+          "tn": 3,
+          "precision": null,
+          "recall": null,
+          "f1": null
+        },
+        "deadline_detection": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 0,
+          "tn": 3,
+          "precision": null,
+          "recall": null,
+          "f1": null
+        },
+        "needs_reply": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 0,
+          "tn": 3,
+          "precision": null,
+          "recall": null,
+          "f1": null
+        }
+      },
+      "date_metrics": {
+        "expected_count": 0,
+        "predicted_count": 0,
+        "date_only_match_count": 0,
+        "extraction_precision": null,
+        "extraction_recall": null,
+        "exact_normalized_match_count": 0,
+        "exact_normalized_match_rate": null,
+        "timed_expected_count": 0,
+        "time_tolerance_match_count": 0,
+        "time_tolerance_accuracy": null,
+        "tolerance_minutes": 15
+      }
+    },
+    "multiple_dates": {
+      "cases": 8,
+      "route_correct": 8,
+      "route_accuracy": 1.0,
+      "binary_metrics": {
+        "required_action": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 0,
+          "tn": 8,
+          "precision": null,
+          "recall": null,
+          "f1": null
+        },
+        "contains_event": {
+          "tp": 5,
+          "fp": 0,
+          "fn": 0,
+          "tn": 3,
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0
+        },
+        "upcoming_event": {
+          "tp": 5,
+          "fp": 0,
+          "fn": 0,
+          "tn": 3,
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0
+        },
+        "registration_required": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 0,
+          "tn": 8,
+          "precision": null,
+          "recall": null,
+          "f1": null
+        },
+        "registration_completed": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 0,
+          "tn": 8,
+          "precision": null,
+          "recall": null,
+          "f1": null
+        },
+        "deadline_detection": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 0,
+          "tn": 8,
+          "precision": null,
+          "recall": null,
+          "f1": null
+        },
+        "needs_reply": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 0,
+          "tn": 8,
+          "precision": null,
+          "recall": null,
+          "f1": null
+        }
+      },
+      "date_metrics": {
+        "expected_count": 13,
+        "predicted_count": 13,
+        "date_only_match_count": 13,
+        "extraction_precision": 1.0,
+        "extraction_recall": 1.0,
+        "exact_normalized_match_count": 13,
+        "exact_normalized_match_rate": 1.0,
+        "timed_expected_count": 0,
+        "time_tolerance_match_count": 0,
+        "time_tolerance_accuracy": null,
+        "tolerance_minutes": 15
+      }
+    },
+    "newsletter": {
+      "cases": 8,
+      "route_correct": 8,
+      "route_accuracy": 1.0,
+      "binary_metrics": {
+        "required_action": {
+          "tp": 2,
+          "fp": 0,
+          "fn": 0,
+          "tn": 6,
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0
+        },
+        "contains_event": {
+          "tp": 5,
+          "fp": 0,
+          "fn": 0,
+          "tn": 3,
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0
+        },
+        "upcoming_event": {
+          "tp": 4,
+          "fp": 0,
+          "fn": 1,
+          "tn": 3,
+          "precision": 1.0,
+          "recall": 0.8,
+          "f1": 0.888888888888889
+        },
+        "registration_required": {
+          "tp": 2,
+          "fp": 0,
+          "fn": 0,
+          "tn": 6,
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0
+        },
+        "registration_completed": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 0,
+          "tn": 8,
+          "precision": null,
+          "recall": null,
+          "f1": null
+        },
+        "deadline_detection": {
+          "tp": 2,
+          "fp": 0,
+          "fn": 0,
+          "tn": 6,
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0
+        },
+        "needs_reply": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 0,
+          "tn": 8,
+          "precision": null,
+          "recall": null,
+          "f1": null
+        }
+      },
+      "date_metrics": {
+        "expected_count": 10,
+        "predicted_count": 10,
+        "date_only_match_count": 10,
+        "extraction_precision": 1.0,
+        "extraction_recall": 1.0,
+        "exact_normalized_match_count": 10,
+        "exact_normalized_match_rate": 1.0,
+        "timed_expected_count": 1,
+        "time_tolerance_match_count": 1,
+        "time_tolerance_accuracy": 1.0,
+        "tolerance_minutes": 15
+      }
+    },
+    "personal": {
+      "cases": 2,
+      "route_correct": 2,
+      "route_accuracy": 1.0,
+      "binary_metrics": {
+        "required_action": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 0,
+          "tn": 2,
+          "precision": null,
+          "recall": null,
+          "f1": null
+        },
+        "contains_event": {
+          "tp": 0,
+          "fp": 1,
+          "fn": 0,
+          "tn": 1,
+          "precision": 0.0,
+          "recall": null,
+          "f1": null
+        },
+        "upcoming_event": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 0,
+          "tn": 2,
+          "precision": null,
+          "recall": null,
+          "f1": null
+        },
+        "registration_required": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 0,
+          "tn": 2,
+          "precision": null,
+          "recall": null,
+          "f1": null
+        },
+        "registration_completed": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 0,
+          "tn": 2,
+          "precision": null,
+          "recall": null,
+          "f1": null
+        },
+        "deadline_detection": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 0,
+          "tn": 2,
+          "precision": null,
+          "recall": null,
+          "f1": null
+        },
+        "needs_reply": {
+          "tp": 2,
+          "fp": 0,
+          "fn": 0,
+          "tn": 0,
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0
+        }
+      },
+      "date_metrics": {
+        "expected_count": 0,
+        "predicted_count": 0,
+        "date_only_match_count": 0,
+        "extraction_precision": null,
+        "extraction_recall": null,
+        "exact_normalized_match_count": 0,
+        "exact_normalized_match_rate": null,
+        "timed_expected_count": 0,
+        "time_tolerance_match_count": 0,
+        "time_tolerance_accuracy": null,
+        "tolerance_minutes": 15
+      }
+    },
+    "promotion": {
+      "cases": 9,
+      "route_correct": 9,
+      "route_accuracy": 1.0,
+      "binary_metrics": {
+        "required_action": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 0,
+          "tn": 9,
+          "precision": null,
+          "recall": null,
+          "f1": null
+        },
+        "contains_event": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 0,
+          "tn": 9,
+          "precision": null,
+          "recall": null,
+          "f1": null
+        },
+        "upcoming_event": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 0,
+          "tn": 9,
+          "precision": null,
+          "recall": null,
+          "f1": null
+        },
+        "registration_required": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 0,
+          "tn": 9,
+          "precision": null,
+          "recall": null,
+          "f1": null
+        },
+        "registration_completed": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 0,
+          "tn": 9,
+          "precision": null,
+          "recall": null,
+          "f1": null
+        },
+        "deadline_detection": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 0,
+          "tn": 9,
+          "precision": null,
+          "recall": null,
+          "f1": null
+        },
+        "needs_reply": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 0,
+          "tn": 9,
+          "precision": null,
+          "recall": null,
+          "f1": null
+        }
+      },
+      "date_metrics": {
+        "expected_count": 0,
+        "predicted_count": 0,
+        "date_only_match_count": 0,
+        "extraction_precision": null,
+        "extraction_recall": null,
+        "exact_normalized_match_count": 0,
+        "exact_normalized_match_rate": null,
+        "timed_expected_count": 0,
+        "time_tolerance_match_count": 0,
+        "time_tolerance_accuracy": null,
+        "tolerance_minutes": 15
+      }
+    },
+    "publication_date": {
+      "cases": 2,
+      "route_correct": 2,
+      "route_accuracy": 1.0,
+      "binary_metrics": {
+        "required_action": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 0,
+          "tn": 2,
+          "precision": null,
+          "recall": null,
+          "f1": null
+        },
+        "contains_event": {
+          "tp": 1,
+          "fp": 0,
+          "fn": 0,
+          "tn": 1,
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0
+        },
+        "upcoming_event": {
+          "tp": 1,
+          "fp": 0,
+          "fn": 0,
+          "tn": 1,
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0
+        },
+        "registration_required": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 0,
+          "tn": 2,
+          "precision": null,
+          "recall": null,
+          "f1": null
+        },
+        "registration_completed": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 0,
+          "tn": 2,
+          "precision": null,
+          "recall": null,
+          "f1": null
+        },
+        "deadline_detection": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 0,
+          "tn": 2,
+          "precision": null,
+          "recall": null,
+          "f1": null
+        },
+        "needs_reply": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 0,
+          "tn": 2,
+          "precision": null,
+          "recall": null,
+          "f1": null
+        }
+      },
+      "date_metrics": {
+        "expected_count": 3,
+        "predicted_count": 3,
+        "date_only_match_count": 3,
+        "extraction_precision": 1.0,
+        "extraction_recall": 1.0,
+        "exact_normalized_match_count": 3,
+        "exact_normalized_match_rate": 1.0,
+        "timed_expected_count": 0,
+        "time_tolerance_match_count": 0,
+        "time_tolerance_accuracy": null,
+        "tolerance_minutes": 15
+      }
+    },
+    "recommended_action": {
+      "cases": 2,
+      "route_correct": 2,
+      "route_accuracy": 1.0,
+      "binary_metrics": {
+        "required_action": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 0,
+          "tn": 2,
+          "precision": null,
+          "recall": null,
+          "f1": null
+        },
+        "contains_event": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 0,
+          "tn": 2,
+          "precision": null,
+          "recall": null,
+          "f1": null
+        },
+        "upcoming_event": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 0,
+          "tn": 2,
+          "precision": null,
+          "recall": null,
+          "f1": null
+        },
+        "registration_required": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 0,
+          "tn": 2,
+          "precision": null,
+          "recall": null,
+          "f1": null
+        },
+        "registration_completed": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 0,
+          "tn": 2,
+          "precision": null,
+          "recall": null,
+          "f1": null
+        },
+        "deadline_detection": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 0,
+          "tn": 2,
+          "precision": null,
+          "recall": null,
+          "f1": null
+        },
+        "needs_reply": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 0,
+          "tn": 2,
+          "precision": null,
+          "recall": null,
+          "f1": null
+        }
+      },
+      "date_metrics": {
+        "expected_count": 0,
+        "predicted_count": 0,
+        "date_only_match_count": 0,
+        "extraction_precision": null,
+        "extraction_recall": null,
+        "exact_normalized_match_count": 0,
+        "exact_normalized_match_rate": null,
+        "timed_expected_count": 0,
+        "time_tolerance_match_count": 0,
+        "time_tolerance_accuracy": null,
+        "tolerance_minutes": 15
+      }
+    },
+    "recruiting": {
+      "cases": 5,
+      "route_correct": 5,
+      "route_accuracy": 1.0,
+      "binary_metrics": {
+        "required_action": {
+          "tp": 2,
+          "fp": 0,
+          "fn": 0,
+          "tn": 3,
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0
+        },
+        "contains_event": {
+          "tp": 5,
+          "fp": 0,
+          "fn": 0,
+          "tn": 0,
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0
+        },
+        "upcoming_event": {
+          "tp": 5,
+          "fp": 0,
+          "fn": 0,
+          "tn": 0,
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0
+        },
+        "registration_required": {
+          "tp": 2,
+          "fp": 0,
+          "fn": 0,
+          "tn": 3,
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0
+        },
+        "registration_completed": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 0,
+          "tn": 5,
+          "precision": null,
+          "recall": null,
+          "f1": null
+        },
+        "deadline_detection": {
+          "tp": 1,
+          "fp": 0,
+          "fn": 0,
+          "tn": 4,
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0
+        },
+        "needs_reply": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 0,
+          "tn": 5,
+          "precision": null,
+          "recall": null,
+          "f1": null
+        }
+      },
+      "date_metrics": {
+        "expected_count": 6,
+        "predicted_count": 6,
+        "date_only_match_count": 6,
+        "extraction_precision": 1.0,
+        "extraction_recall": 1.0,
+        "exact_normalized_match_count": 5,
+        "exact_normalized_match_rate": 0.8333333333333334,
+        "timed_expected_count": 2,
+        "time_tolerance_match_count": 1,
+        "time_tolerance_accuracy": 0.5,
+        "tolerance_minutes": 15
+      }
+    },
+    "registration": {
+      "cases": 12,
+      "route_correct": 12,
+      "route_accuracy": 1.0,
+      "binary_metrics": {
+        "required_action": {
+          "tp": 5,
+          "fp": 0,
+          "fn": 0,
+          "tn": 7,
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0
+        },
+        "contains_event": {
+          "tp": 10,
+          "fp": 0,
+          "fn": 0,
+          "tn": 2,
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0
+        },
+        "upcoming_event": {
+          "tp": 9,
+          "fp": 0,
+          "fn": 1,
+          "tn": 2,
+          "precision": 1.0,
+          "recall": 0.9,
+          "f1": 0.9473684210526316
+        },
+        "registration_required": {
+          "tp": 5,
+          "fp": 0,
+          "fn": 0,
+          "tn": 7,
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0
+        },
+        "registration_completed": {
+          "tp": 2,
+          "fp": 0,
+          "fn": 0,
+          "tn": 10,
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0
+        },
+        "deadline_detection": {
+          "tp": 3,
+          "fp": 0,
+          "fn": 0,
+          "tn": 9,
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0
+        },
+        "needs_reply": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 0,
+          "tn": 12,
+          "precision": null,
+          "recall": null,
+          "f1": null
+        }
+      },
+      "date_metrics": {
+        "expected_count": 13,
+        "predicted_count": 13,
+        "date_only_match_count": 13,
+        "extraction_precision": 1.0,
+        "extraction_recall": 1.0,
+        "exact_normalized_match_count": 13,
+        "exact_normalized_match_rate": 1.0,
+        "timed_expected_count": 0,
+        "time_tolerance_match_count": 0,
+        "time_tolerance_accuracy": null,
+        "tolerance_minutes": 15
+      }
+    },
+    "relative_date": {
+      "cases": 10,
+      "route_correct": 10,
+      "route_accuracy": 1.0,
+      "binary_metrics": {
+        "required_action": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 0,
+          "tn": 10,
+          "precision": null,
+          "recall": null,
+          "f1": null
+        },
+        "contains_event": {
+          "tp": 9,
+          "fp": 0,
+          "fn": 0,
+          "tn": 1,
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0
+        },
+        "upcoming_event": {
+          "tp": 8,
+          "fp": 0,
+          "fn": 0,
+          "tn": 2,
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0
+        },
+        "registration_required": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 0,
+          "tn": 10,
+          "precision": null,
+          "recall": null,
+          "f1": null
+        },
+        "registration_completed": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 0,
+          "tn": 10,
+          "precision": null,
+          "recall": null,
+          "f1": null
+        },
+        "deadline_detection": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 0,
+          "tn": 10,
+          "precision": null,
+          "recall": null,
+          "f1": null
+        },
+        "needs_reply": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 0,
+          "tn": 10,
+          "precision": null,
+          "recall": null,
+          "f1": null
+        }
+      },
+      "date_metrics": {
+        "expected_count": 9,
+        "predicted_count": 9,
+        "date_only_match_count": 9,
+        "extraction_precision": 1.0,
+        "extraction_recall": 1.0,
+        "exact_normalized_match_count": 8,
+        "exact_normalized_match_rate": 0.8888888888888888,
+        "timed_expected_count": 8,
+        "time_tolerance_match_count": 7,
+        "time_tolerance_accuracy": 0.875,
+        "tolerance_minutes": 15
+      }
+    },
+    "reminder": {
+      "cases": 1,
+      "route_correct": 1,
+      "route_accuracy": 1.0,
+      "binary_metrics": {
+        "required_action": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 0,
+          "tn": 1,
+          "precision": null,
+          "recall": null,
+          "f1": null
+        },
+        "contains_event": {
+          "tp": 1,
+          "fp": 0,
+          "fn": 0,
+          "tn": 0,
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0
+        },
+        "upcoming_event": {
+          "tp": 1,
+          "fp": 0,
+          "fn": 0,
+          "tn": 0,
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0
+        },
+        "registration_required": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 0,
+          "tn": 1,
+          "precision": null,
+          "recall": null,
+          "f1": null
+        },
+        "registration_completed": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 0,
+          "tn": 1,
+          "precision": null,
+          "recall": null,
+          "f1": null
+        },
+        "deadline_detection": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 0,
+          "tn": 1,
+          "precision": null,
+          "recall": null,
+          "f1": null
+        },
+        "needs_reply": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 0,
+          "tn": 1,
+          "precision": null,
+          "recall": null,
+          "f1": null
+        }
+      },
+      "date_metrics": {
+        "expected_count": 1,
+        "predicted_count": 1,
+        "date_only_match_count": 1,
+        "extraction_precision": 1.0,
+        "extraction_recall": 1.0,
+        "exact_normalized_match_count": 1,
+        "exact_normalized_match_rate": 1.0,
+        "timed_expected_count": 0,
+        "time_tolerance_match_count": 0,
+        "time_tolerance_accuracy": null,
+        "tolerance_minutes": 15
+      }
+    },
+    "reply": {
+      "cases": 7,
+      "route_correct": 7,
+      "route_accuracy": 1.0,
+      "binary_metrics": {
+        "required_action": {
+          "tp": 2,
+          "fp": 0,
+          "fn": 0,
+          "tn": 5,
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0
+        },
+        "contains_event": {
+          "tp": 0,
+          "fp": 1,
+          "fn": 0,
+          "tn": 6,
+          "precision": 0.0,
+          "recall": null,
+          "f1": null
+        },
+        "upcoming_event": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 0,
+          "tn": 7,
+          "precision": null,
+          "recall": null,
+          "f1": null
+        },
+        "registration_required": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 0,
+          "tn": 7,
+          "precision": null,
+          "recall": null,
+          "f1": null
+        },
+        "registration_completed": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 0,
+          "tn": 7,
+          "precision": null,
+          "recall": null,
+          "f1": null
+        },
+        "deadline_detection": {
+          "tp": 2,
+          "fp": 0,
+          "fn": 0,
+          "tn": 5,
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0
+        },
+        "needs_reply": {
+          "tp": 4,
+          "fp": 0,
+          "fn": 0,
+          "tn": 3,
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0
+        }
+      },
+      "date_metrics": {
+        "expected_count": 2,
+        "predicted_count": 2,
+        "date_only_match_count": 2,
+        "extraction_precision": 1.0,
+        "extraction_recall": 1.0,
+        "exact_normalized_match_count": 2,
+        "exact_normalized_match_rate": 1.0,
+        "timed_expected_count": 0,
+        "time_tolerance_match_count": 0,
+        "time_tolerance_accuracy": null,
+        "tolerance_minutes": 15
+      }
+    },
+    "required_action": {
+      "cases": 25,
+      "route_correct": 25,
+      "route_accuracy": 1.0,
+      "binary_metrics": {
+        "required_action": {
+          "tp": 25,
+          "fp": 0,
+          "fn": 0,
+          "tn": 0,
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0
+        },
+        "contains_event": {
+          "tp": 2,
+          "fp": 0,
+          "fn": 0,
+          "tn": 23,
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0
+        },
+        "upcoming_event": {
+          "tp": 2,
+          "fp": 0,
+          "fn": 0,
+          "tn": 23,
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0
+        },
+        "registration_required": {
+          "tp": 2,
+          "fp": 0,
+          "fn": 0,
+          "tn": 23,
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0
+        },
+        "registration_completed": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 0,
+          "tn": 25,
+          "precision": null,
+          "recall": null,
+          "f1": null
+        },
+        "deadline_detection": {
+          "tp": 13,
+          "fp": 0,
+          "fn": 0,
+          "tn": 12,
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0
+        },
+        "needs_reply": {
+          "tp": 2,
+          "fp": 0,
+          "fn": 0,
+          "tn": 23,
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0
+        }
+      },
+      "date_metrics": {
+        "expected_count": 15,
+        "predicted_count": 15,
+        "date_only_match_count": 15,
+        "extraction_precision": 1.0,
+        "extraction_recall": 1.0,
+        "exact_normalized_match_count": 15,
+        "exact_normalized_match_rate": 1.0,
+        "timed_expected_count": 0,
+        "time_tolerance_match_count": 0,
+        "time_tolerance_accuracy": null,
+        "tolerance_minutes": 15
+      }
+    },
+    "security": {
+      "cases": 12,
+      "route_correct": 12,
+      "route_accuracy": 1.0,
+      "binary_metrics": {
+        "required_action": {
+          "tp": 7,
+          "fp": 0,
+          "fn": 0,
+          "tn": 5,
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0
+        },
+        "contains_event": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 0,
+          "tn": 12,
+          "precision": null,
+          "recall": null,
+          "f1": null
+        },
+        "upcoming_event": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 0,
+          "tn": 12,
+          "precision": null,
+          "recall": null,
+          "f1": null
+        },
+        "registration_required": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 0,
+          "tn": 12,
+          "precision": null,
+          "recall": null,
+          "f1": null
+        },
+        "registration_completed": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 0,
+          "tn": 12,
+          "precision": null,
+          "recall": null,
+          "f1": null
+        },
+        "deadline_detection": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 0,
+          "tn": 12,
+          "precision": null,
+          "recall": null,
+          "f1": null
+        },
+        "needs_reply": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 0,
+          "tn": 12,
+          "precision": null,
+          "recall": null,
+          "f1": null
+        }
+      },
+      "date_metrics": {
+        "expected_count": 0,
+        "predicted_count": 0,
+        "date_only_match_count": 0,
+        "extraction_precision": null,
+        "extraction_recall": null,
+        "exact_normalized_match_count": 0,
+        "exact_normalized_match_rate": null,
+        "timed_expected_count": 0,
+        "time_tolerance_match_count": 0,
+        "time_tolerance_accuracy": null,
+        "tolerance_minutes": 15
+      }
+    },
+    "survey": {
+      "cases": 2,
+      "route_correct": 2,
+      "route_accuracy": 1.0,
+      "binary_metrics": {
+        "required_action": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 0,
+          "tn": 2,
+          "precision": null,
+          "recall": null,
+          "f1": null
+        },
+        "contains_event": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 0,
+          "tn": 2,
+          "precision": null,
+          "recall": null,
+          "f1": null
+        },
+        "upcoming_event": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 0,
+          "tn": 2,
+          "precision": null,
+          "recall": null,
+          "f1": null
+        },
+        "registration_required": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 0,
+          "tn": 2,
+          "precision": null,
+          "recall": null,
+          "f1": null
+        },
+        "registration_completed": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 0,
+          "tn": 2,
+          "precision": null,
+          "recall": null,
+          "f1": null
+        },
+        "deadline_detection": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 0,
+          "tn": 2,
+          "precision": null,
+          "recall": null,
+          "f1": null
+        },
+        "needs_reply": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 0,
+          "tn": 2,
+          "precision": null,
+          "recall": null,
+          "f1": null
+        }
+      },
+      "date_metrics": {
+        "expected_count": 0,
+        "predicted_count": 0,
+        "date_only_match_count": 0,
+        "extraction_precision": null,
+        "extraction_recall": null,
+        "exact_normalized_match_count": 0,
+        "exact_normalized_match_rate": null,
+        "timed_expected_count": 0,
+        "time_tolerance_match_count": 0,
+        "time_tolerance_accuracy": null,
+        "tolerance_minutes": 15
+      }
+    },
+    "timezone": {
+      "cases": 8,
+      "route_correct": 8,
+      "route_accuracy": 1.0,
+      "binary_metrics": {
+        "required_action": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 0,
+          "tn": 8,
+          "precision": null,
+          "recall": null,
+          "f1": null
+        },
+        "contains_event": {
+          "tp": 8,
+          "fp": 0,
+          "fn": 0,
+          "tn": 0,
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0
+        },
+        "upcoming_event": {
+          "tp": 7,
+          "fp": 0,
+          "fn": 0,
+          "tn": 1,
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0
+        },
+        "registration_required": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 0,
+          "tn": 8,
+          "precision": null,
+          "recall": null,
+          "f1": null
+        },
+        "registration_completed": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 0,
+          "tn": 8,
+          "precision": null,
+          "recall": null,
+          "f1": null
+        },
+        "deadline_detection": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 0,
+          "tn": 8,
+          "precision": null,
+          "recall": null,
+          "f1": null
+        },
+        "needs_reply": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 0,
+          "tn": 8,
+          "precision": null,
+          "recall": null,
+          "f1": null
+        }
+      },
+      "date_metrics": {
+        "expected_count": 8,
+        "predicted_count": 8,
+        "date_only_match_count": 8,
+        "extraction_precision": 1.0,
+        "extraction_recall": 1.0,
+        "exact_normalized_match_count": 8,
+        "exact_normalized_match_rate": 1.0,
+        "timed_expected_count": 8,
+        "time_tolerance_match_count": 8,
+        "time_tolerance_accuracy": 1.0,
+        "tolerance_minutes": 15
+      }
+    },
+    "utc_boundary": {
+      "cases": 3,
+      "route_correct": 3,
+      "route_accuracy": 1.0,
+      "binary_metrics": {
+        "required_action": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 0,
+          "tn": 3,
+          "precision": null,
+          "recall": null,
+          "f1": null
+        },
+        "contains_event": {
+          "tp": 3,
+          "fp": 0,
+          "fn": 0,
+          "tn": 0,
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0
+        },
+        "upcoming_event": {
+          "tp": 2,
+          "fp": 0,
+          "fn": 0,
+          "tn": 1,
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0
+        },
+        "registration_required": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 0,
+          "tn": 3,
+          "precision": null,
+          "recall": null,
+          "f1": null
+        },
+        "registration_completed": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 0,
+          "tn": 3,
+          "precision": null,
+          "recall": null,
+          "f1": null
+        },
+        "deadline_detection": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 0,
+          "tn": 3,
+          "precision": null,
+          "recall": null,
+          "f1": null
+        },
+        "needs_reply": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 0,
+          "tn": 3,
+          "precision": null,
+          "recall": null,
+          "f1": null
+        }
+      },
+      "date_metrics": {
+        "expected_count": 3,
+        "predicted_count": 3,
+        "date_only_match_count": 3,
+        "extraction_precision": 1.0,
+        "extraction_recall": 1.0,
+        "exact_normalized_match_count": 3,
+        "exact_normalized_match_rate": 1.0,
+        "timed_expected_count": 3,
+        "time_tolerance_match_count": 3,
+        "time_tolerance_accuracy": 1.0,
+        "tolerance_minutes": 15
+      }
+    }
+  },
+  "predictions": [
+    {
+      "id": "act_dev_001",
+      "email_type": "academic",
+      "action_kind": "required",
+      "needs_reply": "uncertain",
+      "contains_event": false,
+      "event_status": "uncertain",
+      "registration_available": "false",
+      "registration_required": "false",
+      "registration_completed": "uncertain",
+      "dates": [
+        {
+          "value": "2026-09-08",
+          "semantic_type": "deadline"
+        }
+      ],
+      "route": "needs_action"
+    },
+    {
+      "id": "act_dev_002",
+      "email_type": "administrative",
+      "action_kind": "required",
+      "needs_reply": "uncertain",
+      "contains_event": false,
+      "event_status": "uncertain",
+      "registration_available": "false",
+      "registration_required": "false",
+      "registration_completed": "uncertain",
+      "dates": [
+        {
+          "value": "2026-09-12",
+          "semantic_type": "deadline"
+        }
+      ],
+      "route": "needs_action"
+    },
+    {
+      "id": "act_dev_003",
+      "email_type": "administrative",
+      "action_kind": "required",
+      "needs_reply": "uncertain",
+      "contains_event": false,
+      "event_status": "uncertain",
+      "registration_available": "false",
+      "registration_required": "false",
+      "registration_completed": "uncertain",
+      "dates": [
+        {
+          "value": "2026-09-15",
+          "semantic_type": "deadline"
+        }
+      ],
+      "route": "needs_action"
+    },
+    {
+      "id": "act_dev_004",
+      "email_type": "administrative",
+      "action_kind": "required",
+      "needs_reply": "uncertain",
+      "contains_event": false,
+      "event_status": "uncertain",
+      "registration_available": "false",
+      "registration_required": "false",
+      "registration_completed": "uncertain",
+      "dates": [
+        {
+          "value": "2026-09-18",
+          "semantic_type": "deadline"
+        }
+      ],
+      "route": "needs_action"
+    },
+    {
+      "id": "act_dev_005",
+      "email_type": "security",
+      "action_kind": "required",
+      "needs_reply": "uncertain",
+      "contains_event": false,
+      "event_status": "uncertain",
+      "registration_available": "false",
+      "registration_required": "false",
+      "registration_completed": "uncertain",
+      "dates": [],
+      "route": "urgent"
+    },
+    {
+      "id": "act_dev_006",
+      "email_type": "academic",
+      "action_kind": "required",
+      "needs_reply": "uncertain",
+      "contains_event": false,
+      "event_status": "uncertain",
+      "registration_available": "false",
+      "registration_required": "false",
+      "registration_completed": "uncertain",
+      "dates": [
+        {
+          "value": "2026-10-02",
+          "semantic_type": "deadline"
+        }
+      ],
+      "route": "needs_action"
+    },
+    {
+      "id": "act_dev_007",
+      "email_type": "administrative",
+      "action_kind": "required",
+      "needs_reply": "uncertain",
+      "contains_event": false,
+      "event_status": "uncertain",
+      "registration_available": "false",
+      "registration_required": "false",
+      "registration_completed": "uncertain",
+      "dates": [],
+      "route": "needs_action"
+    },
+    {
+      "id": "act_dev_008",
+      "email_type": "administrative",
+      "action_kind": "required",
+      "needs_reply": "uncertain",
+      "contains_event": false,
+      "event_status": "uncertain",
+      "registration_available": "false",
+      "registration_required": "false",
+      "registration_completed": "uncertain",
+      "dates": [
+        {
+          "value": "2026-12-30",
+          "semantic_type": "deadline"
+        }
+      ],
+      "route": "needs_action"
+    },
+    {
+      "id": "act_dev_009",
+      "email_type": "administrative",
+      "action_kind": "required",
+      "needs_reply": "uncertain",
+      "contains_event": false,
+      "event_status": "uncertain",
+      "registration_available": "false",
+      "registration_required": "false",
+      "registration_completed": "uncertain",
+      "dates": [],
+      "route": "needs_action"
+    },
+    {
+      "id": "act_dev_010",
+      "email_type": "security",
+      "action_kind": "required",
+      "needs_reply": "uncertain",
+      "contains_event": false,
+      "event_status": "uncertain",
+      "registration_available": "false",
+      "registration_required": "false",
+      "registration_completed": "uncertain",
+      "dates": [],
+      "route": "urgent"
+    },
+    {
+      "id": "act_dev_011",
+      "email_type": "academic",
+      "action_kind": "required",
+      "needs_reply": "true",
+      "contains_event": false,
+      "event_status": "uncertain",
+      "registration_available": "false",
+      "registration_required": "false",
+      "registration_completed": "uncertain",
+      "dates": [
+        {
+          "value": "2026-09-05",
+          "semantic_type": "deadline"
+        }
+      ],
+      "route": "needs_action"
+    },
+    {
+      "id": "act_dev_012",
+      "email_type": "administrative",
+      "action_kind": "required",
+      "needs_reply": "uncertain",
+      "contains_event": false,
+      "event_status": "uncertain",
+      "registration_available": "false",
+      "registration_required": "false",
+      "registration_completed": "uncertain",
+      "dates": [
+        {
+          "value": "2026-09-20",
+          "semantic_type": "deadline"
+        }
+      ],
+      "route": "needs_action"
+    },
+    {
+      "id": "act_test_001",
+      "email_type": "academic",
+      "action_kind": "required",
+      "needs_reply": "uncertain",
+      "contains_event": false,
+      "event_status": "uncertain",
+      "registration_available": "false",
+      "registration_required": "false",
+      "registration_completed": "uncertain",
+      "dates": [
+        {
+          "value": "2026-09-13",
+          "semantic_type": "deadline"
+        }
+      ],
+      "route": "needs_action"
+    },
+    {
+      "id": "act_test_002",
+      "email_type": "administrative",
+      "action_kind": "required",
+      "needs_reply": "uncertain",
+      "contains_event": false,
+      "event_status": "uncertain",
+      "registration_available": "false",
+      "registration_required": "false",
+      "registration_completed": "uncertain",
+      "dates": [
+        {
+          "value": "2026-09-28",
+          "semantic_type": "deadline"
+        }
+      ],
+      "route": "needs_action"
+    },
+    {
+      "id": "act_test_003",
+      "email_type": "administrative",
+      "action_kind": "required",
+      "needs_reply": "uncertain",
+      "contains_event": false,
+      "event_status": "uncertain",
+      "registration_available": "false",
+      "registration_required": "false",
+      "registration_completed": "uncertain",
+      "dates": [
+        {
+          "value": "2026-10-04",
+          "semantic_type": "deadline"
+        }
+      ],
+      "route": "needs_action"
+    },
+    {
+      "id": "act_test_004",
+      "email_type": "administrative",
+      "action_kind": "required",
+      "needs_reply": "uncertain",
+      "contains_event": false,
+      "event_status": "uncertain",
+      "registration_available": "false",
+      "registration_required": "false",
+      "registration_completed": "uncertain",
+      "dates": [],
+      "route": "needs_action"
+    },
+    {
+      "id": "act_test_005",
+      "email_type": "security",
+      "action_kind": "required",
+      "needs_reply": "uncertain",
+      "contains_event": false,
+      "event_status": "uncertain",
+      "registration_available": "false",
+      "registration_required": "false",
+      "registration_completed": "uncertain",
+      "dates": [],
+      "route": "urgent"
+    },
+    {
+      "id": "act_test_006",
+      "email_type": "unknown",
+      "action_kind": "required",
+      "needs_reply": "uncertain",
+      "contains_event": false,
+      "event_status": "uncertain",
+      "registration_available": "false",
+      "registration_required": "false",
+      "registration_completed": "uncertain",
+      "dates": [
+        {
+          "value": "2026-10-09",
+          "semantic_type": "deadline"
+        }
+      ],
+      "route": "needs_action"
+    },
+    {
+      "id": "act_test_007",
+      "email_type": "security",
+      "action_kind": "required",
+      "needs_reply": "uncertain",
+      "contains_event": false,
+      "event_status": "uncertain",
+      "registration_available": "false",
+      "registration_required": "false",
+      "registration_completed": "uncertain",
+      "dates": [],
+      "route": "urgent"
+    },
+    {
+      "id": "date_dev_001",
+      "email_type": "event",
+      "action_kind": "none",
+      "needs_reply": "false",
+      "contains_event": true,
+      "event_status": "past",
+      "registration_available": "uncertain",
+      "registration_required": "uncertain",
+      "registration_completed": "false",
+      "dates": [
+        {
+          "value": "2026-08-12",
+          "semantic_type": "historical_date"
+        }
+      ],
+      "route": "informational"
+    },
+    {
+      "id": "date_dev_002",
+      "email_type": "unknown",
+      "action_kind": "none",
+      "needs_reply": "uncertain",
+      "contains_event": false,
+      "event_status": "uncertain",
+      "registration_available": "false",
+      "registration_required": "false",
+      "registration_completed": "uncertain",
+      "dates": [
+        {
+          "value": "2026-08-30",
+          "semantic_type": "publication_date"
+        }
+      ],
+      "route": "informational"
+    },
+    {
+      "id": "date_dev_003",
+      "email_type": "event",
+      "action_kind": "none",
+      "needs_reply": "false",
+      "contains_event": true,
+      "event_status": "upcoming",
+      "registration_available": "uncertain",
+      "registration_required": "uncertain",
+      "registration_completed": "false",
+      "dates": [
+        {
+          "value": "2026-09-03T13:00:00-07:00",
+          "semantic_type": "event_time"
+        }
+      ],
+      "route": "upcoming_events"
+    },
+    {
+      "id": "date_test_001",
+      "email_type": "event",
+      "action_kind": "none",
+      "needs_reply": "false",
+      "contains_event": true,
+      "event_status": "upcoming",
+      "registration_available": "uncertain",
+      "registration_required": "uncertain",
+      "registration_completed": "false",
+      "dates": [
+        {
+          "value": "2026-09-03T13:00:00-07:00",
+          "semantic_type": "event_time"
+        }
+      ],
+      "route": "upcoming_events"
+    },
+    {
+      "id": "date_test_002",
+      "email_type": "event",
+      "action_kind": "none",
+      "needs_reply": "false",
+      "contains_event": true,
+      "event_status": "upcoming",
+      "registration_available": "uncertain",
+      "registration_required": "uncertain",
+      "registration_completed": "false",
+      "dates": [
+        {
+          "value": "2026-03-08T13:00:00-07:00",
+          "semantic_type": "event_time"
+        }
+      ],
+      "route": "upcoming_events"
+    },
+    {
+      "id": "dig_dev_001",
+      "email_type": "digest",
+      "action_kind": "none",
+      "needs_reply": "false",
+      "contains_event": false,
+      "event_status": "uncertain",
+      "registration_available": "false",
+      "registration_required": "false",
+      "registration_completed": "uncertain",
+      "dates": [],
+      "route": "informational"
+    },
+    {
+      "id": "dig_dev_002",
+      "email_type": "digest",
+      "action_kind": "none",
+      "needs_reply": "false",
+      "contains_event": false,
+      "event_status": "uncertain",
+      "registration_available": "false",
+      "registration_required": "false",
+      "registration_completed": "uncertain",
+      "dates": [],
+      "route": "informational"
+    },
+    {
+      "id": "dig_dev_003",
+      "email_type": "digest",
+      "action_kind": "none",
+      "needs_reply": "false",
+      "contains_event": false,
+      "event_status": "uncertain",
+      "registration_available": "false",
+      "registration_required": "false",
+      "registration_completed": "uncertain",
+      "dates": [],
+      "route": "informational"
+    },
+    {
+      "id": "dig_dev_004",
+      "email_type": "digest",
+      "action_kind": "none",
+      "needs_reply": "false",
+      "contains_event": false,
+      "event_status": "uncertain",
+      "registration_available": "false",
+      "registration_required": "false",
+      "registration_completed": "uncertain",
+      "dates": [],
+      "route": "informational"
+    },
+    {
+      "id": "dig_dev_005",
+      "email_type": "digest",
+      "action_kind": "none",
+      "needs_reply": "false",
+      "contains_event": false,
+      "event_status": "uncertain",
+      "registration_available": "false",
+      "registration_required": "false",
+      "registration_completed": "uncertain",
+      "dates": [],
+      "route": "informational"
+    },
+    {
+      "id": "dig_test_001",
+      "email_type": "digest",
+      "action_kind": "none",
+      "needs_reply": "false",
+      "contains_event": false,
+      "event_status": "uncertain",
+      "registration_available": "false",
+      "registration_required": "false",
+      "registration_completed": "uncertain",
+      "dates": [],
+      "route": "informational"
+    },
+    {
+      "id": "dig_test_002",
+      "email_type": "digest",
+      "action_kind": "none",
+      "needs_reply": "false",
+      "contains_event": false,
+      "event_status": "uncertain",
+      "registration_available": "false",
+      "registration_required": "false",
+      "registration_completed": "uncertain",
+      "dates": [],
+      "route": "informational"
+    },
+    {
+      "id": "evt_dev_001",
+      "email_type": "event",
+      "action_kind": "none",
+      "needs_reply": "false",
+      "contains_event": true,
+      "event_status": "upcoming",
+      "registration_available": "uncertain",
+      "registration_required": "uncertain",
+      "registration_completed": "false",
+      "dates": [
+        {
+          "value": "2026-09-10",
+          "semantic_type": "event_time"
+        }
+      ],
+      "route": "upcoming_events"
+    },
+    {
+      "id": "evt_dev_002",
+      "email_type": "recruiting",
+      "action_kind": "none",
+      "needs_reply": "false",
+      "contains_event": true,
+      "event_status": "upcoming",
+      "registration_available": "uncertain",
+      "registration_required": "uncertain",
+      "registration_completed": "false",
+      "dates": [
+        {
+          "value": "2026-09-09",
+          "semantic_type": "event_time"
+        }
+      ],
+      "route": "upcoming_events"
+    },
+    {
+      "id": "evt_dev_003",
+      "email_type": "event",
+      "action_kind": "none",
+      "needs_reply": "false",
+      "contains_event": true,
+      "event_status": "upcoming",
+      "registration_available": "uncertain",
+      "registration_required": "uncertain",
+      "registration_completed": "false",
+      "dates": [
+        {
+          "value": "2026-09-02T13:00:00-07:00",
+          "semantic_type": "event_time"
+        }
+      ],
+      "route": "upcoming_events"
+    },
+    {
+      "id": "evt_dev_004",
+      "email_type": "event",
+      "action_kind": "none",
+      "needs_reply": "false",
+      "contains_event": true,
+      "event_status": "upcoming",
+      "registration_available": "uncertain",
+      "registration_required": "uncertain",
+      "registration_completed": "false",
+      "dates": [
+        {
+          "value": "2026-09-16T11:00:00-07:00",
+          "semantic_type": "event_time"
+        }
+      ],
+      "route": "upcoming_events"
+    },
+    {
+      "id": "evt_dev_005",
+      "email_type": "event",
+      "action_kind": "none",
+      "needs_reply": "false",
+      "contains_event": true,
+      "event_status": "upcoming",
+      "registration_available": "uncertain",
+      "registration_required": "uncertain",
+      "registration_completed": "false",
+      "dates": [
+        {
+          "value": "2026-10-03",
+          "semantic_type": "event_time"
+        }
+      ],
+      "route": "upcoming_events"
+    },
+    {
+      "id": "evt_dev_006",
+      "email_type": "event",
+      "action_kind": "optional",
+      "needs_reply": "false",
+      "contains_event": true,
+      "event_status": "upcoming",
+      "registration_available": "uncertain",
+      "registration_required": "uncertain",
+      "registration_completed": "false",
+      "dates": [
+        {
+          "value": "2026-09-04",
+          "semantic_type": "event_time"
+        }
+      ],
+      "route": "upcoming_events"
+    },
+    {
+      "id": "evt_dev_007",
+      "email_type": "event",
+      "action_kind": "none",
+      "needs_reply": "false",
+      "contains_event": true,
+      "event_status": "upcoming",
+      "registration_available": "uncertain",
+      "registration_required": "uncertain",
+      "registration_completed": "false",
+      "dates": [
+        {
+          "value": "2026-09-07",
+          "semantic_type": "event_time"
+        }
+      ],
+      "route": "upcoming_events"
+    },
+    {
+      "id": "evt_dev_008",
+      "email_type": "event",
+      "action_kind": "none",
+      "needs_reply": "false",
+      "contains_event": true,
+      "event_status": "upcoming",
+      "registration_available": "true",
+      "registration_required": "false",
+      "registration_completed": "true",
+      "dates": [
+        {
+          "value": "2026-09-11",
+          "semantic_type": "event_time"
+        }
+      ],
+      "route": "upcoming_events"
+    },
+    {
+      "id": "evt_dev_009",
+      "email_type": "event",
+      "action_kind": "none",
+      "needs_reply": "false",
+      "contains_event": true,
+      "event_status": "past",
+      "registration_available": "uncertain",
+      "registration_required": "uncertain",
+      "registration_completed": "false",
+      "dates": [
+        {
+          "value": "2026-08-20",
+          "semantic_type": "historical_date"
+        }
+      ],
+      "route": "informational"
+    },
+    {
+      "id": "evt_dev_010",
+      "email_type": "recruiting",
+      "action_kind": "required",
+      "needs_reply": "false",
+      "contains_event": true,
+      "event_status": "upcoming",
+      "registration_available": "true",
+      "registration_required": "true",
+      "registration_completed": "false",
+      "dates": [
+        {
+          "value": "2026-09-18",
+          "semantic_type": "event_time"
+        }
+      ],
+      "route": "needs_action"
+    },
+    {
+      "id": "evt_dev_011",
+      "email_type": "event",
+      "action_kind": "none",
+      "needs_reply": "false",
+      "contains_event": true,
+      "event_status": "upcoming",
+      "registration_available": "false",
+      "registration_required": "false",
+      "registration_completed": "false",
+      "dates": [
+        {
+          "value": "2026-09-19",
+          "semantic_type": "event_time"
+        }
+      ],
+      "route": "upcoming_events"
+    },
+    {
+      "id": "evt_dev_012",
+      "email_type": "recruiting",
+      "action_kind": "required",
+      "needs_reply": "false",
+      "contains_event": true,
+      "event_status": "upcoming",
+      "registration_available": "true",
+      "registration_required": "true",
+      "registration_completed": "false",
+      "dates": [
+        {
+          "value": "2026-09-22",
+          "semantic_type": "event_time"
+        },
+        {
+          "value": "2026-09-15",
+          "semantic_type": "registration_deadline"
+        }
+      ],
+      "route": "needs_action"
+    },
+    {
+      "id": "evt_dev_013",
+      "email_type": "event",
+      "action_kind": "none",
+      "needs_reply": "false",
+      "contains_event": true,
+      "event_status": "upcoming",
+      "registration_available": "uncertain",
+      "registration_required": "uncertain",
+      "registration_completed": "false",
+      "dates": [
+        {
+          "value": "2026-09-08",
+          "semantic_type": "event_time"
+        },
+        {
+          "value": "2026-09-15",
+          "semantic_type": "event_time"
+        },
+        {
+          "value": "2026-09-29",
+          "semantic_type": "event_time"
+        }
+      ],
+      "route": "upcoming_events"
+    },
+    {
+      "id": "evt_dev_014",
+      "email_type": "event",
+      "action_kind": "none",
+      "needs_reply": "false",
+      "contains_event": true,
+      "event_status": "upcoming",
+      "registration_available": "uncertain",
+      "registration_required": "uncertain",
+      "registration_completed": "false",
+      "dates": [
+        {
+          "value": "2026-10-08",
+          "semantic_type": "event_time"
+        }
+      ],
+      "route": "upcoming_events"
+    },
+    {
+      "id": "evt_dev_015",
+      "email_type": "event",
+      "action_kind": "none",
+      "needs_reply": "false",
+      "contains_event": true,
+      "event_status": "upcoming",
+      "registration_available": "uncertain",
+      "registration_required": "uncertain",
+      "registration_completed": "false",
+      "dates": [
+        {
+          "value": "2026-09-04T15:00:00-07:00",
+          "semantic_type": "event_time"
+        }
+      ],
+      "route": "upcoming_events"
+    },
+    {
+      "id": "evt_dev_016",
+      "email_type": "event",
+      "action_kind": "none",
+      "needs_reply": "false",
+      "contains_event": true,
+      "event_status": "ongoing",
+      "registration_available": "uncertain",
+      "registration_required": "uncertain",
+      "registration_completed": "false",
+      "dates": [
+        {
+          "value": "2026-09-03T18:00:00-07:00",
+          "semantic_type": "event_time"
+        }
+      ],
+      "route": "upcoming_events"
+    },
+    {
+      "id": "evt_dev_017",
+      "email_type": "recruiting",
+      "action_kind": "none",
+      "needs_reply": "false",
+      "contains_event": true,
+      "event_status": "upcoming",
+      "registration_available": "uncertain",
+      "registration_required": "uncertain",
+      "registration_completed": "false",
+      "dates": [
+        {
+          "value": "2026-09-07T09:00:00-07:00",
+          "semantic_type": "event_time"
+        }
+      ],
+      "route": "upcoming_events"
+    },
+    {
+      "id": "evt_dev_018",
+      "email_type": "event",
+      "action_kind": "none",
+      "needs_reply": "false",
+      "contains_event": true,
+      "event_status": "upcoming",
+      "registration_available": "uncertain",
+      "registration_required": "uncertain",
+      "registration_completed": "false",
+      "dates": [
+        {
+          "value": "2026-09-25",
+          "semantic_type": "event_time"
+        },
+        {
+          "value": "2026-09-01",
+          "semantic_type": "publication_date"
+        }
+      ],
+      "route": "upcoming_events"
+    },
+    {
+      "id": "evt_test_001",
+      "email_type": "event",
+      "action_kind": "none",
+      "needs_reply": "false",
+      "contains_event": true,
+      "event_status": "upcoming",
+      "registration_available": "uncertain",
+      "registration_required": "uncertain",
+      "registration_completed": "false",
+      "dates": [
+        {
+          "value": "2026-09-14",
+          "semantic_type": "event_time"
+        }
+      ],
+      "route": "upcoming_events"
+    },
+    {
+      "id": "evt_test_002",
+      "email_type": "event",
+      "action_kind": "none",
+      "needs_reply": "false",
+      "contains_event": true,
+      "event_status": "upcoming",
+      "registration_available": "uncertain",
+      "registration_required": "uncertain",
+      "registration_completed": "false",
+      "dates": [
+        {
+          "value": "2026-09-02",
+          "semantic_type": "event_time"
+        }
+      ],
+      "route": "upcoming_events"
+    },
+    {
+      "id": "evt_test_003",
+      "email_type": "event",
+      "action_kind": "none",
+      "needs_reply": "false",
+      "contains_event": true,
+      "event_status": "upcoming",
+      "registration_available": "uncertain",
+      "registration_required": "uncertain",
+      "registration_completed": "false",
+      "dates": [
+        {
+          "value": "2026-09-20T16:00:00-08:00",
+          "semantic_type": "event_time"
+        }
+      ],
+      "route": "upcoming_events"
+    },
+    {
+      "id": "evt_test_004",
+      "email_type": "event",
+      "action_kind": "none",
+      "needs_reply": "false",
+      "contains_event": true,
+      "event_status": "upcoming",
+      "registration_available": "uncertain",
+      "registration_required": "uncertain",
+      "registration_completed": "false",
+      "dates": [
+        {
+          "value": "2026-09-04",
+          "semantic_type": "event_time"
+        }
+      ],
+      "route": "upcoming_events"
+    },
+    {
+      "id": "evt_test_005",
+      "email_type": "event",
+      "action_kind": "required",
+      "needs_reply": "false",
+      "contains_event": true,
+      "event_status": "upcoming",
+      "registration_available": "true",
+      "registration_required": "true",
+      "registration_completed": "false",
+      "dates": [
+        {
+          "value": "2026-09-26",
+          "semantic_type": "event_time"
+        }
+      ],
+      "route": "needs_action"
+    },
+    {
+      "id": "evt_test_006",
+      "email_type": "event",
+      "action_kind": "none",
+      "needs_reply": "false",
+      "contains_event": true,
+      "event_status": "upcoming",
+      "registration_available": "true",
+      "registration_required": "false",
+      "registration_completed": "true",
+      "dates": [
+        {
+          "value": "2026-09-27",
+          "semantic_type": "event_time"
+        }
+      ],
+      "route": "upcoming_events"
+    },
+    {
+      "id": "evt_test_007",
+      "email_type": "event",
+      "action_kind": "optional",
+      "needs_reply": "false",
+      "contains_event": true,
+      "event_status": "upcoming",
+      "registration_available": "true",
+      "registration_required": "false",
+      "registration_completed": "false",
+      "dates": [
+        {
+          "value": "2026-10-05",
+          "semantic_type": "event_time"
+        }
+      ],
+      "route": "upcoming_events"
+    },
+    {
+      "id": "evt_test_008",
+      "email_type": "event",
+      "action_kind": "none",
+      "needs_reply": "false",
+      "contains_event": true,
+      "event_status": "upcoming",
+      "registration_available": "uncertain",
+      "registration_required": "uncertain",
+      "registration_completed": "false",
+      "dates": [
+        {
+          "value": "2026-09-06",
+          "semantic_type": "event_time"
+        },
+        {
+          "value": "2026-09-13",
+          "semantic_type": "event_time"
+        },
+        {
+          "value": "2026-09-20",
+          "semantic_type": "event_time"
+        }
+      ],
+      "route": "upcoming_events"
+    },
+    {
+      "id": "evt_test_009",
+      "email_type": "event",
+      "action_kind": "none",
+      "needs_reply": "false",
+      "contains_event": true,
+      "event_status": "past",
+      "registration_available": "uncertain",
+      "registration_required": "uncertain",
+      "registration_completed": "false",
+      "dates": [
+        {
+          "value": "2026-08-31",
+          "semantic_type": "historical_date"
+        }
+      ],
+      "route": "informational"
+    },
+    {
+      "id": "html_dev_001",
+      "email_type": "event",
+      "action_kind": "none",
+      "needs_reply": "false",
+      "contains_event": true,
+      "event_status": "upcoming",
+      "registration_available": "uncertain",
+      "registration_required": "uncertain",
+      "registration_completed": "false",
+      "dates": [
+        {
+          "value": "2026-09-21",
+          "semantic_type": "event_time"
+        }
+      ],
+      "route": "upcoming_events"
+    },
+    {
+      "id": "html_dev_002",
+      "email_type": "event",
+      "action_kind": "none",
+      "needs_reply": "false",
+      "contains_event": true,
+      "event_status": "upcoming",
+      "registration_available": "uncertain",
+      "registration_required": "uncertain",
+      "registration_completed": "false",
+      "dates": [
+        {
+          "value": "2026-09-24",
+          "semantic_type": "event_time"
+        }
+      ],
+      "route": "upcoming_events"
+    },
+    {
+      "id": "html_dev_003",
+      "email_type": "unknown",
+      "action_kind": "none",
+      "needs_reply": "uncertain",
+      "contains_event": false,
+      "event_status": "uncertain",
+      "registration_available": "false",
+      "registration_required": "false",
+      "registration_completed": "uncertain",
+      "dates": [],
+      "route": "informational"
+    },
+    {
+      "id": "html_dev_004",
+      "email_type": "event",
+      "action_kind": "none",
+      "needs_reply": "false",
+      "contains_event": true,
+      "event_status": "upcoming",
+      "registration_available": "uncertain",
+      "registration_required": "uncertain",
+      "registration_completed": "false",
+      "dates": [
+        {
+          "value": "2026-10-01",
+          "semantic_type": "event_time"
+        }
+      ],
+      "route": "upcoming_events"
+    },
+    {
+      "id": "html_test_001",
+      "email_type": "event",
+      "action_kind": "none",
+      "needs_reply": "false",
+      "contains_event": true,
+      "event_status": "upcoming",
+      "registration_available": "uncertain",
+      "registration_required": "uncertain",
+      "registration_completed": "false",
+      "dates": [
+        {
+          "value": "2026-09-23",
+          "semantic_type": "event_time"
+        }
+      ],
+      "route": "upcoming_events"
+    },
+    {
+      "id": "html_test_002",
+      "email_type": "unknown",
+      "action_kind": "none",
+      "needs_reply": "uncertain",
+      "contains_event": false,
+      "event_status": "uncertain",
+      "registration_available": "false",
+      "registration_required": "false",
+      "registration_completed": "uncertain",
+      "dates": [],
+      "route": "informational"
+    },
+    {
+      "id": "news_dev_001",
+      "email_type": "newsletter",
+      "action_kind": "none",
+      "needs_reply": "false",
+      "contains_event": false,
+      "event_status": "uncertain",
+      "registration_available": "false",
+      "registration_required": "false",
+      "registration_completed": "uncertain",
+      "dates": [],
+      "route": "low_priority"
+    },
+    {
+      "id": "news_dev_002",
+      "email_type": "newsletter",
+      "action_kind": "none",
+      "needs_reply": "false",
+      "contains_event": true,
+      "event_status": "upcoming",
+      "registration_available": "uncertain",
+      "registration_required": "uncertain",
+      "registration_completed": "false",
+      "dates": [
+        {
+          "value": "2026-09-17T14:00:00-07:00",
+          "semantic_type": "event_time"
+        }
+      ],
+      "route": "upcoming_events"
+    },
+    {
+      "id": "news_dev_003",
+      "email_type": "newsletter",
+      "action_kind": "none",
+      "needs_reply": "false",
+      "contains_event": true,
+      "event_status": "upcoming",
+      "registration_available": "uncertain",
+      "registration_required": "uncertain",
+      "registration_completed": "false",
+      "dates": [
+        {
+          "value": "2026-09-09",
+          "semantic_type": "event_time"
+        },
+        {
+          "value": "2026-09-16",
+          "semantic_type": "event_time"
+        },
+        {
+          "value": "2026-09-23",
+          "semantic_type": "event_time"
+        }
+      ],
+      "route": "upcoming_events"
+    },
+    {
+      "id": "news_dev_004",
+      "email_type": "newsletter",
+      "action_kind": "required",
+      "needs_reply": "false",
+      "contains_event": true,
+      "event_status": "upcoming",
+      "registration_available": "true",
+      "registration_required": "true",
+      "registration_completed": "false",
+      "dates": [
+        {
+          "value": "2026-09-06",
+          "semantic_type": "registration_deadline"
+        },
+        {
+          "value": "2026-09-12",
+          "semantic_type": "event_time"
+        }
+      ],
+      "route": "needs_action"
+    },
+    {
+      "id": "news_dev_005",
+      "email_type": "newsletter",
+      "action_kind": "optional",
+      "needs_reply": "false",
+      "contains_event": false,
+      "event_status": "uncertain",
+      "registration_available": "false",
+      "registration_required": "false",
+      "registration_completed": "uncertain",
+      "dates": [],
+      "route": "low_priority"
+    },
+    {
+      "id": "news_test_001",
+      "email_type": "newsletter",
+      "action_kind": "optional",
+      "needs_reply": "false",
+      "contains_event": false,
+      "event_status": "uncertain",
+      "registration_available": "false",
+      "registration_required": "false",
+      "registration_completed": "uncertain",
+      "dates": [],
+      "route": "low_priority"
+    },
+    {
+      "id": "news_test_002",
+      "email_type": "newsletter",
+      "action_kind": "none",
+      "needs_reply": "false",
+      "contains_event": true,
+      "event_status": "upcoming",
+      "registration_available": "uncertain",
+      "registration_required": "uncertain",
+      "registration_completed": "false",
+      "dates": [
+        {
+          "value": "2026-09-30",
+          "semantic_type": "event_time"
+        },
+        {
+          "value": "2026-10-07",
+          "semantic_type": "event_time"
+        }
+      ],
+      "route": "upcoming_events"
+    },
+    {
+      "id": "news_test_003",
+      "email_type": "newsletter",
+      "action_kind": "required",
+      "needs_reply": "false",
+      "contains_event": true,
+      "event_status": "uncertain",
+      "registration_available": "true",
+      "registration_required": "true",
+      "registration_completed": "false",
+      "dates": [
+        {
+          "value": "2026-09-21",
+          "semantic_type": "registration_deadline"
+        },
+        {
+          "value": "2026-09-25",
+          "semantic_type": "registration_deadline"
+        }
+      ],
+      "route": "needs_action"
+    },
+    {
+      "id": "opt_dev_001",
+      "email_type": "unknown",
+      "action_kind": "optional",
+      "needs_reply": "uncertain",
+      "contains_event": false,
+      "event_status": "uncertain",
+      "registration_available": "false",
+      "registration_required": "false",
+      "registration_completed": "uncertain",
+      "dates": [],
+      "route": "manual_review"
+    },
+    {
+      "id": "opt_dev_002",
+      "email_type": "unknown",
+      "action_kind": "optional",
+      "needs_reply": "uncertain",
+      "contains_event": false,
+      "event_status": "uncertain",
+      "registration_available": "false",
+      "registration_required": "false",
+      "registration_completed": "uncertain",
+      "dates": [
+        {
+          "value": "2026-12-30",
+          "semantic_type": "deadline"
+        }
+      ],
+      "route": "informational"
+    },
+    {
+      "id": "opt_dev_003",
+      "email_type": "promotional",
+      "action_kind": "optional",
+      "needs_reply": "false",
+      "contains_event": false,
+      "event_status": "uncertain",
+      "registration_available": "false",
+      "registration_required": "false",
+      "registration_completed": "uncertain",
+      "dates": [],
+      "route": "low_priority"
+    },
+    {
+      "id": "opt_dev_004",
+      "email_type": "promotional",
+      "action_kind": "optional",
+      "needs_reply": "false",
+      "contains_event": false,
+      "event_status": "uncertain",
+      "registration_available": "false",
+      "registration_required": "false",
+      "registration_completed": "uncertain",
+      "dates": [],
+      "route": "low_priority"
+    },
+    {
+      "id": "opt_dev_005",
+      "email_type": "promotional",
+      "action_kind": "optional",
+      "needs_reply": "false",
+      "contains_event": false,
+      "event_status": "uncertain",
+      "registration_available": "false",
+      "registration_required": "false",
+      "registration_completed": "uncertain",
+      "dates": [],
+      "route": "low_priority"
+    },
+    {
+      "id": "opt_dev_006",
+      "email_type": "event",
+      "action_kind": "optional",
+      "needs_reply": "false",
+      "contains_event": true,
+      "event_status": "upcoming",
+      "registration_available": "true",
+      "registration_required": "false",
+      "registration_completed": "false",
+      "dates": [
+        {
+          "value": "2026-09-14",
+          "semantic_type": "event_time"
+        }
+      ],
+      "route": "upcoming_events"
+    },
+    {
+      "id": "opt_dev_007",
+      "email_type": "unknown",
+      "action_kind": "none",
+      "needs_reply": "uncertain",
+      "contains_event": false,
+      "event_status": "uncertain",
+      "registration_available": "false",
+      "registration_required": "false",
+      "registration_completed": "uncertain",
+      "dates": [],
+      "route": "informational"
+    },
+    {
+      "id": "opt_dev_008",
+      "email_type": "promotional",
+      "action_kind": "optional",
+      "needs_reply": "false",
+      "contains_event": false,
+      "event_status": "uncertain",
+      "registration_available": "false",
+      "registration_required": "false",
+      "registration_completed": "uncertain",
+      "dates": [],
+      "route": "low_priority"
+    },
+    {
+      "id": "opt_dev_009",
+      "email_type": "promotional",
+      "action_kind": "optional",
+      "needs_reply": "false",
+      "contains_event": false,
+      "event_status": "uncertain",
+      "registration_available": "false",
+      "registration_required": "false",
+      "registration_completed": "uncertain",
+      "dates": [],
+      "route": "low_priority"
+    },
+    {
+      "id": "opt_dev_010",
+      "email_type": "unknown",
+      "action_kind": "optional",
+      "needs_reply": "uncertain",
+      "contains_event": false,
+      "event_status": "uncertain",
+      "registration_available": "false",
+      "registration_required": "false",
+      "registration_completed": "uncertain",
+      "dates": [
+        {
+          "value": "2026-11-01",
+          "semantic_type": "deadline"
+        }
+      ],
+      "route": "informational"
+    },
+    {
+      "id": "opt_test_001",
+      "email_type": "unknown",
+      "action_kind": "optional",
+      "needs_reply": "uncertain",
+      "contains_event": false,
+      "event_status": "uncertain",
+      "registration_available": "false",
+      "registration_required": "false",
+      "registration_completed": "uncertain",
+      "dates": [
+        {
+          "value": "2026-11-10",
+          "semantic_type": "deadline"
+        }
+      ],
+      "route": "informational"
+    },
+    {
+      "id": "opt_test_002",
+      "email_type": "promotional",
+      "action_kind": "optional",
+      "needs_reply": "false",
+      "contains_event": false,
+      "event_status": "uncertain",
+      "registration_available": "false",
+      "registration_required": "false",
+      "registration_completed": "uncertain",
+      "dates": [],
+      "route": "low_priority"
+    },
+    {
+      "id": "opt_test_003",
+      "email_type": "promotional",
+      "action_kind": "optional",
+      "needs_reply": "false",
+      "contains_event": false,
+      "event_status": "uncertain",
+      "registration_available": "false",
+      "registration_required": "false",
+      "registration_completed": "uncertain",
+      "dates": [],
+      "route": "low_priority"
+    },
+    {
+      "id": "opt_test_004",
+      "email_type": "administrative",
+      "action_kind": "optional",
+      "needs_reply": "uncertain",
+      "contains_event": false,
+      "event_status": "uncertain",
+      "registration_available": "false",
+      "registration_required": "false",
+      "registration_completed": "uncertain",
+      "dates": [
+        {
+          "value": "2026-12-20",
+          "semantic_type": "deadline"
+        }
+      ],
+      "route": "informational"
+    },
+    {
+      "id": "opt_test_005",
+      "email_type": "promotional",
+      "action_kind": "optional",
+      "needs_reply": "false",
+      "contains_event": false,
+      "event_status": "uncertain",
+      "registration_available": "false",
+      "registration_required": "false",
+      "registration_completed": "uncertain",
+      "dates": [],
+      "route": "low_priority"
+    },
+    {
+      "id": "rep_dev_001",
+      "email_type": "personal",
+      "action_kind": "uncertain",
+      "needs_reply": "true",
+      "contains_event": false,
+      "event_status": "uncertain",
+      "registration_available": "false",
+      "registration_required": "false",
+      "registration_completed": "uncertain",
+      "dates": [],
+      "route": "needs_reply"
+    },
+    {
+      "id": "rep_dev_002",
+      "email_type": "personal",
+      "action_kind": "required",
+      "needs_reply": "true",
+      "contains_event": false,
+      "event_status": "uncertain",
+      "registration_available": "false",
+      "registration_required": "false",
+      "registration_completed": "uncertain",
+      "dates": [
+        {
+          "value": "2026-09-06",
+          "semantic_type": "deadline"
+        }
+      ],
+      "route": "needs_action"
+    },
+    {
+      "id": "rep_dev_003",
+      "email_type": "administrative",
+      "action_kind": "none",
+      "needs_reply": "false",
+      "contains_event": false,
+      "event_status": "uncertain",
+      "registration_available": "false",
+      "registration_required": "false",
+      "registration_completed": "uncertain",
+      "dates": [],
+      "route": "informational"
+    },
+    {
+      "id": "rep_dev_004",
+      "email_type": "promotional",
+      "action_kind": "optional",
+      "needs_reply": "false",
+      "contains_event": false,
+      "event_status": "uncertain",
+      "registration_available": "false",
+      "registration_required": "false",
+      "registration_completed": "uncertain",
+      "dates": [],
+      "route": "low_priority"
+    },
+    {
+      "id": "rep_test_001",
+      "email_type": "event",
+      "action_kind": "none",
+      "needs_reply": "true",
+      "contains_event": true,
+      "event_status": "uncertain",
+      "registration_available": "uncertain",
+      "registration_required": "uncertain",
+      "registration_completed": "false",
+      "dates": [],
+      "route": "needs_reply"
+    },
+    {
+      "id": "rep_test_002",
+      "email_type": "automated",
+      "action_kind": "none",
+      "needs_reply": "false",
+      "contains_event": false,
+      "event_status": "uncertain",
+      "registration_available": "false",
+      "registration_required": "false",
+      "registration_completed": "uncertain",
+      "dates": [],
+      "route": "informational"
+    },
+    {
+      "id": "sec_dev_001",
+      "email_type": "security",
+      "action_kind": "recommended",
+      "needs_reply": "false",
+      "contains_event": false,
+      "event_status": "uncertain",
+      "registration_available": "false",
+      "registration_required": "false",
+      "registration_completed": "uncertain",
+      "dates": [],
+      "route": "informational"
+    },
+    {
+      "id": "sec_dev_002",
+      "email_type": "security",
+      "action_kind": "required",
+      "needs_reply": "false",
+      "contains_event": false,
+      "event_status": "uncertain",
+      "registration_available": "false",
+      "registration_required": "false",
+      "registration_completed": "uncertain",
+      "dates": [],
+      "route": "urgent"
+    },
+    {
+      "id": "sec_dev_003",
+      "email_type": "security",
+      "action_kind": "none",
+      "needs_reply": "uncertain",
+      "contains_event": false,
+      "event_status": "uncertain",
+      "registration_available": "false",
+      "registration_required": "false",
+      "registration_completed": "uncertain",
+      "dates": [],
+      "route": "informational"
+    },
+    {
+      "id": "sec_dev_004",
+      "email_type": "security",
+      "action_kind": "required",
+      "needs_reply": "uncertain",
+      "contains_event": false,
+      "event_status": "uncertain",
+      "registration_available": "false",
+      "registration_required": "false",
+      "registration_completed": "uncertain",
+      "dates": [],
+      "route": "urgent"
+    },
+    {
+      "id": "sec_test_001",
+      "email_type": "security",
+      "action_kind": "recommended",
+      "needs_reply": "false",
+      "contains_event": false,
+      "event_status": "uncertain",
+      "registration_available": "false",
+      "registration_required": "false",
+      "registration_completed": "uncertain",
+      "dates": [],
+      "route": "informational"
+    },
+    {
+      "id": "sec_test_002",
+      "email_type": "security",
+      "action_kind": "required",
+      "needs_reply": "uncertain",
+      "contains_event": false,
+      "event_status": "uncertain",
+      "registration_available": "false",
+      "registration_required": "false",
+      "registration_completed": "uncertain",
+      "dates": [],
+      "route": "urgent"
+    },
+    {
+      "id": "sec_test_003",
+      "email_type": "unknown",
+      "action_kind": "none",
+      "needs_reply": "uncertain",
+      "contains_event": false,
+      "event_status": "uncertain",
+      "registration_available": "false",
+      "registration_required": "false",
+      "registration_completed": "uncertain",
+      "dates": [],
+      "route": "informational"
+    }
+  ],
+  "failures": [
+    {
+      "id": "act_dev_001",
+      "tags": [
+        "academic",
+        "deadline",
+        "required_action"
+      ],
+      "expected": {
+        "needs_reply": "false",
+        "registration_completed": "false"
+      },
+      "predicted": {
+        "needs_reply": "uncertain",
+        "registration_completed": "uncertain"
+      }
+    },
+    {
+      "id": "act_dev_002",
+      "tags": [
+        "administrative",
+        "deadline",
+        "required_action"
+      ],
+      "expected": {
+        "needs_reply": "false",
+        "registration_completed": "false"
+      },
+      "predicted": {
+        "needs_reply": "uncertain",
+        "registration_completed": "uncertain"
+      }
+    },
+    {
+      "id": "act_dev_003",
+      "tags": [
+        "administrative",
+        "deadline",
+        "financial",
+        "required_action"
+      ],
+      "expected": {
+        "needs_reply": "false",
+        "registration_completed": "false"
+      },
+      "predicted": {
+        "needs_reply": "uncertain",
+        "registration_completed": "uncertain"
+      }
+    },
+    {
+      "id": "act_dev_004",
+      "tags": [
+        "administrative",
+        "deadline",
+        "required_action"
+      ],
+      "expected": {
+        "needs_reply": "false",
+        "registration_completed": "false"
+      },
+      "predicted": {
+        "needs_reply": "uncertain",
+        "registration_completed": "uncertain"
+      }
+    },
+    {
+      "id": "act_dev_005",
+      "tags": [
+        "required_action",
+        "security"
+      ],
+      "expected": {
+        "needs_reply": "false",
+        "registration_completed": "false"
+      },
+      "predicted": {
+        "needs_reply": "uncertain",
+        "registration_completed": "uncertain"
+      }
+    },
+    {
+      "id": "act_dev_006",
+      "tags": [
+        "academic",
+        "deadline",
+        "required_action"
+      ],
+      "expected": {
+        "needs_reply": "false",
+        "registration_completed": "false"
+      },
+      "predicted": {
+        "needs_reply": "uncertain",
+        "registration_completed": "uncertain"
+      }
+    },
+    {
+      "id": "act_dev_007",
+      "tags": [
+        "administrative",
+        "required_action"
+      ],
+      "expected": {
+        "needs_reply": "false",
+        "registration_completed": "false"
+      },
+      "predicted": {
+        "needs_reply": "uncertain",
+        "registration_completed": "uncertain"
+      }
+    },
+    {
+      "id": "act_dev_008",
+      "tags": [
+        "administrative",
+        "deadline",
+        "financial",
+        "required_action"
+      ],
+      "expected": {
+        "needs_reply": "false",
+        "registration_completed": "false"
+      },
+      "predicted": {
+        "needs_reply": "uncertain",
+        "registration_completed": "uncertain"
+      }
+    },
+    {
+      "id": "act_dev_009",
+      "tags": [
+        "administrative",
+        "required_action"
+      ],
+      "expected": {
+        "needs_reply": "false",
+        "registration_completed": "false"
+      },
+      "predicted": {
+        "needs_reply": "uncertain",
+        "registration_completed": "uncertain"
+      }
+    },
+    {
+      "id": "act_dev_010",
+      "tags": [
+        "emergency",
+        "required_action",
+        "security"
+      ],
+      "expected": {
+        "needs_reply": "false",
+        "registration_completed": "false"
+      },
+      "predicted": {
+        "needs_reply": "uncertain",
+        "registration_completed": "uncertain"
+      }
+    },
+    {
+      "id": "act_dev_011",
+      "tags": [
+        "academic",
+        "deadline",
+        "reply",
+        "required_action"
+      ],
+      "expected": {
+        "registration_completed": "false"
+      },
+      "predicted": {
+        "registration_completed": "uncertain"
+      }
+    },
+    {
+      "id": "act_dev_012",
+      "tags": [
+        "administrative",
+        "deadline",
+        "financial",
+        "required_action"
+      ],
+      "expected": {
+        "needs_reply": "false",
+        "registration_completed": "false"
+      },
+      "predicted": {
+        "needs_reply": "uncertain",
+        "registration_completed": "uncertain"
+      }
+    },
+    {
+      "id": "opt_dev_001",
+      "tags": [
+        "academic",
+        "conditional"
+      ],
+      "expected": {
+        "email_type": "academic",
+        "needs_reply": "false",
+        "registration_completed": "false",
+        "route": "informational"
+      },
+      "predicted": {
+        "email_type": "unknown",
+        "needs_reply": "uncertain",
+        "registration_completed": "uncertain",
+        "route": "manual_review"
+      }
+    },
+    {
+      "id": "opt_dev_002",
+      "tags": [
+        "administrative",
+        "conditional",
+        "deadline"
+      ],
+      "expected": {
+        "email_type": "administrative",
+        "needs_reply": "false",
+        "registration_completed": "false"
+      },
+      "predicted": {
+        "email_type": "unknown",
+        "needs_reply": "uncertain",
+        "registration_completed": "uncertain"
+      }
+    },
+    {
+      "id": "opt_dev_003",
+      "tags": [
+        "conditional",
+        "promotion"
+      ],
+      "expected": {
+        "registration_completed": "false"
+      },
+      "predicted": {
+        "registration_completed": "uncertain"
+      }
+    },
+    {
+      "id": "opt_dev_004",
+      "tags": [
+        "promotion"
+      ],
+      "expected": {
+        "registration_completed": "false"
+      },
+      "predicted": {
+        "registration_completed": "uncertain"
+      }
+    },
+    {
+      "id": "opt_dev_005",
+      "tags": [
+        "promotion",
+        "survey"
+      ],
+      "expected": {
+        "registration_completed": "false"
+      },
+      "predicted": {
+        "registration_completed": "uncertain"
+      }
+    },
+    {
+      "id": "opt_dev_007",
+      "tags": [
+        "administrative",
+        "informational"
+      ],
+      "expected": {
+        "email_type": "administrative",
+        "needs_reply": "false",
+        "registration_completed": "false"
+      },
+      "predicted": {
+        "email_type": "unknown",
+        "needs_reply": "uncertain",
+        "registration_completed": "uncertain"
+      }
+    },
+    {
+      "id": "opt_dev_008",
+      "tags": [
+        "conditional",
+        "informational"
+      ],
+      "expected": {
+        "email_type": "unknown",
+        "registration_completed": "false",
+        "route": "informational"
+      },
+      "predicted": {
+        "email_type": "promotional",
+        "registration_completed": "uncertain",
+        "route": "low_priority"
+      }
+    },
+    {
+      "id": "opt_dev_009",
+      "tags": [
+        "promotion"
+      ],
+      "expected": {
+        "registration_completed": "false"
+      },
+      "predicted": {
+        "registration_completed": "uncertain"
+      }
+    },
+    {
+      "id": "opt_dev_010",
+      "tags": [
+        "academic",
+        "conditional",
+        "deadline"
+      ],
+      "expected": {
+        "email_type": "academic",
+        "needs_reply": "false",
+        "registration_completed": "false"
+      },
+      "predicted": {
+        "email_type": "unknown",
+        "needs_reply": "uncertain",
+        "registration_completed": "uncertain"
+      }
+    },
+    {
+      "id": "news_dev_001",
+      "tags": [
+        "newsletter"
+      ],
+      "expected": {
+        "registration_completed": "false"
+      },
+      "predicted": {
+        "registration_completed": "uncertain"
+      }
+    },
+    {
+      "id": "news_dev_005",
+      "tags": [
+        "newsletter",
+        "promotion"
+      ],
+      "expected": {
+        "registration_completed": "false"
+      },
+      "predicted": {
+        "registration_completed": "uncertain"
+      }
+    },
+    {
+      "id": "dig_dev_001",
+      "tags": [
+        "digest",
+        "relative_date"
+      ],
+      "expected": {
+        "registration_completed": "false"
+      },
+      "predicted": {
+        "registration_completed": "uncertain"
+      }
+    },
+    {
+      "id": "dig_dev_002",
+      "tags": [
+        "digest",
+        "multiple_dates",
+        "security"
+      ],
+      "expected": {
+        "registration_completed": "false"
+      },
+      "predicted": {
+        "registration_completed": "uncertain"
+      }
+    },
+    {
+      "id": "dig_dev_003",
+      "tags": [
+        "deadline",
+        "digest",
+        "event"
+      ],
+      "expected": {
+        "registration_completed": "false"
+      },
+      "predicted": {
+        "registration_completed": "uncertain"
+      }
+    },
+    {
+      "id": "dig_dev_004",
+      "tags": [
+        "digest",
+        "event",
+        "registration"
+      ],
+      "expected": {
+        "registration_completed": "false"
+      },
+      "predicted": {
+        "registration_completed": "uncertain"
+      }
+    },
+    {
+      "id": "dig_dev_005",
+      "tags": [
+        "digest",
+        "multiple_dates"
+      ],
+      "expected": {
+        "registration_completed": "false"
+      },
+      "predicted": {
+        "registration_completed": "uncertain"
+      }
+    },
+    {
+      "id": "sec_dev_001",
+      "tags": [
+        "recommended_action",
+        "security"
+      ],
+      "expected": {
+        "registration_completed": "false"
+      },
+      "predicted": {
+        "registration_completed": "uncertain"
+      }
+    },
+    {
+      "id": "sec_dev_002",
+      "tags": [
+        "emergency",
+        "required_action",
+        "security"
+      ],
+      "expected": {
+        "registration_completed": "false"
+      },
+      "predicted": {
+        "registration_completed": "uncertain"
+      }
+    },
+    {
+      "id": "sec_dev_003",
+      "tags": [
+        "informational",
+        "security"
+      ],
+      "expected": {
+        "needs_reply": "false",
+        "registration_completed": "false"
+      },
+      "predicted": {
+        "needs_reply": "uncertain",
+        "registration_completed": "uncertain"
+      }
+    },
+    {
+      "id": "sec_dev_004",
+      "tags": [
+        "required_action",
+        "security"
+      ],
+      "expected": {
+        "needs_reply": "false",
+        "registration_completed": "false"
+      },
+      "predicted": {
+        "needs_reply": "uncertain",
+        "registration_completed": "uncertain"
+      }
+    },
+    {
+      "id": "rep_dev_001",
+      "tags": [
+        "personal",
+        "reply"
+      ],
+      "expected": {
+        "action_kind": "none",
+        "registration_completed": "false"
+      },
+      "predicted": {
+        "action_kind": "uncertain",
+        "registration_completed": "uncertain"
+      }
+    },
+    {
+      "id": "rep_dev_002",
+      "tags": [
+        "deadline",
+        "reply",
+        "required_action"
+      ],
+      "expected": {
+        "registration_completed": "false"
+      },
+      "predicted": {
+        "registration_completed": "uncertain"
+      }
+    },
+    {
+      "id": "rep_dev_003",
+      "tags": [
+        "automated",
+        "reply"
+      ],
+      "expected": {
+        "email_type": "receipt",
+        "registration_completed": "false"
+      },
+      "predicted": {
+        "email_type": "administrative",
+        "registration_completed": "uncertain"
+      }
+    },
+    {
+      "id": "rep_dev_004",
+      "tags": [
+        "promotion",
+        "reply"
+      ],
+      "expected": {
+        "registration_completed": "false"
+      },
+      "predicted": {
+        "registration_completed": "uncertain"
+      }
+    },
+    {
+      "id": "html_dev_003",
+      "tags": [
+        "boilerplate",
+        "html_noise"
+      ],
+      "expected": {
+        "needs_reply": "false",
+        "registration_completed": "false",
+        "route": "manual_review"
+      },
+      "predicted": {
+        "needs_reply": "uncertain",
+        "registration_completed": "uncertain",
+        "route": "informational"
+      }
+    },
+    {
+      "id": "date_dev_002",
+      "tags": [
+        "date",
+        "publication_date"
+      ],
+      "expected": {
+        "needs_reply": "false",
+        "registration_completed": "false"
+      },
+      "predicted": {
+        "needs_reply": "uncertain",
+        "registration_completed": "uncertain"
+      }
+    },
+    {
+      "id": "act_test_001",
+      "tags": [
+        "academic",
+        "deadline",
+        "required_action"
+      ],
+      "expected": {
+        "needs_reply": "false",
+        "registration_completed": "false"
+      },
+      "predicted": {
+        "needs_reply": "uncertain",
+        "registration_completed": "uncertain"
+      }
+    },
+    {
+      "id": "act_test_002",
+      "tags": [
+        "administrative",
+        "deadline",
+        "financial",
+        "required_action"
+      ],
+      "expected": {
+        "needs_reply": "false",
+        "registration_completed": "false"
+      },
+      "predicted": {
+        "needs_reply": "uncertain",
+        "registration_completed": "uncertain"
+      }
+    },
+    {
+      "id": "act_test_003",
+      "tags": [
+        "administrative",
+        "deadline",
+        "required_action"
+      ],
+      "expected": {
+        "needs_reply": "false",
+        "registration_completed": "false"
+      },
+      "predicted": {
+        "needs_reply": "uncertain",
+        "registration_completed": "uncertain"
+      }
+    },
+    {
+      "id": "act_test_004",
+      "tags": [
+        "administrative",
+        "required_action"
+      ],
+      "expected": {
+        "needs_reply": "false",
+        "registration_completed": "false"
+      },
+      "predicted": {
+        "needs_reply": "uncertain",
+        "registration_completed": "uncertain"
+      }
+    },
+    {
+      "id": "act_test_005",
+      "tags": [
+        "required_action",
+        "security"
+      ],
+      "expected": {
+        "needs_reply": "false",
+        "registration_completed": "false"
+      },
+      "predicted": {
+        "needs_reply": "uncertain",
+        "registration_completed": "uncertain"
+      }
+    },
+    {
+      "id": "act_test_006",
+      "tags": [
+        "academic",
+        "deadline",
+        "required_action"
+      ],
+      "expected": {
+        "email_type": "academic",
+        "needs_reply": "false",
+        "registration_completed": "false"
+      },
+      "predicted": {
+        "email_type": "unknown",
+        "needs_reply": "uncertain",
+        "registration_completed": "uncertain"
+      }
+    },
+    {
+      "id": "act_test_007",
+      "tags": [
+        "emergency",
+        "required_action",
+        "security"
+      ],
+      "expected": {
+        "needs_reply": "false",
+        "registration_completed": "false"
+      },
+      "predicted": {
+        "needs_reply": "uncertain",
+        "registration_completed": "uncertain"
+      }
+    },
+    {
+      "id": "opt_test_001",
+      "tags": [
+        "academic",
+        "conditional",
+        "deadline"
+      ],
+      "expected": {
+        "email_type": "academic",
+        "needs_reply": "false",
+        "registration_completed": "false"
+      },
+      "predicted": {
+        "email_type": "unknown",
+        "needs_reply": "uncertain",
+        "registration_completed": "uncertain"
+      }
+    },
+    {
+      "id": "opt_test_002",
+      "tags": [
+        "promotion"
+      ],
+      "expected": {
+        "registration_completed": "false"
+      },
+      "predicted": {
+        "registration_completed": "uncertain"
+      }
+    },
+    {
+      "id": "opt_test_003",
+      "tags": [
+        "promotion",
+        "survey"
+      ],
+      "expected": {
+        "registration_completed": "false"
+      },
+      "predicted": {
+        "registration_completed": "uncertain"
+      }
+    },
+    {
+      "id": "opt_test_004",
+      "tags": [
+        "administrative",
+        "conditional",
+        "deadline"
+      ],
+      "expected": {
+        "needs_reply": "false",
+        "registration_completed": "false"
+      },
+      "predicted": {
+        "needs_reply": "uncertain",
+        "registration_completed": "uncertain"
+      }
+    },
+    {
+      "id": "opt_test_005",
+      "tags": [
+        "promotion"
+      ],
+      "expected": {
+        "registration_completed": "false"
+      },
+      "predicted": {
+        "registration_completed": "uncertain"
+      }
+    },
+    {
+      "id": "evt_test_002",
+      "tags": [
+        "event",
+        "recruiting",
+        "relative_date"
+      ],
+      "expected": {
+        "email_type": "recruiting",
+        "dates": [
+          "2026-09-02 13:00:00-07:00|event_time"
+        ]
+      },
+      "predicted": {
+        "email_type": "event",
+        "dates": [
+          "2026-09-02|event_time"
+        ]
+      }
+    },
+    {
+      "id": "evt_test_007",
+      "tags": [
+        "conditional",
+        "event",
+        "registration"
+      ],
+      "expected": {
+        "registration_available": "false"
+      },
+      "predicted": {
+        "registration_available": "true"
+      }
+    },
+    {
+      "id": "news_test_001",
+      "tags": [
+        "newsletter"
+      ],
+      "expected": {
+        "action_kind": "none",
+        "registration_completed": "false"
+      },
+      "predicted": {
+        "action_kind": "optional",
+        "registration_completed": "uncertain"
+      }
+    },
+    {
+      "id": "news_test_003",
+      "tags": [
+        "deadline",
+        "event",
+        "newsletter",
+        "registration"
+      ],
+      "expected": {
+        "event_status": "upcoming",
+        "dates": [
+          "2026-09-21|registration_deadline",
+          "2026-09-25|event_time"
+        ]
+      },
+      "predicted": {
+        "event_status": "uncertain",
+        "dates": [
+          "2026-09-21|registration_deadline",
+          "2026-09-25|registration_deadline"
+        ]
+      }
+    },
+    {
+      "id": "dig_test_001",
+      "tags": [
+        "digest",
+        "event",
+        "registration"
+      ],
+      "expected": {
+        "registration_completed": "false"
+      },
+      "predicted": {
+        "registration_completed": "uncertain"
+      }
+    },
+    {
+      "id": "dig_test_002",
+      "tags": [
+        "deadline",
+        "digest",
+        "multiple_dates"
+      ],
+      "expected": {
+        "registration_completed": "false"
+      },
+      "predicted": {
+        "registration_completed": "uncertain"
+      }
+    },
+    {
+      "id": "sec_test_001",
+      "tags": [
+        "recommended_action",
+        "security"
+      ],
+      "expected": {
+        "registration_completed": "false"
+      },
+      "predicted": {
+        "registration_completed": "uncertain"
+      }
+    },
+    {
+      "id": "sec_test_002",
+      "tags": [
+        "emergency",
+        "required_action",
+        "security"
+      ],
+      "expected": {
+        "needs_reply": "false",
+        "registration_completed": "false"
+      },
+      "predicted": {
+        "needs_reply": "uncertain",
+        "registration_completed": "uncertain"
+      }
+    },
+    {
+      "id": "sec_test_003",
+      "tags": [
+        "conditional",
+        "security"
+      ],
+      "expected": {
+        "email_type": "security",
+        "needs_reply": "false",
+        "registration_completed": "false"
+      },
+      "predicted": {
+        "email_type": "unknown",
+        "needs_reply": "uncertain",
+        "registration_completed": "uncertain"
+      }
+    },
+    {
+      "id": "rep_test_001",
+      "tags": [
+        "personal",
+        "reply"
+      ],
+      "expected": {
+        "email_type": "personal",
+        "contains_event": false,
+        "registration_available": "false",
+        "registration_required": "false"
+      },
+      "predicted": {
+        "email_type": "event",
+        "contains_event": true,
+        "registration_available": "uncertain",
+        "registration_required": "uncertain"
+      }
+    },
+    {
+      "id": "rep_test_002",
+      "tags": [
+        "automated",
+        "reply"
+      ],
+      "expected": {
+        "registration_completed": "false"
+      },
+      "predicted": {
+        "registration_completed": "uncertain"
+      }
+    },
+    {
+      "id": "html_test_002",
+      "tags": [
+        "boilerplate",
+        "html_noise"
+      ],
+      "expected": {
+        "needs_reply": "false",
+        "registration_completed": "false",
+        "route": "manual_review"
+      },
+      "predicted": {
+        "needs_reply": "uncertain",
+        "registration_completed": "uncertain",
+        "route": "informational"
+      }
+    }
+  ]
+}

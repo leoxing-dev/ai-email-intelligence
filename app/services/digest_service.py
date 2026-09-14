@@ -104,6 +104,48 @@ def _group_duplicates(messages: list[_AnalyzedMessage]) -> list[EmailSummary]:
     return summaries
 
 
+def section_title_for_summary(summary: EmailSummary) -> str:
+    """Return the production digest section for one derived summary."""
+
+    if summary.priority is Priority.URGENT or summary.category is Category.URGENT:
+        return SECTION_TITLES[0]
+    if (
+        summary.action_kind is ActionKind.REQUIRED
+        or (
+            summary.event_status is EventStatus.UPCOMING
+            and summary.registration_required is Assessment.TRUE
+            and summary.registration_completed is not Assessment.TRUE
+        )
+        or (
+            summary.needs_action is Assessment.TRUE
+            and summary.category is Category.ACTION_REQUIRED
+            and summary.event_status
+            not in {EventStatus.UPCOMING, EventStatus.ONGOING}
+        )
+    ):
+        return SECTION_TITLES[1]
+    if summary.needs_reply is Assessment.TRUE:
+        return SECTION_TITLES[2]
+    if summary.event_status in {EventStatus.UPCOMING, EventStatus.ONGOING}:
+        return SECTION_TITLES[3]
+    if (
+        summary.category in {Category.INFORMATIONAL, Category.AUTOMATED_NOTIFICATION}
+        and summary.priority is Priority.HIGH
+    ):
+        return SECTION_TITLES[4]
+    if summary.category in {
+        Category.INFORMATIONAL,
+        Category.AUTOMATED_NOTIFICATION,
+    } or (
+        summary.email_type is EmailType.NEWSLETTER
+        and summary.priority is not Priority.LOW
+    ):
+        return SECTION_TITLES[5]
+    if summary.priority is Priority.LOW or summary.category is Category.PROMOTIONAL:
+        return SECTION_TITLES[6]
+    return SECTION_TITLES[7]
+
+
 class DigestService:
     """Process Gmail payloads in memory and retain derived summaries only."""
 
@@ -170,44 +212,7 @@ class DigestService:
         buckets: dict[str, list[EmailSummary]] = {title: [] for title in SECTION_TITLES}
 
         for summary in summaries:
-            if summary.priority is Priority.URGENT or summary.category is Category.URGENT:
-                title = SECTION_TITLES[0]
-            elif (
-                summary.action_kind is ActionKind.REQUIRED
-                or (
-                    summary.event_status is EventStatus.UPCOMING
-                    and summary.registration_required is Assessment.TRUE
-                    and summary.registration_completed is not Assessment.TRUE
-                )
-            ) or (
-                summary.needs_action is Assessment.TRUE
-                and summary.category is Category.ACTION_REQUIRED
-                and summary.event_status
-                not in {EventStatus.UPCOMING, EventStatus.ONGOING}
-            ):
-                title = SECTION_TITLES[1]
-            elif summary.needs_reply is Assessment.TRUE:
-                title = SECTION_TITLES[2]
-            elif summary.event_status in {EventStatus.UPCOMING, EventStatus.ONGOING}:
-                title = SECTION_TITLES[3]
-            elif (
-                summary.category
-                in {Category.INFORMATIONAL, Category.AUTOMATED_NOTIFICATION}
-                and summary.priority is Priority.HIGH
-            ):
-                title = SECTION_TITLES[4]
-            elif summary.category in {
-                Category.INFORMATIONAL,
-                Category.AUTOMATED_NOTIFICATION,
-            } or (
-                summary.email_type is EmailType.NEWSLETTER
-                and summary.priority is not Priority.LOW
-            ):
-                title = SECTION_TITLES[5]
-            elif summary.priority is Priority.LOW or summary.category is Category.PROMOTIONAL:
-                title = SECTION_TITLES[6]
-            else:
-                title = SECTION_TITLES[7]
+            title = section_title_for_summary(summary)
             buckets[title].append(summary)
 
         for messages in buckets.values():

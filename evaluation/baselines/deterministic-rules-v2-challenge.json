@@ -1,0 +1,6424 @@
+{
+  "baseline_id": "deterministic-rules-v2",
+  "dataset_version": "synthetic-email-benchmark-v2",
+  "dataset_fingerprint": "aa04684441e802e7a2959ea05d56a4ec4f101ff7943691c9c1d76511ebd643ed",
+  "split": "challenge",
+  "case_count": 66,
+  "split_counts": {
+    "challenge": 66
+  },
+  "binary_metrics": {
+    "required_action": {
+      "tp": 12,
+      "fp": 5,
+      "fn": 5,
+      "tn": 44,
+      "precision": 0.7058823529411765,
+      "recall": 0.7058823529411765,
+      "f1": 0.7058823529411765
+    },
+    "contains_event": {
+      "tp": 24,
+      "fp": 4,
+      "fn": 9,
+      "tn": 29,
+      "precision": 0.8571428571428571,
+      "recall": 0.7272727272727273,
+      "f1": 0.7868852459016394
+    },
+    "upcoming_event": {
+      "tp": 14,
+      "fp": 2,
+      "fn": 9,
+      "tn": 41,
+      "precision": 0.875,
+      "recall": 0.6086956521739131,
+      "f1": 0.717948717948718
+    },
+    "registration_required": {
+      "tp": 0,
+      "fp": 0,
+      "fn": 2,
+      "tn": 64,
+      "precision": null,
+      "recall": 0.0,
+      "f1": null
+    },
+    "registration_completed": {
+      "tp": 1,
+      "fp": 0,
+      "fn": 5,
+      "tn": 60,
+      "precision": 1.0,
+      "recall": 0.16666666666666666,
+      "f1": 0.2857142857142857
+    },
+    "deadline_detection": {
+      "tp": 12,
+      "fp": 4,
+      "fn": 5,
+      "tn": 45,
+      "precision": 0.75,
+      "recall": 0.7058823529411765,
+      "f1": 0.7272727272727272
+    },
+    "needs_reply": {
+      "tp": 3,
+      "fp": 1,
+      "fn": 4,
+      "tn": 58,
+      "precision": 0.75,
+      "recall": 0.42857142857142855,
+      "f1": 0.5454545454545454
+    }
+  },
+  "route_labels": [
+    "urgent",
+    "needs_action",
+    "needs_reply",
+    "upcoming_events",
+    "informational",
+    "low_priority",
+    "manual_review"
+  ],
+  "route_confusion": {
+    "urgent": {
+      "urgent": 0,
+      "needs_action": 0,
+      "needs_reply": 0,
+      "upcoming_events": 0,
+      "informational": 0,
+      "low_priority": 0,
+      "manual_review": 0
+    },
+    "needs_action": {
+      "urgent": 0,
+      "needs_action": 12,
+      "needs_reply": 1,
+      "upcoming_events": 1,
+      "informational": 2,
+      "low_priority": 0,
+      "manual_review": 1
+    },
+    "needs_reply": {
+      "urgent": 0,
+      "needs_action": 0,
+      "needs_reply": 0,
+      "upcoming_events": 0,
+      "informational": 0,
+      "low_priority": 0,
+      "manual_review": 2
+    },
+    "upcoming_events": {
+      "urgent": 0,
+      "needs_action": 0,
+      "needs_reply": 0,
+      "upcoming_events": 10,
+      "informational": 5,
+      "low_priority": 1,
+      "manual_review": 2
+    },
+    "informational": {
+      "urgent": 0,
+      "needs_action": 3,
+      "needs_reply": 0,
+      "upcoming_events": 1,
+      "informational": 5,
+      "low_priority": 0,
+      "manual_review": 7
+    },
+    "low_priority": {
+      "urgent": 0,
+      "needs_action": 1,
+      "needs_reply": 0,
+      "upcoming_events": 0,
+      "informational": 1,
+      "low_priority": 2,
+      "manual_review": 2
+    },
+    "manual_review": {
+      "urgent": 0,
+      "needs_action": 1,
+      "needs_reply": 0,
+      "upcoming_events": 0,
+      "informational": 1,
+      "low_priority": 0,
+      "manual_review": 5
+    }
+  },
+  "route_accuracy": 0.5151515151515151,
+  "date_metrics": {
+    "expected_count": 68,
+    "predicted_count": 58,
+    "date_only_match_count": 52,
+    "extraction_precision": 0.896551724137931,
+    "extraction_recall": 0.7647058823529411,
+    "exact_normalized_match_count": 47,
+    "exact_normalized_match_rate": 0.6911764705882353,
+    "timed_expected_count": 12,
+    "time_tolerance_match_count": 9,
+    "time_tolerance_accuracy": 0.75,
+    "tolerance_minutes": 15
+  },
+  "abstention": {
+    "total": 66,
+    "accepted": 47,
+    "abstained": 19,
+    "coverage": 0.7121212121212122,
+    "accepted_route_errors": 18,
+    "error_rate_among_accepted": 0.3829787234042553
+  },
+  "protected_metrics": {
+    "false_required_action_count": 5,
+    "false_required_action_rate": 0.10204081632653061,
+    "required_action_false_negative_count": 5,
+    "upcoming_event_false_negative_count": 9,
+    "deadline_false_negative_count": 5
+  },
+  "by_tag": {
+    "adversarial": {
+      "cases": 8,
+      "route_correct": 5,
+      "route_accuracy": 0.625,
+      "binary_metrics": {
+        "required_action": {
+          "tp": 4,
+          "fp": 1,
+          "fn": 0,
+          "tn": 3,
+          "precision": 0.8,
+          "recall": 1.0,
+          "f1": 0.888888888888889
+        },
+        "contains_event": {
+          "tp": 1,
+          "fp": 0,
+          "fn": 0,
+          "tn": 7,
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0
+        },
+        "upcoming_event": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 1,
+          "tn": 7,
+          "precision": null,
+          "recall": 0.0,
+          "f1": null
+        },
+        "registration_required": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 0,
+          "tn": 8,
+          "precision": null,
+          "recall": null,
+          "f1": null
+        },
+        "registration_completed": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 0,
+          "tn": 8,
+          "precision": null,
+          "recall": null,
+          "f1": null
+        },
+        "deadline_detection": {
+          "tp": 2,
+          "fp": 0,
+          "fn": 2,
+          "tn": 4,
+          "precision": 1.0,
+          "recall": 0.5,
+          "f1": 0.6666666666666666
+        },
+        "needs_reply": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 1,
+          "tn": 7,
+          "precision": null,
+          "recall": 0.0,
+          "f1": null
+        }
+      },
+      "date_metrics": {
+        "expected_count": 6,
+        "predicted_count": 4,
+        "date_only_match_count": 4,
+        "extraction_precision": 1.0,
+        "extraction_recall": 0.6666666666666666,
+        "exact_normalized_match_count": 4,
+        "exact_normalized_match_rate": 0.6666666666666666,
+        "timed_expected_count": 0,
+        "time_tolerance_match_count": 0,
+        "time_tolerance_accuracy": null,
+        "tolerance_minutes": 15
+      }
+    },
+    "ambiguous": {
+      "cases": 8,
+      "route_correct": 4,
+      "route_accuracy": 0.5,
+      "binary_metrics": {
+        "required_action": {
+          "tp": 0,
+          "fp": 1,
+          "fn": 0,
+          "tn": 7,
+          "precision": 0.0,
+          "recall": null,
+          "f1": null
+        },
+        "contains_event": {
+          "tp": 2,
+          "fp": 0,
+          "fn": 2,
+          "tn": 4,
+          "precision": 1.0,
+          "recall": 0.5,
+          "f1": 0.6666666666666666
+        },
+        "upcoming_event": {
+          "tp": 1,
+          "fp": 0,
+          "fn": 0,
+          "tn": 7,
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0
+        },
+        "registration_required": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 0,
+          "tn": 8,
+          "precision": null,
+          "recall": null,
+          "f1": null
+        },
+        "registration_completed": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 0,
+          "tn": 8,
+          "precision": null,
+          "recall": null,
+          "f1": null
+        },
+        "deadline_detection": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 0,
+          "tn": 8,
+          "precision": null,
+          "recall": null,
+          "f1": null
+        },
+        "needs_reply": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 2,
+          "tn": 6,
+          "precision": null,
+          "recall": 0.0,
+          "f1": null
+        }
+      },
+      "date_metrics": {
+        "expected_count": 4,
+        "predicted_count": 3,
+        "date_only_match_count": 3,
+        "extraction_precision": 1.0,
+        "extraction_recall": 0.75,
+        "exact_normalized_match_count": 3,
+        "exact_normalized_match_rate": 0.75,
+        "timed_expected_count": 0,
+        "time_tolerance_match_count": 0,
+        "time_tolerance_accuracy": null,
+        "tolerance_minutes": 15
+      }
+    },
+    "ambiguous_time": {
+      "cases": 2,
+      "route_correct": 0,
+      "route_accuracy": 0.0,
+      "binary_metrics": {
+        "required_action": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 0,
+          "tn": 2,
+          "precision": null,
+          "recall": null,
+          "f1": null
+        },
+        "contains_event": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 2,
+          "tn": 0,
+          "precision": null,
+          "recall": 0.0,
+          "f1": null
+        },
+        "upcoming_event": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 2,
+          "tn": 0,
+          "precision": null,
+          "recall": 0.0,
+          "f1": null
+        },
+        "registration_required": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 0,
+          "tn": 2,
+          "precision": null,
+          "recall": null,
+          "f1": null
+        },
+        "registration_completed": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 0,
+          "tn": 2,
+          "precision": null,
+          "recall": null,
+          "f1": null
+        },
+        "deadline_detection": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 0,
+          "tn": 2,
+          "precision": null,
+          "recall": null,
+          "f1": null
+        },
+        "needs_reply": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 0,
+          "tn": 2,
+          "precision": null,
+          "recall": null,
+          "f1": null
+        }
+      },
+      "date_metrics": {
+        "expected_count": 2,
+        "predicted_count": 2,
+        "date_only_match_count": 2,
+        "extraction_precision": 1.0,
+        "extraction_recall": 1.0,
+        "exact_normalized_match_count": 0,
+        "exact_normalized_match_rate": 0.0,
+        "timed_expected_count": 0,
+        "time_tolerance_match_count": 0,
+        "time_tolerance_accuracy": null,
+        "tolerance_minutes": 15
+      }
+    },
+    "attachment_excluded": {
+      "cases": 1,
+      "route_correct": 0,
+      "route_accuracy": 0.0,
+      "binary_metrics": {
+        "required_action": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 0,
+          "tn": 1,
+          "precision": null,
+          "recall": null,
+          "f1": null
+        },
+        "contains_event": {
+          "tp": 1,
+          "fp": 0,
+          "fn": 0,
+          "tn": 0,
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0
+        },
+        "upcoming_event": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 1,
+          "tn": 0,
+          "precision": null,
+          "recall": 0.0,
+          "f1": null
+        },
+        "registration_required": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 0,
+          "tn": 1,
+          "precision": null,
+          "recall": null,
+          "f1": null
+        },
+        "registration_completed": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 0,
+          "tn": 1,
+          "precision": null,
+          "recall": null,
+          "f1": null
+        },
+        "deadline_detection": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 0,
+          "tn": 1,
+          "precision": null,
+          "recall": null,
+          "f1": null
+        },
+        "needs_reply": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 0,
+          "tn": 1,
+          "precision": null,
+          "recall": null,
+          "f1": null
+        }
+      },
+      "date_metrics": {
+        "expected_count": 1,
+        "predicted_count": 1,
+        "date_only_match_count": 1,
+        "extraction_precision": 1.0,
+        "extraction_recall": 1.0,
+        "exact_normalized_match_count": 1,
+        "exact_normalized_match_rate": 1.0,
+        "timed_expected_count": 1,
+        "time_tolerance_match_count": 1,
+        "time_tolerance_accuracy": 1.0,
+        "tolerance_minutes": 15
+      }
+    },
+    "automated": {
+      "cases": 5,
+      "route_correct": 5,
+      "route_accuracy": 1.0,
+      "binary_metrics": {
+        "required_action": {
+          "tp": 2,
+          "fp": 0,
+          "fn": 0,
+          "tn": 3,
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0
+        },
+        "contains_event": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 0,
+          "tn": 5,
+          "precision": null,
+          "recall": null,
+          "f1": null
+        },
+        "upcoming_event": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 0,
+          "tn": 5,
+          "precision": null,
+          "recall": null,
+          "f1": null
+        },
+        "registration_required": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 0,
+          "tn": 5,
+          "precision": null,
+          "recall": null,
+          "f1": null
+        },
+        "registration_completed": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 1,
+          "tn": 4,
+          "precision": null,
+          "recall": 0.0,
+          "f1": null
+        },
+        "deadline_detection": {
+          "tp": 2,
+          "fp": 0,
+          "fn": 0,
+          "tn": 3,
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0
+        },
+        "needs_reply": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 0,
+          "tn": 5,
+          "precision": null,
+          "recall": null,
+          "f1": null
+        }
+      },
+      "date_metrics": {
+        "expected_count": 3,
+        "predicted_count": 3,
+        "date_only_match_count": 3,
+        "extraction_precision": 1.0,
+        "extraction_recall": 1.0,
+        "exact_normalized_match_count": 3,
+        "exact_normalized_match_rate": 1.0,
+        "timed_expected_count": 0,
+        "time_tolerance_match_count": 0,
+        "time_tolerance_accuracy": null,
+        "tolerance_minutes": 15
+      }
+    },
+    "boilerplate": {
+      "cases": 1,
+      "route_correct": 0,
+      "route_accuracy": 0.0,
+      "binary_metrics": {
+        "required_action": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 0,
+          "tn": 1,
+          "precision": null,
+          "recall": null,
+          "f1": null
+        },
+        "contains_event": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 0,
+          "tn": 1,
+          "precision": null,
+          "recall": null,
+          "f1": null
+        },
+        "upcoming_event": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 0,
+          "tn": 1,
+          "precision": null,
+          "recall": null,
+          "f1": null
+        },
+        "registration_required": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 0,
+          "tn": 1,
+          "precision": null,
+          "recall": null,
+          "f1": null
+        },
+        "registration_completed": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 0,
+          "tn": 1,
+          "precision": null,
+          "recall": null,
+          "f1": null
+        },
+        "deadline_detection": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 0,
+          "tn": 1,
+          "precision": null,
+          "recall": null,
+          "f1": null
+        },
+        "needs_reply": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 0,
+          "tn": 1,
+          "precision": null,
+          "recall": null,
+          "f1": null
+        }
+      },
+      "date_metrics": {
+        "expected_count": 0,
+        "predicted_count": 0,
+        "date_only_match_count": 0,
+        "extraction_precision": null,
+        "extraction_recall": null,
+        "exact_normalized_match_count": 0,
+        "exact_normalized_match_rate": null,
+        "timed_expected_count": 0,
+        "time_tolerance_match_count": 0,
+        "time_tolerance_accuracy": null,
+        "tolerance_minutes": 15
+      }
+    },
+    "conditional": {
+      "cases": 5,
+      "route_correct": 3,
+      "route_accuracy": 0.6,
+      "binary_metrics": {
+        "required_action": {
+          "tp": 0,
+          "fp": 1,
+          "fn": 1,
+          "tn": 3,
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0
+        },
+        "contains_event": {
+          "tp": 3,
+          "fp": 0,
+          "fn": 0,
+          "tn": 2,
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0
+        },
+        "upcoming_event": {
+          "tp": 3,
+          "fp": 0,
+          "fn": 0,
+          "tn": 2,
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0
+        },
+        "registration_required": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 0,
+          "tn": 5,
+          "precision": null,
+          "recall": null,
+          "f1": null
+        },
+        "registration_completed": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 1,
+          "tn": 4,
+          "precision": null,
+          "recall": 0.0,
+          "f1": null
+        },
+        "deadline_detection": {
+          "tp": 2,
+          "fp": 0,
+          "fn": 0,
+          "tn": 3,
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0
+        },
+        "needs_reply": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 0,
+          "tn": 5,
+          "precision": null,
+          "recall": null,
+          "f1": null
+        }
+      },
+      "date_metrics": {
+        "expected_count": 5,
+        "predicted_count": 3,
+        "date_only_match_count": 3,
+        "extraction_precision": 1.0,
+        "extraction_recall": 0.6,
+        "exact_normalized_match_count": 3,
+        "exact_normalized_match_rate": 0.6,
+        "timed_expected_count": 0,
+        "time_tolerance_match_count": 0,
+        "time_tolerance_accuracy": null,
+        "tolerance_minutes": 15
+      }
+    },
+    "container": {
+      "cases": 2,
+      "route_correct": 0,
+      "route_accuracy": 0.0,
+      "binary_metrics": {
+        "required_action": {
+          "tp": 0,
+          "fp": 2,
+          "fn": 0,
+          "tn": 0,
+          "precision": 0.0,
+          "recall": null,
+          "f1": null
+        },
+        "contains_event": {
+          "tp": 0,
+          "fp": 1,
+          "fn": 0,
+          "tn": 1,
+          "precision": 0.0,
+          "recall": null,
+          "f1": null
+        },
+        "upcoming_event": {
+          "tp": 0,
+          "fp": 1,
+          "fn": 0,
+          "tn": 1,
+          "precision": 0.0,
+          "recall": null,
+          "f1": null
+        },
+        "registration_required": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 0,
+          "tn": 2,
+          "precision": null,
+          "recall": null,
+          "f1": null
+        },
+        "registration_completed": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 0,
+          "tn": 2,
+          "precision": null,
+          "recall": null,
+          "f1": null
+        },
+        "deadline_detection": {
+          "tp": 0,
+          "fp": 2,
+          "fn": 0,
+          "tn": 0,
+          "precision": 0.0,
+          "recall": null,
+          "f1": null
+        },
+        "needs_reply": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 0,
+          "tn": 2,
+          "precision": null,
+          "recall": null,
+          "f1": null
+        }
+      },
+      "date_metrics": {
+        "expected_count": 0,
+        "predicted_count": 2,
+        "date_only_match_count": 0,
+        "extraction_precision": 0.0,
+        "extraction_recall": null,
+        "exact_normalized_match_count": 0,
+        "exact_normalized_match_rate": null,
+        "timed_expected_count": 0,
+        "time_tolerance_match_count": 0,
+        "time_tolerance_accuracy": null,
+        "tolerance_minutes": 15
+      }
+    },
+    "date_semantics": {
+      "cases": 4,
+      "route_correct": 1,
+      "route_accuracy": 0.25,
+      "binary_metrics": {
+        "required_action": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 2,
+          "tn": 2,
+          "precision": null,
+          "recall": 0.0,
+          "f1": null
+        },
+        "contains_event": {
+          "tp": 1,
+          "fp": 0,
+          "fn": 3,
+          "tn": 0,
+          "precision": 1.0,
+          "recall": 0.25,
+          "f1": 0.4
+        },
+        "upcoming_event": {
+          "tp": 1,
+          "fp": 0,
+          "fn": 2,
+          "tn": 1,
+          "precision": 1.0,
+          "recall": 0.3333333333333333,
+          "f1": 0.5
+        },
+        "registration_required": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 0,
+          "tn": 4,
+          "precision": null,
+          "recall": null,
+          "f1": null
+        },
+        "registration_completed": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 0,
+          "tn": 4,
+          "precision": null,
+          "recall": null,
+          "f1": null
+        },
+        "deadline_detection": {
+          "tp": 2,
+          "fp": 1,
+          "fn": 0,
+          "tn": 1,
+          "precision": 0.6666666666666666,
+          "recall": 1.0,
+          "f1": 0.8
+        },
+        "needs_reply": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 1,
+          "tn": 3,
+          "precision": null,
+          "recall": 0.0,
+          "f1": null
+        }
+      },
+      "date_metrics": {
+        "expected_count": 11,
+        "predicted_count": 7,
+        "date_only_match_count": 7,
+        "extraction_precision": 1.0,
+        "extraction_recall": 0.6363636363636364,
+        "exact_normalized_match_count": 7,
+        "exact_normalized_match_rate": 0.6363636363636364,
+        "timed_expected_count": 2,
+        "time_tolerance_match_count": 0,
+        "time_tolerance_accuracy": 0.0,
+        "tolerance_minutes": 15
+      }
+    },
+    "deadline": {
+      "cases": 11,
+      "route_correct": 9,
+      "route_accuracy": 0.8181818181818182,
+      "binary_metrics": {
+        "required_action": {
+          "tp": 7,
+          "fp": 1,
+          "fn": 1,
+          "tn": 2,
+          "precision": 0.875,
+          "recall": 0.875,
+          "f1": 0.875
+        },
+        "contains_event": {
+          "tp": 3,
+          "fp": 0,
+          "fn": 1,
+          "tn": 7,
+          "precision": 1.0,
+          "recall": 0.75,
+          "f1": 0.8571428571428571
+        },
+        "upcoming_event": {
+          "tp": 2,
+          "fp": 0,
+          "fn": 1,
+          "tn": 8,
+          "precision": 1.0,
+          "recall": 0.6666666666666666,
+          "f1": 0.8
+        },
+        "registration_required": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 1,
+          "tn": 10,
+          "precision": null,
+          "recall": 0.0,
+          "f1": null
+        },
+        "registration_completed": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 0,
+          "tn": 11,
+          "precision": null,
+          "recall": null,
+          "f1": null
+        },
+        "deadline_detection": {
+          "tp": 7,
+          "fp": 0,
+          "fn": 1,
+          "tn": 3,
+          "precision": 1.0,
+          "recall": 0.875,
+          "f1": 0.9333333333333333
+        },
+        "needs_reply": {
+          "tp": 1,
+          "fp": 0,
+          "fn": 0,
+          "tn": 10,
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0
+        }
+      },
+      "date_metrics": {
+        "expected_count": 14,
+        "predicted_count": 10,
+        "date_only_match_count": 10,
+        "extraction_precision": 1.0,
+        "extraction_recall": 0.7142857142857143,
+        "exact_normalized_match_count": 10,
+        "exact_normalized_match_rate": 0.7142857142857143,
+        "timed_expected_count": 2,
+        "time_tolerance_match_count": 1,
+        "time_tolerance_accuracy": 0.5,
+        "tolerance_minutes": 15
+      }
+    },
+    "digest": {
+      "cases": 2,
+      "route_correct": 0,
+      "route_accuracy": 0.0,
+      "binary_metrics": {
+        "required_action": {
+          "tp": 0,
+          "fp": 2,
+          "fn": 0,
+          "tn": 0,
+          "precision": 0.0,
+          "recall": null,
+          "f1": null
+        },
+        "contains_event": {
+          "tp": 0,
+          "fp": 1,
+          "fn": 0,
+          "tn": 1,
+          "precision": 0.0,
+          "recall": null,
+          "f1": null
+        },
+        "upcoming_event": {
+          "tp": 0,
+          "fp": 1,
+          "fn": 0,
+          "tn": 1,
+          "precision": 0.0,
+          "recall": null,
+          "f1": null
+        },
+        "registration_required": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 0,
+          "tn": 2,
+          "precision": null,
+          "recall": null,
+          "f1": null
+        },
+        "registration_completed": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 0,
+          "tn": 2,
+          "precision": null,
+          "recall": null,
+          "f1": null
+        },
+        "deadline_detection": {
+          "tp": 0,
+          "fp": 2,
+          "fn": 0,
+          "tn": 0,
+          "precision": 0.0,
+          "recall": null,
+          "f1": null
+        },
+        "needs_reply": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 0,
+          "tn": 2,
+          "precision": null,
+          "recall": null,
+          "f1": null
+        }
+      },
+      "date_metrics": {
+        "expected_count": 0,
+        "predicted_count": 2,
+        "date_only_match_count": 0,
+        "extraction_precision": 0.0,
+        "extraction_recall": null,
+        "exact_normalized_match_count": 0,
+        "exact_normalized_match_rate": null,
+        "timed_expected_count": 0,
+        "time_tolerance_match_count": 0,
+        "time_tolerance_accuracy": null,
+        "tolerance_minutes": 15
+      }
+    },
+    "dst_boundary": {
+      "cases": 2,
+      "route_correct": 0,
+      "route_accuracy": 0.0,
+      "binary_metrics": {
+        "required_action": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 0,
+          "tn": 2,
+          "precision": null,
+          "recall": null,
+          "f1": null
+        },
+        "contains_event": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 2,
+          "tn": 0,
+          "precision": null,
+          "recall": 0.0,
+          "f1": null
+        },
+        "upcoming_event": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 2,
+          "tn": 0,
+          "precision": null,
+          "recall": 0.0,
+          "f1": null
+        },
+        "registration_required": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 0,
+          "tn": 2,
+          "precision": null,
+          "recall": null,
+          "f1": null
+        },
+        "registration_completed": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 0,
+          "tn": 2,
+          "precision": null,
+          "recall": null,
+          "f1": null
+        },
+        "deadline_detection": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 0,
+          "tn": 2,
+          "precision": null,
+          "recall": null,
+          "f1": null
+        },
+        "needs_reply": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 0,
+          "tn": 2,
+          "precision": null,
+          "recall": null,
+          "f1": null
+        }
+      },
+      "date_metrics": {
+        "expected_count": 2,
+        "predicted_count": 2,
+        "date_only_match_count": 2,
+        "extraction_precision": 1.0,
+        "extraction_recall": 1.0,
+        "exact_normalized_match_count": 0,
+        "exact_normalized_match_rate": 0.0,
+        "timed_expected_count": 0,
+        "time_tolerance_match_count": 0,
+        "time_tolerance_accuracy": null,
+        "tolerance_minutes": 15
+      }
+    },
+    "event": {
+      "cases": 32,
+      "route_correct": 15,
+      "route_accuracy": 0.46875,
+      "binary_metrics": {
+        "required_action": {
+          "tp": 2,
+          "fp": 1,
+          "fn": 4,
+          "tn": 25,
+          "precision": 0.6666666666666666,
+          "recall": 0.3333333333333333,
+          "f1": 0.4444444444444444
+        },
+        "contains_event": {
+          "tp": 24,
+          "fp": 1,
+          "fn": 7,
+          "tn": 0,
+          "precision": 0.96,
+          "recall": 0.7741935483870968,
+          "f1": 0.8571428571428571
+        },
+        "upcoming_event": {
+          "tp": 14,
+          "fp": 1,
+          "fn": 9,
+          "tn": 8,
+          "precision": 0.9333333333333333,
+          "recall": 0.6086956521739131,
+          "f1": 0.7368421052631579
+        },
+        "registration_required": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 2,
+          "tn": 30,
+          "precision": null,
+          "recall": 0.0,
+          "f1": null
+        },
+        "registration_completed": {
+          "tp": 1,
+          "fp": 0,
+          "fn": 4,
+          "tn": 27,
+          "precision": 1.0,
+          "recall": 0.2,
+          "f1": 0.33333333333333337
+        },
+        "deadline_detection": {
+          "tp": 6,
+          "fp": 2,
+          "fn": 0,
+          "tn": 24,
+          "precision": 0.75,
+          "recall": 1.0,
+          "f1": 0.8571428571428571
+        },
+        "needs_reply": {
+          "tp": 1,
+          "fp": 1,
+          "fn": 1,
+          "tn": 29,
+          "precision": 0.5,
+          "recall": 0.5,
+          "f1": 0.5
+        }
+      },
+      "date_metrics": {
+        "expected_count": 45,
+        "predicted_count": 38,
+        "date_only_match_count": 34,
+        "extraction_precision": 0.8947368421052632,
+        "extraction_recall": 0.7555555555555555,
+        "exact_normalized_match_count": 29,
+        "exact_normalized_match_rate": 0.6444444444444445,
+        "timed_expected_count": 12,
+        "time_tolerance_match_count": 9,
+        "time_tolerance_accuracy": 0.75,
+        "tolerance_minutes": 15
+      }
+    },
+    "financial": {
+      "cases": 2,
+      "route_correct": 2,
+      "route_accuracy": 1.0,
+      "binary_metrics": {
+        "required_action": {
+          "tp": 1,
+          "fp": 0,
+          "fn": 0,
+          "tn": 1,
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0
+        },
+        "contains_event": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 0,
+          "tn": 2,
+          "precision": null,
+          "recall": null,
+          "f1": null
+        },
+        "upcoming_event": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 0,
+          "tn": 2,
+          "precision": null,
+          "recall": null,
+          "f1": null
+        },
+        "registration_required": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 0,
+          "tn": 2,
+          "precision": null,
+          "recall": null,
+          "f1": null
+        },
+        "registration_completed": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 0,
+          "tn": 2,
+          "precision": null,
+          "recall": null,
+          "f1": null
+        },
+        "deadline_detection": {
+          "tp": 1,
+          "fp": 0,
+          "fn": 0,
+          "tn": 1,
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0
+        },
+        "needs_reply": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 0,
+          "tn": 2,
+          "precision": null,
+          "recall": null,
+          "f1": null
+        }
+      },
+      "date_metrics": {
+        "expected_count": 2,
+        "predicted_count": 2,
+        "date_only_match_count": 2,
+        "extraction_precision": 1.0,
+        "extraction_recall": 1.0,
+        "exact_normalized_match_count": 2,
+        "exact_normalized_match_rate": 1.0,
+        "timed_expected_count": 0,
+        "time_tolerance_match_count": 0,
+        "time_tolerance_accuracy": null,
+        "tolerance_minutes": 15
+      }
+    },
+    "forwarded": {
+      "cases": 2,
+      "route_correct": 0,
+      "route_accuracy": 0.0,
+      "binary_metrics": {
+        "required_action": {
+          "tp": 0,
+          "fp": 1,
+          "fn": 1,
+          "tn": 0,
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0
+        },
+        "contains_event": {
+          "tp": 2,
+          "fp": 0,
+          "fn": 0,
+          "tn": 0,
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0
+        },
+        "upcoming_event": {
+          "tp": 1,
+          "fp": 0,
+          "fn": 0,
+          "tn": 1,
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0
+        },
+        "registration_required": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 0,
+          "tn": 2,
+          "precision": null,
+          "recall": null,
+          "f1": null
+        },
+        "registration_completed": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 0,
+          "tn": 2,
+          "precision": null,
+          "recall": null,
+          "f1": null
+        },
+        "deadline_detection": {
+          "tp": 1,
+          "fp": 0,
+          "fn": 0,
+          "tn": 1,
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0
+        },
+        "needs_reply": {
+          "tp": 1,
+          "fp": 1,
+          "fn": 0,
+          "tn": 0,
+          "precision": 0.5,
+          "recall": 1.0,
+          "f1": 0.6666666666666666
+        }
+      },
+      "date_metrics": {
+        "expected_count": 4,
+        "predicted_count": 3,
+        "date_only_match_count": 3,
+        "extraction_precision": 1.0,
+        "extraction_recall": 0.75,
+        "exact_normalized_match_count": 3,
+        "exact_normalized_match_rate": 0.75,
+        "timed_expected_count": 0,
+        "time_tolerance_match_count": 0,
+        "time_tolerance_accuracy": null,
+        "tolerance_minutes": 15
+      }
+    },
+    "historical_date": {
+      "cases": 6,
+      "route_correct": 2,
+      "route_accuracy": 0.3333333333333333,
+      "binary_metrics": {
+        "required_action": {
+          "tp": 0,
+          "fp": 1,
+          "fn": 0,
+          "tn": 5,
+          "precision": 0.0,
+          "recall": null,
+          "f1": null
+        },
+        "contains_event": {
+          "tp": 3,
+          "fp": 0,
+          "fn": 1,
+          "tn": 2,
+          "precision": 1.0,
+          "recall": 0.75,
+          "f1": 0.8571428571428571
+        },
+        "upcoming_event": {
+          "tp": 0,
+          "fp": 1,
+          "fn": 0,
+          "tn": 5,
+          "precision": 0.0,
+          "recall": null,
+          "f1": null
+        },
+        "registration_required": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 0,
+          "tn": 6,
+          "precision": null,
+          "recall": null,
+          "f1": null
+        },
+        "registration_completed": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 0,
+          "tn": 6,
+          "precision": null,
+          "recall": null,
+          "f1": null
+        },
+        "deadline_detection": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 0,
+          "tn": 6,
+          "precision": null,
+          "recall": null,
+          "f1": null
+        },
+        "needs_reply": {
+          "tp": 0,
+          "fp": 1,
+          "fn": 0,
+          "tn": 5,
+          "precision": 0.0,
+          "recall": null,
+          "f1": null
+        }
+      },
+      "date_metrics": {
+        "expected_count": 9,
+        "predicted_count": 10,
+        "date_only_match_count": 9,
+        "extraction_precision": 0.9,
+        "extraction_recall": 1.0,
+        "exact_normalized_match_count": 9,
+        "exact_normalized_match_rate": 1.0,
+        "timed_expected_count": 0,
+        "time_tolerance_match_count": 0,
+        "time_tolerance_accuracy": null,
+        "tolerance_minutes": 15
+      }
+    },
+    "html_noise": {
+      "cases": 2,
+      "route_correct": 1,
+      "route_accuracy": 0.5,
+      "binary_metrics": {
+        "required_action": {
+          "tp": 1,
+          "fp": 0,
+          "fn": 0,
+          "tn": 1,
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0
+        },
+        "contains_event": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 0,
+          "tn": 2,
+          "precision": null,
+          "recall": null,
+          "f1": null
+        },
+        "upcoming_event": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 0,
+          "tn": 2,
+          "precision": null,
+          "recall": null,
+          "f1": null
+        },
+        "registration_required": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 0,
+          "tn": 2,
+          "precision": null,
+          "recall": null,
+          "f1": null
+        },
+        "registration_completed": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 0,
+          "tn": 2,
+          "precision": null,
+          "recall": null,
+          "f1": null
+        },
+        "deadline_detection": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 1,
+          "tn": 1,
+          "precision": null,
+          "recall": 0.0,
+          "f1": null
+        },
+        "needs_reply": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 0,
+          "tn": 2,
+          "precision": null,
+          "recall": null,
+          "f1": null
+        }
+      },
+      "date_metrics": {
+        "expected_count": 1,
+        "predicted_count": 1,
+        "date_only_match_count": 1,
+        "extraction_precision": 1.0,
+        "extraction_recall": 1.0,
+        "exact_normalized_match_count": 1,
+        "exact_normalized_match_rate": 1.0,
+        "timed_expected_count": 0,
+        "time_tolerance_match_count": 0,
+        "time_tolerance_accuracy": null,
+        "tolerance_minutes": 15
+      }
+    },
+    "implicit_obligation": {
+      "cases": 6,
+      "route_correct": 6,
+      "route_accuracy": 1.0,
+      "binary_metrics": {
+        "required_action": {
+          "tp": 6,
+          "fp": 0,
+          "fn": 0,
+          "tn": 0,
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0
+        },
+        "contains_event": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 0,
+          "tn": 6,
+          "precision": null,
+          "recall": null,
+          "f1": null
+        },
+        "upcoming_event": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 0,
+          "tn": 6,
+          "precision": null,
+          "recall": null,
+          "f1": null
+        },
+        "registration_required": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 0,
+          "tn": 6,
+          "precision": null,
+          "recall": null,
+          "f1": null
+        },
+        "registration_completed": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 0,
+          "tn": 6,
+          "precision": null,
+          "recall": null,
+          "f1": null
+        },
+        "deadline_detection": {
+          "tp": 3,
+          "fp": 0,
+          "fn": 3,
+          "tn": 0,
+          "precision": 1.0,
+          "recall": 0.5,
+          "f1": 0.6666666666666666
+        },
+        "needs_reply": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 1,
+          "tn": 5,
+          "precision": null,
+          "recall": 0.0,
+          "f1": null
+        }
+      },
+      "date_metrics": {
+        "expected_count": 6,
+        "predicted_count": 5,
+        "date_only_match_count": 5,
+        "extraction_precision": 1.0,
+        "extraction_recall": 0.8333333333333334,
+        "exact_normalized_match_count": 5,
+        "exact_normalized_match_rate": 0.8333333333333334,
+        "timed_expected_count": 0,
+        "time_tolerance_match_count": 0,
+        "time_tolerance_accuracy": null,
+        "tolerance_minutes": 15
+      }
+    },
+    "long_body": {
+      "cases": 2,
+      "route_correct": 2,
+      "route_accuracy": 1.0,
+      "binary_metrics": {
+        "required_action": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 0,
+          "tn": 2,
+          "precision": null,
+          "recall": null,
+          "f1": null
+        },
+        "contains_event": {
+          "tp": 1,
+          "fp": 1,
+          "fn": 0,
+          "tn": 0,
+          "precision": 0.5,
+          "recall": 1.0,
+          "f1": 0.6666666666666666
+        },
+        "upcoming_event": {
+          "tp": 1,
+          "fp": 0,
+          "fn": 0,
+          "tn": 1,
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0
+        },
+        "registration_required": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 0,
+          "tn": 2,
+          "precision": null,
+          "recall": null,
+          "f1": null
+        },
+        "registration_completed": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 0,
+          "tn": 2,
+          "precision": null,
+          "recall": null,
+          "f1": null
+        },
+        "deadline_detection": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 0,
+          "tn": 2,
+          "precision": null,
+          "recall": null,
+          "f1": null
+        },
+        "needs_reply": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 0,
+          "tn": 2,
+          "precision": null,
+          "recall": null,
+          "f1": null
+        }
+      },
+      "date_metrics": {
+        "expected_count": 7,
+        "predicted_count": 7,
+        "date_only_match_count": 7,
+        "extraction_precision": 1.0,
+        "extraction_recall": 1.0,
+        "exact_normalized_match_count": 7,
+        "exact_normalized_match_rate": 1.0,
+        "timed_expected_count": 2,
+        "time_tolerance_match_count": 2,
+        "time_tolerance_accuracy": 1.0,
+        "tolerance_minutes": 15
+      }
+    },
+    "malformed_encoding": {
+      "cases": 2,
+      "route_correct": 2,
+      "route_accuracy": 1.0,
+      "binary_metrics": {
+        "required_action": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 0,
+          "tn": 2,
+          "precision": null,
+          "recall": null,
+          "f1": null
+        },
+        "contains_event": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 0,
+          "tn": 2,
+          "precision": null,
+          "recall": null,
+          "f1": null
+        },
+        "upcoming_event": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 0,
+          "tn": 2,
+          "precision": null,
+          "recall": null,
+          "f1": null
+        },
+        "registration_required": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 0,
+          "tn": 2,
+          "precision": null,
+          "recall": null,
+          "f1": null
+        },
+        "registration_completed": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 0,
+          "tn": 2,
+          "precision": null,
+          "recall": null,
+          "f1": null
+        },
+        "deadline_detection": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 0,
+          "tn": 2,
+          "precision": null,
+          "recall": null,
+          "f1": null
+        },
+        "needs_reply": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 0,
+          "tn": 2,
+          "precision": null,
+          "recall": null,
+          "f1": null
+        }
+      },
+      "date_metrics": {
+        "expected_count": 0,
+        "predicted_count": 0,
+        "date_only_match_count": 0,
+        "extraction_precision": null,
+        "extraction_recall": null,
+        "exact_normalized_match_count": 0,
+        "exact_normalized_match_rate": null,
+        "timed_expected_count": 0,
+        "time_tolerance_match_count": 0,
+        "time_tolerance_accuracy": null,
+        "tolerance_minutes": 15
+      }
+    },
+    "manual_review": {
+      "cases": 7,
+      "route_correct": 5,
+      "route_accuracy": 0.7142857142857143,
+      "binary_metrics": {
+        "required_action": {
+          "tp": 0,
+          "fp": 1,
+          "fn": 0,
+          "tn": 6,
+          "precision": 0.0,
+          "recall": null,
+          "f1": null
+        },
+        "contains_event": {
+          "tp": 1,
+          "fp": 0,
+          "fn": 1,
+          "tn": 5,
+          "precision": 1.0,
+          "recall": 0.5,
+          "f1": 0.6666666666666666
+        },
+        "upcoming_event": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 0,
+          "tn": 7,
+          "precision": null,
+          "recall": null,
+          "f1": null
+        },
+        "registration_required": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 0,
+          "tn": 7,
+          "precision": null,
+          "recall": null,
+          "f1": null
+        },
+        "registration_completed": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 0,
+          "tn": 7,
+          "precision": null,
+          "recall": null,
+          "f1": null
+        },
+        "deadline_detection": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 0,
+          "tn": 7,
+          "precision": null,
+          "recall": null,
+          "f1": null
+        },
+        "needs_reply": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 0,
+          "tn": 7,
+          "precision": null,
+          "recall": null,
+          "f1": null
+        }
+      },
+      "date_metrics": {
+        "expected_count": 2,
+        "predicted_count": 1,
+        "date_only_match_count": 1,
+        "extraction_precision": 1.0,
+        "extraction_recall": 0.5,
+        "exact_normalized_match_count": 1,
+        "exact_normalized_match_rate": 0.5,
+        "timed_expected_count": 0,
+        "time_tolerance_match_count": 0,
+        "time_tolerance_accuracy": null,
+        "tolerance_minutes": 15
+      }
+    },
+    "minimal_pair": {
+      "cases": 11,
+      "route_correct": 6,
+      "route_accuracy": 0.5454545454545454,
+      "binary_metrics": {
+        "required_action": {
+          "tp": 2,
+          "fp": 0,
+          "fn": 1,
+          "tn": 8,
+          "precision": 1.0,
+          "recall": 0.6666666666666666,
+          "f1": 0.8
+        },
+        "contains_event": {
+          "tp": 6,
+          "fp": 1,
+          "fn": 0,
+          "tn": 4,
+          "precision": 0.8571428571428571,
+          "recall": 1.0,
+          "f1": 0.923076923076923
+        },
+        "upcoming_event": {
+          "tp": 5,
+          "fp": 1,
+          "fn": 0,
+          "tn": 5,
+          "precision": 0.8333333333333334,
+          "recall": 1.0,
+          "f1": 0.9090909090909091
+        },
+        "registration_required": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 1,
+          "tn": 10,
+          "precision": null,
+          "recall": 0.0,
+          "f1": null
+        },
+        "registration_completed": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 0,
+          "tn": 11,
+          "precision": null,
+          "recall": null,
+          "f1": null
+        },
+        "deadline_detection": {
+          "tp": 1,
+          "fp": 0,
+          "fn": 1,
+          "tn": 9,
+          "precision": 1.0,
+          "recall": 0.5,
+          "f1": 0.6666666666666666
+        },
+        "needs_reply": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 0,
+          "tn": 11,
+          "precision": null,
+          "recall": null,
+          "f1": null
+        }
+      },
+      "date_metrics": {
+        "expected_count": 11,
+        "predicted_count": 12,
+        "date_only_match_count": 9,
+        "extraction_precision": 0.75,
+        "extraction_recall": 0.8181818181818182,
+        "exact_normalized_match_count": 7,
+        "exact_normalized_match_rate": 0.6363636363636364,
+        "timed_expected_count": 2,
+        "time_tolerance_match_count": 1,
+        "time_tolerance_accuracy": 0.5,
+        "tolerance_minutes": 15
+      }
+    },
+    "multiple_dates": {
+      "cases": 11,
+      "route_correct": 5,
+      "route_accuracy": 0.45454545454545453,
+      "binary_metrics": {
+        "required_action": {
+          "tp": 1,
+          "fp": 0,
+          "fn": 4,
+          "tn": 6,
+          "precision": 1.0,
+          "recall": 0.2,
+          "f1": 0.33333333333333337
+        },
+        "contains_event": {
+          "tp": 8,
+          "fp": 0,
+          "fn": 3,
+          "tn": 0,
+          "precision": 1.0,
+          "recall": 0.7272727272727273,
+          "f1": 0.8421052631578948
+        },
+        "upcoming_event": {
+          "tp": 7,
+          "fp": 0,
+          "fn": 3,
+          "tn": 1,
+          "precision": 1.0,
+          "recall": 0.7,
+          "f1": 0.8235294117647058
+        },
+        "registration_required": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 1,
+          "tn": 10,
+          "precision": null,
+          "recall": 0.0,
+          "f1": null
+        },
+        "registration_completed": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 3,
+          "tn": 8,
+          "precision": null,
+          "recall": 0.0,
+          "f1": null
+        },
+        "deadline_detection": {
+          "tp": 6,
+          "fp": 2,
+          "fn": 0,
+          "tn": 3,
+          "precision": 0.75,
+          "recall": 1.0,
+          "f1": 0.8571428571428571
+        },
+        "needs_reply": {
+          "tp": 1,
+          "fp": 0,
+          "fn": 1,
+          "tn": 9,
+          "precision": 1.0,
+          "recall": 0.5,
+          "f1": 0.6666666666666666
+        }
+      },
+      "date_metrics": {
+        "expected_count": 28,
+        "predicted_count": 19,
+        "date_only_match_count": 19,
+        "extraction_precision": 1.0,
+        "extraction_recall": 0.6785714285714286,
+        "exact_normalized_match_count": 19,
+        "exact_normalized_match_rate": 0.6785714285714286,
+        "timed_expected_count": 6,
+        "time_tolerance_match_count": 4,
+        "time_tolerance_accuracy": 0.6666666666666666,
+        "tolerance_minutes": 15
+      }
+    },
+    "multiple_sections": {
+      "cases": 3,
+      "route_correct": 2,
+      "route_accuracy": 0.6666666666666666,
+      "binary_metrics": {
+        "required_action": {
+          "tp": 0,
+          "fp": 1,
+          "fn": 0,
+          "tn": 2,
+          "precision": 0.0,
+          "recall": null,
+          "f1": null
+        },
+        "contains_event": {
+          "tp": 1,
+          "fp": 2,
+          "fn": 0,
+          "tn": 0,
+          "precision": 0.3333333333333333,
+          "recall": 1.0,
+          "f1": 0.5
+        },
+        "upcoming_event": {
+          "tp": 1,
+          "fp": 1,
+          "fn": 0,
+          "tn": 1,
+          "precision": 0.5,
+          "recall": 1.0,
+          "f1": 0.6666666666666666
+        },
+        "registration_required": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 0,
+          "tn": 3,
+          "precision": null,
+          "recall": null,
+          "f1": null
+        },
+        "registration_completed": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 0,
+          "tn": 3,
+          "precision": null,
+          "recall": null,
+          "f1": null
+        },
+        "deadline_detection": {
+          "tp": 0,
+          "fp": 1,
+          "fn": 0,
+          "tn": 2,
+          "precision": 0.0,
+          "recall": null,
+          "f1": null
+        },
+        "needs_reply": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 0,
+          "tn": 3,
+          "precision": null,
+          "recall": null,
+          "f1": null
+        }
+      },
+      "date_metrics": {
+        "expected_count": 7,
+        "predicted_count": 8,
+        "date_only_match_count": 7,
+        "extraction_precision": 0.875,
+        "extraction_recall": 1.0,
+        "exact_normalized_match_count": 7,
+        "exact_normalized_match_rate": 1.0,
+        "timed_expected_count": 2,
+        "time_tolerance_match_count": 2,
+        "time_tolerance_accuracy": 1.0,
+        "tolerance_minutes": 15
+      }
+    },
+    "nested_mime": {
+      "cases": 2,
+      "route_correct": 1,
+      "route_accuracy": 0.5,
+      "binary_metrics": {
+        "required_action": {
+          "tp": 1,
+          "fp": 0,
+          "fn": 0,
+          "tn": 1,
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0
+        },
+        "contains_event": {
+          "tp": 1,
+          "fp": 0,
+          "fn": 0,
+          "tn": 1,
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0
+        },
+        "upcoming_event": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 1,
+          "tn": 1,
+          "precision": null,
+          "recall": 0.0,
+          "f1": null
+        },
+        "registration_required": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 0,
+          "tn": 2,
+          "precision": null,
+          "recall": null,
+          "f1": null
+        },
+        "registration_completed": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 0,
+          "tn": 2,
+          "precision": null,
+          "recall": null,
+          "f1": null
+        },
+        "deadline_detection": {
+          "tp": 1,
+          "fp": 0,
+          "fn": 0,
+          "tn": 1,
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0
+        },
+        "needs_reply": {
+          "tp": 1,
+          "fp": 0,
+          "fn": 0,
+          "tn": 1,
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0
+        }
+      },
+      "date_metrics": {
+        "expected_count": 2,
+        "predicted_count": 2,
+        "date_only_match_count": 2,
+        "extraction_precision": 1.0,
+        "extraction_recall": 1.0,
+        "exact_normalized_match_count": 2,
+        "exact_normalized_match_rate": 1.0,
+        "timed_expected_count": 1,
+        "time_tolerance_match_count": 1,
+        "time_tolerance_accuracy": 1.0,
+        "tolerance_minutes": 15
+      }
+    },
+    "newsletter": {
+      "cases": 3,
+      "route_correct": 2,
+      "route_accuracy": 0.6666666666666666,
+      "binary_metrics": {
+        "required_action": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 0,
+          "tn": 3,
+          "precision": null,
+          "recall": null,
+          "f1": null
+        },
+        "contains_event": {
+          "tp": 1,
+          "fp": 2,
+          "fn": 0,
+          "tn": 0,
+          "precision": 0.3333333333333333,
+          "recall": 1.0,
+          "f1": 0.5
+        },
+        "upcoming_event": {
+          "tp": 1,
+          "fp": 0,
+          "fn": 0,
+          "tn": 2,
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0
+        },
+        "registration_required": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 0,
+          "tn": 3,
+          "precision": null,
+          "recall": null,
+          "f1": null
+        },
+        "registration_completed": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 0,
+          "tn": 3,
+          "precision": null,
+          "recall": null,
+          "f1": null
+        },
+        "deadline_detection": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 0,
+          "tn": 3,
+          "precision": null,
+          "recall": null,
+          "f1": null
+        },
+        "needs_reply": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 0,
+          "tn": 3,
+          "precision": null,
+          "recall": null,
+          "f1": null
+        }
+      },
+      "date_metrics": {
+        "expected_count": 7,
+        "predicted_count": 7,
+        "date_only_match_count": 7,
+        "extraction_precision": 1.0,
+        "extraction_recall": 1.0,
+        "exact_normalized_match_count": 7,
+        "exact_normalized_match_rate": 1.0,
+        "timed_expected_count": 2,
+        "time_tolerance_match_count": 2,
+        "time_tolerance_accuracy": 1.0,
+        "tolerance_minutes": 15
+      }
+    },
+    "obsolete_deadline": {
+      "cases": 2,
+      "route_correct": 1,
+      "route_accuracy": 0.5,
+      "binary_metrics": {
+        "required_action": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 0,
+          "tn": 2,
+          "precision": null,
+          "recall": null,
+          "f1": null
+        },
+        "contains_event": {
+          "tp": 1,
+          "fp": 0,
+          "fn": 0,
+          "tn": 1,
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0
+        },
+        "upcoming_event": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 0,
+          "tn": 2,
+          "precision": null,
+          "recall": null,
+          "f1": null
+        },
+        "registration_required": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 0,
+          "tn": 2,
+          "precision": null,
+          "recall": null,
+          "f1": null
+        },
+        "registration_completed": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 1,
+          "tn": 1,
+          "precision": null,
+          "recall": 0.0,
+          "f1": null
+        },
+        "deadline_detection": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 0,
+          "tn": 2,
+          "precision": null,
+          "recall": null,
+          "f1": null
+        },
+        "needs_reply": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 0,
+          "tn": 2,
+          "precision": null,
+          "recall": null,
+          "f1": null
+        }
+      },
+      "date_metrics": {
+        "expected_count": 0,
+        "predicted_count": 0,
+        "date_only_match_count": 0,
+        "extraction_precision": null,
+        "extraction_recall": null,
+        "exact_normalized_match_count": 0,
+        "exact_normalized_match_rate": null,
+        "timed_expected_count": 0,
+        "time_tolerance_match_count": 0,
+        "time_tolerance_accuracy": null,
+        "tolerance_minutes": 15
+      }
+    },
+    "personal": {
+      "cases": 1,
+      "route_correct": 0,
+      "route_accuracy": 0.0,
+      "binary_metrics": {
+        "required_action": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 0,
+          "tn": 1,
+          "precision": null,
+          "recall": null,
+          "f1": null
+        },
+        "contains_event": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 0,
+          "tn": 1,
+          "precision": null,
+          "recall": null,
+          "f1": null
+        },
+        "upcoming_event": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 0,
+          "tn": 1,
+          "precision": null,
+          "recall": null,
+          "f1": null
+        },
+        "registration_required": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 0,
+          "tn": 1,
+          "precision": null,
+          "recall": null,
+          "f1": null
+        },
+        "registration_completed": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 0,
+          "tn": 1,
+          "precision": null,
+          "recall": null,
+          "f1": null
+        },
+        "deadline_detection": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 0,
+          "tn": 1,
+          "precision": null,
+          "recall": null,
+          "f1": null
+        },
+        "needs_reply": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 0,
+          "tn": 1,
+          "precision": null,
+          "recall": null,
+          "f1": null
+        }
+      },
+      "date_metrics": {
+        "expected_count": 0,
+        "predicted_count": 0,
+        "date_only_match_count": 0,
+        "extraction_precision": null,
+        "extraction_recall": null,
+        "exact_normalized_match_count": 0,
+        "exact_normalized_match_rate": null,
+        "timed_expected_count": 0,
+        "time_tolerance_match_count": 0,
+        "time_tolerance_accuracy": null,
+        "tolerance_minutes": 15
+      }
+    },
+    "preheader": {
+      "cases": 2,
+      "route_correct": 1,
+      "route_accuracy": 0.5,
+      "binary_metrics": {
+        "required_action": {
+          "tp": 1,
+          "fp": 0,
+          "fn": 0,
+          "tn": 1,
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0
+        },
+        "contains_event": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 0,
+          "tn": 2,
+          "precision": null,
+          "recall": null,
+          "f1": null
+        },
+        "upcoming_event": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 0,
+          "tn": 2,
+          "precision": null,
+          "recall": null,
+          "f1": null
+        },
+        "registration_required": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 0,
+          "tn": 2,
+          "precision": null,
+          "recall": null,
+          "f1": null
+        },
+        "registration_completed": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 0,
+          "tn": 2,
+          "precision": null,
+          "recall": null,
+          "f1": null
+        },
+        "deadline_detection": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 1,
+          "tn": 1,
+          "precision": null,
+          "recall": 0.0,
+          "f1": null
+        },
+        "needs_reply": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 0,
+          "tn": 2,
+          "precision": null,
+          "recall": null,
+          "f1": null
+        }
+      },
+      "date_metrics": {
+        "expected_count": 1,
+        "predicted_count": 1,
+        "date_only_match_count": 1,
+        "extraction_precision": 1.0,
+        "extraction_recall": 1.0,
+        "exact_normalized_match_count": 1,
+        "exact_normalized_match_rate": 1.0,
+        "timed_expected_count": 0,
+        "time_tolerance_match_count": 0,
+        "time_tolerance_accuracy": null,
+        "tolerance_minutes": 15
+      }
+    },
+    "promotion": {
+      "cases": 6,
+      "route_correct": 2,
+      "route_accuracy": 0.3333333333333333,
+      "binary_metrics": {
+        "required_action": {
+          "tp": 0,
+          "fp": 1,
+          "fn": 0,
+          "tn": 5,
+          "precision": 0.0,
+          "recall": null,
+          "f1": null
+        },
+        "contains_event": {
+          "tp": 1,
+          "fp": 1,
+          "fn": 0,
+          "tn": 4,
+          "precision": 0.5,
+          "recall": 1.0,
+          "f1": 0.6666666666666666
+        },
+        "upcoming_event": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 1,
+          "tn": 5,
+          "precision": null,
+          "recall": 0.0,
+          "f1": null
+        },
+        "registration_required": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 0,
+          "tn": 6,
+          "precision": null,
+          "recall": null,
+          "f1": null
+        },
+        "registration_completed": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 0,
+          "tn": 6,
+          "precision": null,
+          "recall": null,
+          "f1": null
+        },
+        "deadline_detection": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 0,
+          "tn": 6,
+          "precision": null,
+          "recall": null,
+          "f1": null
+        },
+        "needs_reply": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 0,
+          "tn": 6,
+          "precision": null,
+          "recall": null,
+          "f1": null
+        }
+      },
+      "date_metrics": {
+        "expected_count": 5,
+        "predicted_count": 3,
+        "date_only_match_count": 3,
+        "extraction_precision": 1.0,
+        "extraction_recall": 0.6,
+        "exact_normalized_match_count": 3,
+        "exact_normalized_match_rate": 0.6,
+        "timed_expected_count": 0,
+        "time_tolerance_match_count": 0,
+        "time_tolerance_accuracy": null,
+        "tolerance_minutes": 15
+      }
+    },
+    "publication_date": {
+      "cases": 1,
+      "route_correct": 0,
+      "route_accuracy": 0.0,
+      "binary_metrics": {
+        "required_action": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 0,
+          "tn": 1,
+          "precision": null,
+          "recall": null,
+          "f1": null
+        },
+        "contains_event": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 0,
+          "tn": 1,
+          "precision": null,
+          "recall": null,
+          "f1": null
+        },
+        "upcoming_event": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 0,
+          "tn": 1,
+          "precision": null,
+          "recall": null,
+          "f1": null
+        },
+        "registration_required": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 0,
+          "tn": 1,
+          "precision": null,
+          "recall": null,
+          "f1": null
+        },
+        "registration_completed": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 0,
+          "tn": 1,
+          "precision": null,
+          "recall": null,
+          "f1": null
+        },
+        "deadline_detection": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 0,
+          "tn": 1,
+          "precision": null,
+          "recall": null,
+          "f1": null
+        },
+        "needs_reply": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 0,
+          "tn": 1,
+          "precision": null,
+          "recall": null,
+          "f1": null
+        }
+      },
+      "date_metrics": {
+        "expected_count": 1,
+        "predicted_count": 1,
+        "date_only_match_count": 1,
+        "extraction_precision": 1.0,
+        "extraction_recall": 1.0,
+        "exact_normalized_match_count": 1,
+        "exact_normalized_match_rate": 1.0,
+        "timed_expected_count": 0,
+        "time_tolerance_match_count": 0,
+        "time_tolerance_accuracy": null,
+        "tolerance_minutes": 15
+      }
+    },
+    "quoted_reply": {
+      "cases": 3,
+      "route_correct": 1,
+      "route_accuracy": 0.3333333333333333,
+      "binary_metrics": {
+        "required_action": {
+          "tp": 0,
+          "fp": 1,
+          "fn": 0,
+          "tn": 2,
+          "precision": 0.0,
+          "recall": null,
+          "f1": null
+        },
+        "contains_event": {
+          "tp": 1,
+          "fp": 0,
+          "fn": 0,
+          "tn": 2,
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0
+        },
+        "upcoming_event": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 0,
+          "tn": 3,
+          "precision": null,
+          "recall": null,
+          "f1": null
+        },
+        "registration_required": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 0,
+          "tn": 3,
+          "precision": null,
+          "recall": null,
+          "f1": null
+        },
+        "registration_completed": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 1,
+          "tn": 2,
+          "precision": null,
+          "recall": 0.0,
+          "f1": null
+        },
+        "deadline_detection": {
+          "tp": 0,
+          "fp": 1,
+          "fn": 0,
+          "tn": 2,
+          "precision": 0.0,
+          "recall": null,
+          "f1": null
+        },
+        "needs_reply": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 0,
+          "tn": 3,
+          "precision": null,
+          "recall": null,
+          "f1": null
+        }
+      },
+      "date_metrics": {
+        "expected_count": 0,
+        "predicted_count": 1,
+        "date_only_match_count": 0,
+        "extraction_precision": 0.0,
+        "extraction_recall": null,
+        "exact_normalized_match_count": 0,
+        "exact_normalized_match_rate": null,
+        "timed_expected_count": 0,
+        "time_tolerance_match_count": 0,
+        "time_tolerance_accuracy": null,
+        "tolerance_minutes": 15
+      }
+    },
+    "recruiting": {
+      "cases": 1,
+      "route_correct": 1,
+      "route_accuracy": 1.0,
+      "binary_metrics": {
+        "required_action": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 0,
+          "tn": 1,
+          "precision": null,
+          "recall": null,
+          "f1": null
+        },
+        "contains_event": {
+          "tp": 1,
+          "fp": 0,
+          "fn": 0,
+          "tn": 0,
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0
+        },
+        "upcoming_event": {
+          "tp": 1,
+          "fp": 0,
+          "fn": 0,
+          "tn": 0,
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0
+        },
+        "registration_required": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 0,
+          "tn": 1,
+          "precision": null,
+          "recall": null,
+          "f1": null
+        },
+        "registration_completed": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 0,
+          "tn": 1,
+          "precision": null,
+          "recall": null,
+          "f1": null
+        },
+        "deadline_detection": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 0,
+          "tn": 1,
+          "precision": null,
+          "recall": null,
+          "f1": null
+        },
+        "needs_reply": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 0,
+          "tn": 1,
+          "precision": null,
+          "recall": null,
+          "f1": null
+        }
+      },
+      "date_metrics": {
+        "expected_count": 1,
+        "predicted_count": 2,
+        "date_only_match_count": 1,
+        "extraction_precision": 0.5,
+        "extraction_recall": 1.0,
+        "exact_normalized_match_count": 0,
+        "exact_normalized_match_rate": 0.0,
+        "timed_expected_count": 1,
+        "time_tolerance_match_count": 0,
+        "time_tolerance_accuracy": 0.0,
+        "tolerance_minutes": 15
+      }
+    },
+    "registration": {
+      "cases": 10,
+      "route_correct": 6,
+      "route_accuracy": 0.6,
+      "binary_metrics": {
+        "required_action": {
+          "tp": 2,
+          "fp": 0,
+          "fn": 1,
+          "tn": 7,
+          "precision": 1.0,
+          "recall": 0.6666666666666666,
+          "f1": 0.8
+        },
+        "contains_event": {
+          "tp": 8,
+          "fp": 0,
+          "fn": 1,
+          "tn": 1,
+          "precision": 1.0,
+          "recall": 0.8888888888888888,
+          "f1": 0.9411764705882353
+        },
+        "upcoming_event": {
+          "tp": 6,
+          "fp": 0,
+          "fn": 3,
+          "tn": 1,
+          "precision": 1.0,
+          "recall": 0.6666666666666666,
+          "f1": 0.8
+        },
+        "registration_required": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 2,
+          "tn": 8,
+          "precision": null,
+          "recall": 0.0,
+          "f1": null
+        },
+        "registration_completed": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 0,
+          "tn": 10,
+          "precision": null,
+          "recall": null,
+          "f1": null
+        },
+        "deadline_detection": {
+          "tp": 3,
+          "fp": 1,
+          "fn": 0,
+          "tn": 6,
+          "precision": 0.75,
+          "recall": 1.0,
+          "f1": 0.8571428571428571
+        },
+        "needs_reply": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 1,
+          "tn": 9,
+          "precision": null,
+          "recall": 0.0,
+          "f1": null
+        }
+      },
+      "date_metrics": {
+        "expected_count": 13,
+        "predicted_count": 9,
+        "date_only_match_count": 9,
+        "extraction_precision": 1.0,
+        "extraction_recall": 0.6923076923076923,
+        "exact_normalized_match_count": 9,
+        "exact_normalized_match_rate": 0.6923076923076923,
+        "timed_expected_count": 3,
+        "time_tolerance_match_count": 2,
+        "time_tolerance_accuracy": 0.6666666666666666,
+        "tolerance_minutes": 15
+      }
+    },
+    "registration_completed": {
+      "cases": 6,
+      "route_correct": 3,
+      "route_accuracy": 0.5,
+      "binary_metrics": {
+        "required_action": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 1,
+          "tn": 5,
+          "precision": null,
+          "recall": 0.0,
+          "f1": null
+        },
+        "contains_event": {
+          "tp": 4,
+          "fp": 0,
+          "fn": 1,
+          "tn": 1,
+          "precision": 1.0,
+          "recall": 0.8,
+          "f1": 0.888888888888889
+        },
+        "upcoming_event": {
+          "tp": 2,
+          "fp": 0,
+          "fn": 2,
+          "tn": 2,
+          "precision": 1.0,
+          "recall": 0.5,
+          "f1": 0.6666666666666666
+        },
+        "registration_required": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 0,
+          "tn": 6,
+          "precision": null,
+          "recall": null,
+          "f1": null
+        },
+        "registration_completed": {
+          "tp": 1,
+          "fp": 0,
+          "fn": 5,
+          "tn": 0,
+          "precision": 1.0,
+          "recall": 0.16666666666666666,
+          "f1": 0.2857142857142857
+        },
+        "deadline_detection": {
+          "tp": 1,
+          "fp": 1,
+          "fn": 0,
+          "tn": 4,
+          "precision": 0.5,
+          "recall": 1.0,
+          "f1": 0.6666666666666666
+        },
+        "needs_reply": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 0,
+          "tn": 6,
+          "precision": null,
+          "recall": null,
+          "f1": null
+        }
+      },
+      "date_metrics": {
+        "expected_count": 7,
+        "predicted_count": 4,
+        "date_only_match_count": 4,
+        "extraction_precision": 1.0,
+        "extraction_recall": 0.5714285714285714,
+        "exact_normalized_match_count": 4,
+        "exact_normalized_match_rate": 0.5714285714285714,
+        "timed_expected_count": 1,
+        "time_tolerance_match_count": 1,
+        "time_tolerance_accuracy": 1.0,
+        "tolerance_minutes": 15
+      }
+    },
+    "relative_date": {
+      "cases": 12,
+      "route_correct": 5,
+      "route_accuracy": 0.4166666666666667,
+      "binary_metrics": {
+        "required_action": {
+          "tp": 2,
+          "fp": 0,
+          "fn": 1,
+          "tn": 9,
+          "precision": 1.0,
+          "recall": 0.6666666666666666,
+          "f1": 0.8
+        },
+        "contains_event": {
+          "tp": 5,
+          "fp": 1,
+          "fn": 3,
+          "tn": 3,
+          "precision": 0.8333333333333334,
+          "recall": 0.625,
+          "f1": 0.7142857142857143
+        },
+        "upcoming_event": {
+          "tp": 2,
+          "fp": 0,
+          "fn": 1,
+          "tn": 9,
+          "precision": 1.0,
+          "recall": 0.6666666666666666,
+          "f1": 0.8
+        },
+        "registration_required": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 0,
+          "tn": 12,
+          "precision": null,
+          "recall": null,
+          "f1": null
+        },
+        "registration_completed": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 0,
+          "tn": 12,
+          "precision": null,
+          "recall": null,
+          "f1": null
+        },
+        "deadline_detection": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 3,
+          "tn": 9,
+          "precision": null,
+          "recall": 0.0,
+          "f1": null
+        },
+        "needs_reply": {
+          "tp": 1,
+          "fp": 0,
+          "fn": 1,
+          "tn": 10,
+          "precision": 1.0,
+          "recall": 0.5,
+          "f1": 0.6666666666666666
+        }
+      },
+      "date_metrics": {
+        "expected_count": 12,
+        "predicted_count": 9,
+        "date_only_match_count": 7,
+        "extraction_precision": 0.7777777777777778,
+        "extraction_recall": 0.5833333333333334,
+        "exact_normalized_match_count": 5,
+        "exact_normalized_match_rate": 0.4166666666666667,
+        "timed_expected_count": 4,
+        "time_tolerance_match_count": 4,
+        "time_tolerance_accuracy": 1.0,
+        "tolerance_minutes": 15
+      }
+    },
+    "reply": {
+      "cases": 8,
+      "route_correct": 4,
+      "route_accuracy": 0.5,
+      "binary_metrics": {
+        "required_action": {
+          "tp": 3,
+          "fp": 0,
+          "fn": 2,
+          "tn": 3,
+          "precision": 1.0,
+          "recall": 0.6,
+          "f1": 0.7499999999999999
+        },
+        "contains_event": {
+          "tp": 1,
+          "fp": 0,
+          "fn": 2,
+          "tn": 5,
+          "precision": 1.0,
+          "recall": 0.3333333333333333,
+          "f1": 0.5
+        },
+        "upcoming_event": {
+          "tp": 1,
+          "fp": 0,
+          "fn": 1,
+          "tn": 6,
+          "precision": 1.0,
+          "recall": 0.5,
+          "f1": 0.6666666666666666
+        },
+        "registration_required": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 0,
+          "tn": 8,
+          "precision": null,
+          "recall": null,
+          "f1": null
+        },
+        "registration_completed": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 0,
+          "tn": 8,
+          "precision": null,
+          "recall": null,
+          "f1": null
+        },
+        "deadline_detection": {
+          "tp": 4,
+          "fp": 0,
+          "fn": 1,
+          "tn": 3,
+          "precision": 1.0,
+          "recall": 0.8,
+          "f1": 0.888888888888889
+        },
+        "needs_reply": {
+          "tp": 3,
+          "fp": 0,
+          "fn": 4,
+          "tn": 1,
+          "precision": 1.0,
+          "recall": 0.42857142857142855,
+          "f1": 0.6
+        }
+      },
+      "date_metrics": {
+        "expected_count": 9,
+        "predicted_count": 5,
+        "date_only_match_count": 5,
+        "extraction_precision": 1.0,
+        "extraction_recall": 0.5555555555555556,
+        "exact_normalized_match_count": 5,
+        "exact_normalized_match_rate": 0.5555555555555556,
+        "timed_expected_count": 1,
+        "time_tolerance_match_count": 0,
+        "time_tolerance_accuracy": 0.0,
+        "tolerance_minutes": 15
+      }
+    },
+    "required_action": {
+      "cases": 8,
+      "route_correct": 7,
+      "route_accuracy": 0.875,
+      "binary_metrics": {
+        "required_action": {
+          "tp": 7,
+          "fp": 0,
+          "fn": 1,
+          "tn": 0,
+          "precision": 1.0,
+          "recall": 0.875,
+          "f1": 0.9333333333333333
+        },
+        "contains_event": {
+          "tp": 0,
+          "fp": 1,
+          "fn": 0,
+          "tn": 7,
+          "precision": 0.0,
+          "recall": null,
+          "f1": null
+        },
+        "upcoming_event": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 0,
+          "tn": 8,
+          "precision": null,
+          "recall": null,
+          "f1": null
+        },
+        "registration_required": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 0,
+          "tn": 8,
+          "precision": null,
+          "recall": null,
+          "f1": null
+        },
+        "registration_completed": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 0,
+          "tn": 8,
+          "precision": null,
+          "recall": null,
+          "f1": null
+        },
+        "deadline_detection": {
+          "tp": 3,
+          "fp": 0,
+          "fn": 5,
+          "tn": 0,
+          "precision": 1.0,
+          "recall": 0.375,
+          "f1": 0.5454545454545454
+        },
+        "needs_reply": {
+          "tp": 1,
+          "fp": 0,
+          "fn": 1,
+          "tn": 6,
+          "precision": 1.0,
+          "recall": 0.5,
+          "f1": 0.6666666666666666
+        }
+      },
+      "date_metrics": {
+        "expected_count": 8,
+        "predicted_count": 5,
+        "date_only_match_count": 5,
+        "extraction_precision": 1.0,
+        "extraction_recall": 0.625,
+        "exact_normalized_match_count": 5,
+        "exact_normalized_match_rate": 0.625,
+        "timed_expected_count": 0,
+        "time_tolerance_match_count": 0,
+        "time_tolerance_accuracy": null,
+        "tolerance_minutes": 15
+      }
+    },
+    "short_message": {
+      "cases": 5,
+      "route_correct": 1,
+      "route_accuracy": 0.2,
+      "binary_metrics": {
+        "required_action": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 0,
+          "tn": 5,
+          "precision": null,
+          "recall": null,
+          "f1": null
+        },
+        "contains_event": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 2,
+          "tn": 3,
+          "precision": null,
+          "recall": 0.0,
+          "f1": null
+        },
+        "upcoming_event": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 0,
+          "tn": 5,
+          "precision": null,
+          "recall": null,
+          "f1": null
+        },
+        "registration_required": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 0,
+          "tn": 5,
+          "precision": null,
+          "recall": null,
+          "f1": null
+        },
+        "registration_completed": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 0,
+          "tn": 5,
+          "precision": null,
+          "recall": null,
+          "f1": null
+        },
+        "deadline_detection": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 0,
+          "tn": 5,
+          "precision": null,
+          "recall": null,
+          "f1": null
+        },
+        "needs_reply": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 2,
+          "tn": 3,
+          "precision": null,
+          "recall": 0.0,
+          "f1": null
+        }
+      },
+      "date_metrics": {
+        "expected_count": 2,
+        "predicted_count": 2,
+        "date_only_match_count": 2,
+        "extraction_precision": 1.0,
+        "extraction_recall": 1.0,
+        "exact_normalized_match_count": 2,
+        "exact_normalized_match_rate": 1.0,
+        "timed_expected_count": 0,
+        "time_tolerance_match_count": 0,
+        "time_tolerance_accuracy": null,
+        "tolerance_minutes": 15
+      }
+    },
+    "timezone": {
+      "cases": 6,
+      "route_correct": 2,
+      "route_accuracy": 0.3333333333333333,
+      "binary_metrics": {
+        "required_action": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 0,
+          "tn": 6,
+          "precision": null,
+          "recall": null,
+          "f1": null
+        },
+        "contains_event": {
+          "tp": 4,
+          "fp": 0,
+          "fn": 2,
+          "tn": 0,
+          "precision": 1.0,
+          "recall": 0.6666666666666666,
+          "f1": 0.8
+        },
+        "upcoming_event": {
+          "tp": 2,
+          "fp": 0,
+          "fn": 3,
+          "tn": 1,
+          "precision": 1.0,
+          "recall": 0.4,
+          "f1": 0.5714285714285715
+        },
+        "registration_required": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 0,
+          "tn": 6,
+          "precision": null,
+          "recall": null,
+          "f1": null
+        },
+        "registration_completed": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 0,
+          "tn": 6,
+          "precision": null,
+          "recall": null,
+          "f1": null
+        },
+        "deadline_detection": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 0,
+          "tn": 6,
+          "precision": null,
+          "recall": null,
+          "f1": null
+        },
+        "needs_reply": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 0,
+          "tn": 6,
+          "precision": null,
+          "recall": null,
+          "f1": null
+        }
+      },
+      "date_metrics": {
+        "expected_count": 6,
+        "predicted_count": 8,
+        "date_only_match_count": 6,
+        "extraction_precision": 0.75,
+        "extraction_recall": 1.0,
+        "exact_normalized_match_count": 2,
+        "exact_normalized_match_rate": 0.3333333333333333,
+        "timed_expected_count": 4,
+        "time_tolerance_match_count": 4,
+        "time_tolerance_accuracy": 1.0,
+        "tolerance_minutes": 15
+      }
+    },
+    "tracking": {
+      "cases": 2,
+      "route_correct": 1,
+      "route_accuracy": 0.5,
+      "binary_metrics": {
+        "required_action": {
+          "tp": 1,
+          "fp": 0,
+          "fn": 0,
+          "tn": 1,
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0
+        },
+        "contains_event": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 0,
+          "tn": 2,
+          "precision": null,
+          "recall": null,
+          "f1": null
+        },
+        "upcoming_event": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 0,
+          "tn": 2,
+          "precision": null,
+          "recall": null,
+          "f1": null
+        },
+        "registration_required": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 0,
+          "tn": 2,
+          "precision": null,
+          "recall": null,
+          "f1": null
+        },
+        "registration_completed": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 0,
+          "tn": 2,
+          "precision": null,
+          "recall": null,
+          "f1": null
+        },
+        "deadline_detection": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 1,
+          "tn": 1,
+          "precision": null,
+          "recall": 0.0,
+          "f1": null
+        },
+        "needs_reply": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 0,
+          "tn": 2,
+          "precision": null,
+          "recall": null,
+          "f1": null
+        }
+      },
+      "date_metrics": {
+        "expected_count": 1,
+        "predicted_count": 1,
+        "date_only_match_count": 1,
+        "extraction_precision": 1.0,
+        "extraction_recall": 1.0,
+        "exact_normalized_match_count": 1,
+        "exact_normalized_match_rate": 1.0,
+        "timed_expected_count": 0,
+        "time_tolerance_match_count": 0,
+        "time_tolerance_accuracy": null,
+        "tolerance_minutes": 15
+      }
+    },
+    "trigger_negative": {
+      "cases": 16,
+      "route_correct": 6,
+      "route_accuracy": 0.375,
+      "binary_metrics": {
+        "required_action": {
+          "tp": 0,
+          "fp": 4,
+          "fn": 0,
+          "tn": 12,
+          "precision": 0.0,
+          "recall": null,
+          "f1": null
+        },
+        "contains_event": {
+          "tp": 5,
+          "fp": 3,
+          "fn": 0,
+          "tn": 8,
+          "precision": 0.625,
+          "recall": 1.0,
+          "f1": 0.7692307692307693
+        },
+        "upcoming_event": {
+          "tp": 1,
+          "fp": 1,
+          "fn": 2,
+          "tn": 12,
+          "precision": 0.5,
+          "recall": 0.3333333333333333,
+          "f1": 0.4
+        },
+        "registration_required": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 0,
+          "tn": 16,
+          "precision": null,
+          "recall": null,
+          "f1": null
+        },
+        "registration_completed": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 2,
+          "tn": 14,
+          "precision": null,
+          "recall": 0.0,
+          "f1": null
+        },
+        "deadline_detection": {
+          "tp": 0,
+          "fp": 3,
+          "fn": 0,
+          "tn": 13,
+          "precision": 0.0,
+          "recall": null,
+          "f1": null
+        },
+        "needs_reply": {
+          "tp": 0,
+          "fp": 1,
+          "fn": 0,
+          "tn": 15,
+          "precision": 0.0,
+          "recall": null,
+          "f1": null
+        }
+      },
+      "date_metrics": {
+        "expected_count": 10,
+        "predicted_count": 10,
+        "date_only_match_count": 8,
+        "extraction_precision": 0.8,
+        "extraction_recall": 0.8,
+        "exact_normalized_match_count": 8,
+        "exact_normalized_match_rate": 0.8,
+        "timed_expected_count": 1,
+        "time_tolerance_match_count": 1,
+        "time_tolerance_accuracy": 1.0,
+        "tolerance_minutes": 15
+      }
+    },
+    "utc_boundary": {
+      "cases": 2,
+      "route_correct": 0,
+      "route_accuracy": 0.0,
+      "binary_metrics": {
+        "required_action": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 0,
+          "tn": 2,
+          "precision": null,
+          "recall": null,
+          "f1": null
+        },
+        "contains_event": {
+          "tp": 2,
+          "fp": 0,
+          "fn": 0,
+          "tn": 0,
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0
+        },
+        "upcoming_event": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 1,
+          "tn": 1,
+          "precision": null,
+          "recall": 0.0,
+          "f1": null
+        },
+        "registration_required": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 0,
+          "tn": 2,
+          "precision": null,
+          "recall": null,
+          "f1": null
+        },
+        "registration_completed": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 0,
+          "tn": 2,
+          "precision": null,
+          "recall": null,
+          "f1": null
+        },
+        "deadline_detection": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 0,
+          "tn": 2,
+          "precision": null,
+          "recall": null,
+          "f1": null
+        },
+        "needs_reply": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 0,
+          "tn": 2,
+          "precision": null,
+          "recall": null,
+          "f1": null
+        }
+      },
+      "date_metrics": {
+        "expected_count": 2,
+        "predicted_count": 2,
+        "date_only_match_count": 2,
+        "extraction_precision": 1.0,
+        "extraction_recall": 1.0,
+        "exact_normalized_match_count": 2,
+        "exact_normalized_match_rate": 1.0,
+        "timed_expected_count": 2,
+        "time_tolerance_match_count": 2,
+        "time_tolerance_accuracy": 1.0,
+        "tolerance_minutes": 15
+      }
+    }
+  },
+  "predictions": [
+    {
+      "id": "v2c_ambiguous_01",
+      "email_type": "unknown",
+      "action_kind": "uncertain",
+      "needs_reply": "uncertain",
+      "contains_event": false,
+      "event_status": "uncertain",
+      "registration_available": "false",
+      "registration_required": "false",
+      "registration_completed": "uncertain",
+      "dates": [],
+      "route": "manual_review"
+    },
+    {
+      "id": "v2c_ambiguous_02",
+      "email_type": "administrative",
+      "action_kind": "required",
+      "needs_reply": "uncertain",
+      "contains_event": false,
+      "event_status": "uncertain",
+      "registration_available": "false",
+      "registration_required": "false",
+      "registration_completed": "uncertain",
+      "dates": [],
+      "route": "needs_action"
+    },
+    {
+      "id": "v2c_ambiguous_03",
+      "email_type": "event",
+      "action_kind": "none",
+      "needs_reply": "false",
+      "contains_event": true,
+      "event_status": "upcoming",
+      "registration_available": "true",
+      "registration_required": "false",
+      "registration_completed": "false",
+      "dates": [
+        {
+          "value": "2026-09-23",
+          "semantic_type": "event_time"
+        }
+      ],
+      "route": "upcoming_events"
+    },
+    {
+      "id": "v2c_ambiguous_04",
+      "email_type": "unknown",
+      "action_kind": "uncertain",
+      "needs_reply": "uncertain",
+      "contains_event": false,
+      "event_status": "uncertain",
+      "registration_available": "false",
+      "registration_required": "false",
+      "registration_completed": "uncertain",
+      "dates": [],
+      "route": "manual_review"
+    },
+    {
+      "id": "v2c_ambiguous_05",
+      "email_type": "event",
+      "action_kind": "none",
+      "needs_reply": "false",
+      "contains_event": true,
+      "event_status": "uncertain",
+      "registration_available": "uncertain",
+      "registration_required": "uncertain",
+      "registration_completed": "false",
+      "dates": [],
+      "route": "informational"
+    },
+    {
+      "id": "v2c_ambiguous_06",
+      "email_type": "unknown",
+      "action_kind": "uncertain",
+      "needs_reply": "uncertain",
+      "contains_event": false,
+      "event_status": "uncertain",
+      "registration_available": "false",
+      "registration_required": "false",
+      "registration_completed": "uncertain",
+      "dates": [
+        {
+          "value": "2026-09-11",
+          "semantic_type": "referenced_date"
+        }
+      ],
+      "route": "manual_review"
+    },
+    {
+      "id": "v2c_auto_01",
+      "email_type": "unknown",
+      "action_kind": "none",
+      "needs_reply": "uncertain",
+      "contains_event": false,
+      "event_status": "uncertain",
+      "registration_available": "false",
+      "registration_required": "false",
+      "registration_completed": "uncertain",
+      "dates": [],
+      "route": "informational"
+    },
+    {
+      "id": "v2c_auto_02",
+      "email_type": "administrative",
+      "action_kind": "required",
+      "needs_reply": "uncertain",
+      "contains_event": false,
+      "event_status": "uncertain",
+      "registration_available": "false",
+      "registration_required": "false",
+      "registration_completed": "uncertain",
+      "dates": [
+        {
+          "value": "2026-09-10",
+          "semantic_type": "deadline"
+        }
+      ],
+      "route": "needs_action"
+    },
+    {
+      "id": "v2c_auto_03",
+      "email_type": "administrative",
+      "action_kind": "none",
+      "needs_reply": "false",
+      "contains_event": false,
+      "event_status": "uncertain",
+      "registration_available": "false",
+      "registration_required": "false",
+      "registration_completed": "uncertain",
+      "dates": [
+        {
+          "value": "2026-08-31",
+          "semantic_type": "historical_date"
+        }
+      ],
+      "route": "informational"
+    },
+    {
+      "id": "v2c_auto_04",
+      "email_type": "administrative",
+      "action_kind": "required",
+      "needs_reply": "uncertain",
+      "contains_event": false,
+      "event_status": "uncertain",
+      "registration_available": "false",
+      "registration_required": "false",
+      "registration_completed": "uncertain",
+      "dates": [
+        {
+          "value": "2026-09-15",
+          "semantic_type": "deadline"
+        }
+      ],
+      "route": "needs_action"
+    },
+    {
+      "id": "v2c_complete_01",
+      "email_type": "unknown",
+      "action_kind": "none",
+      "needs_reply": "uncertain",
+      "contains_event": false,
+      "event_status": "uncertain",
+      "registration_available": "false",
+      "registration_required": "false",
+      "registration_completed": "true",
+      "dates": [
+        {
+          "value": null,
+          "semantic_type": "referenced_date"
+        }
+      ],
+      "route": "manual_review"
+    },
+    {
+      "id": "v2c_complete_02",
+      "email_type": "event",
+      "action_kind": "none",
+      "needs_reply": "false",
+      "contains_event": true,
+      "event_status": "upcoming",
+      "registration_available": "uncertain",
+      "registration_required": "uncertain",
+      "registration_completed": "false",
+      "dates": [
+        {
+          "value": "2026-08-30",
+          "semantic_type": "historical_date"
+        },
+        {
+          "value": "2026-09-16",
+          "semantic_type": "event_time"
+        }
+      ],
+      "route": "upcoming_events"
+    },
+    {
+      "id": "v2c_conditional_01",
+      "email_type": "event",
+      "action_kind": "optional",
+      "needs_reply": "false",
+      "contains_event": true,
+      "event_status": "upcoming",
+      "registration_available": "true",
+      "registration_required": "false",
+      "registration_completed": "false",
+      "dates": [
+        {
+          "value": "2026-10-06",
+          "semantic_type": "event_time"
+        },
+        {
+          "value": null,
+          "semantic_type": "deadline"
+        }
+      ],
+      "route": "upcoming_events"
+    },
+    {
+      "id": "v2c_conditional_02",
+      "email_type": "event",
+      "action_kind": "none",
+      "needs_reply": "false",
+      "contains_event": true,
+      "event_status": "upcoming",
+      "registration_available": "uncertain",
+      "registration_required": "uncertain",
+      "registration_completed": "false",
+      "dates": [
+        {
+          "value": "2026-10-06",
+          "semantic_type": "event_time"
+        },
+        {
+          "value": null,
+          "semantic_type": "deadline"
+        }
+      ],
+      "route": "upcoming_events"
+    },
+    {
+      "id": "v2c_datepair_01",
+      "email_type": "administrative",
+      "action_kind": "required",
+      "needs_reply": "uncertain",
+      "contains_event": false,
+      "event_status": "uncertain",
+      "registration_available": "false",
+      "registration_required": "false",
+      "registration_completed": "uncertain",
+      "dates": [
+        {
+          "value": "2026-09-20",
+          "semantic_type": "deadline"
+        }
+      ],
+      "route": "needs_action"
+    },
+    {
+      "id": "v2c_datepair_02",
+      "email_type": "unknown",
+      "action_kind": "uncertain",
+      "needs_reply": "uncertain",
+      "contains_event": false,
+      "event_status": "uncertain",
+      "registration_available": "false",
+      "registration_required": "false",
+      "registration_completed": "uncertain",
+      "dates": [
+        {
+          "value": "2026-09-20",
+          "semantic_type": "referenced_date"
+        }
+      ],
+      "route": "manual_review"
+    },
+    {
+      "id": "v2c_datepair_03",
+      "email_type": "unknown",
+      "action_kind": "uncertain",
+      "needs_reply": "uncertain",
+      "contains_event": false,
+      "event_status": "uncertain",
+      "registration_available": "false",
+      "registration_required": "false",
+      "registration_completed": "uncertain",
+      "dates": [
+        {
+          "value": "2025-09-20",
+          "semantic_type": "historical_date"
+        }
+      ],
+      "route": "manual_review"
+    },
+    {
+      "id": "v2c_datepair_04",
+      "email_type": "event",
+      "action_kind": "none",
+      "needs_reply": "false",
+      "contains_event": true,
+      "event_status": "upcoming",
+      "registration_available": "uncertain",
+      "registration_required": "uncertain",
+      "registration_completed": "false",
+      "dates": [
+        {
+          "value": "2026-09-20",
+          "semantic_type": "event_time"
+        }
+      ],
+      "route": "upcoming_events"
+    },
+    {
+      "id": "v2c_digest_01",
+      "email_type": "security",
+      "action_kind": "required",
+      "needs_reply": "false",
+      "contains_event": true,
+      "event_status": "upcoming",
+      "registration_available": "true",
+      "registration_required": "uncertain",
+      "registration_completed": "false",
+      "dates": [
+        {
+          "value": "2026-09-12",
+          "semantic_type": "event_time"
+        },
+        {
+          "value": null,
+          "semantic_type": "deadline"
+        }
+      ],
+      "route": "needs_action"
+    },
+    {
+      "id": "v2c_digest_02",
+      "email_type": "unknown",
+      "action_kind": "required",
+      "needs_reply": "uncertain",
+      "contains_event": false,
+      "event_status": "uncertain",
+      "registration_available": "false",
+      "registration_required": "false",
+      "registration_completed": "uncertain",
+      "dates": [
+        {
+          "value": "2026-09-02",
+          "semantic_type": "registration_deadline"
+        }
+      ],
+      "route": "needs_action"
+    },
+    {
+      "id": "v2c_dst_01",
+      "email_type": "unknown",
+      "action_kind": "none",
+      "needs_reply": "uncertain",
+      "contains_event": false,
+      "event_status": "uncertain",
+      "registration_available": "false",
+      "registration_required": "false",
+      "registration_completed": "uncertain",
+      "dates": [
+        {
+          "value": "2026-11-01T01:30:00-07:00",
+          "semantic_type": "referenced_date"
+        }
+      ],
+      "route": "informational"
+    },
+    {
+      "id": "v2c_dst_02",
+      "email_type": "unknown",
+      "action_kind": "uncertain",
+      "needs_reply": "uncertain",
+      "contains_event": false,
+      "event_status": "uncertain",
+      "registration_available": "false",
+      "registration_required": "false",
+      "registration_completed": "uncertain",
+      "dates": [
+        {
+          "value": "2026-03-08T02:15:00-07:00",
+          "semantic_type": "referenced_date"
+        }
+      ],
+      "route": "manual_review"
+    },
+    {
+      "id": "v2c_encoding_01",
+      "email_type": "unknown",
+      "action_kind": "uncertain",
+      "needs_reply": "uncertain",
+      "contains_event": false,
+      "event_status": "uncertain",
+      "registration_available": "uncertain",
+      "registration_required": "uncertain",
+      "registration_completed": "uncertain",
+      "dates": [],
+      "route": "manual_review"
+    },
+    {
+      "id": "v2c_encoding_02",
+      "email_type": "unknown",
+      "action_kind": "uncertain",
+      "needs_reply": "uncertain",
+      "contains_event": false,
+      "event_status": "uncertain",
+      "registration_available": "false",
+      "registration_required": "false",
+      "registration_completed": "uncertain",
+      "dates": [],
+      "route": "manual_review"
+    },
+    {
+      "id": "v2c_forward_01",
+      "email_type": "event",
+      "action_kind": "none",
+      "needs_reply": "true",
+      "contains_event": true,
+      "event_status": "upcoming",
+      "registration_available": "uncertain",
+      "registration_required": "uncertain",
+      "registration_completed": "false",
+      "dates": [
+        {
+          "value": null,
+          "semantic_type": "deadline"
+        },
+        {
+          "value": "2026-09-08",
+          "semantic_type": "event_time"
+        }
+      ],
+      "route": "needs_reply"
+    },
+    {
+      "id": "v2c_forward_02",
+      "email_type": "event",
+      "action_kind": "required",
+      "needs_reply": "true",
+      "contains_event": true,
+      "event_status": "past",
+      "registration_available": "uncertain",
+      "registration_required": "uncertain",
+      "registration_completed": "false",
+      "dates": [
+        {
+          "value": "2025-08-10",
+          "semantic_type": "historical_date"
+        },
+        {
+          "value": "2025-08-05",
+          "semantic_type": "historical_date"
+        }
+      ],
+      "route": "needs_action"
+    },
+    {
+      "id": "v2c_history_01",
+      "email_type": "recruiting",
+      "action_kind": "none",
+      "needs_reply": "false",
+      "contains_event": true,
+      "event_status": "upcoming",
+      "registration_available": "uncertain",
+      "registration_required": "uncertain",
+      "registration_completed": "false",
+      "dates": [
+        {
+          "value": "2026-09-18",
+          "semantic_type": "event_time"
+        },
+        {
+          "value": "2026-09-18",
+          "semantic_type": "referenced_date"
+        }
+      ],
+      "route": "upcoming_events"
+    },
+    {
+      "id": "v2c_history_02",
+      "email_type": "recruiting",
+      "action_kind": "none",
+      "needs_reply": "false",
+      "contains_event": true,
+      "event_status": "upcoming",
+      "registration_available": "uncertain",
+      "registration_required": "uncertain",
+      "registration_completed": "false",
+      "dates": [
+        {
+          "value": "2026-09-18",
+          "semantic_type": "event_time"
+        },
+        {
+          "value": "2025-09-18",
+          "semantic_type": "historical_date"
+        }
+      ],
+      "route": "upcoming_events"
+    },
+    {
+      "id": "v2c_history_03",
+      "email_type": "event",
+      "action_kind": "none",
+      "needs_reply": "false",
+      "contains_event": true,
+      "event_status": "uncertain",
+      "registration_available": "uncertain",
+      "registration_required": "uncertain",
+      "registration_completed": "false",
+      "dates": [],
+      "route": "informational"
+    },
+    {
+      "id": "v2c_history_04",
+      "email_type": "event",
+      "action_kind": "none",
+      "needs_reply": "false",
+      "contains_event": true,
+      "event_status": "past",
+      "registration_available": "uncertain",
+      "registration_required": "uncertain",
+      "registration_completed": "false",
+      "dates": [
+        {
+          "value": "2025-08-12",
+          "semantic_type": "historical_date"
+        }
+      ],
+      "route": "informational"
+    },
+    {
+      "id": "v2c_html_01",
+      "email_type": "unknown",
+      "action_kind": "uncertain",
+      "needs_reply": "uncertain",
+      "contains_event": false,
+      "event_status": "uncertain",
+      "registration_available": "false",
+      "registration_required": "false",
+      "registration_completed": "uncertain",
+      "dates": [],
+      "route": "manual_review"
+    },
+    {
+      "id": "v2c_html_02",
+      "email_type": "administrative",
+      "action_kind": "required",
+      "needs_reply": "uncertain",
+      "contains_event": false,
+      "event_status": "uncertain",
+      "registration_available": "false",
+      "registration_required": "false",
+      "registration_completed": "uncertain",
+      "dates": [
+        {
+          "value": "2026-09-13",
+          "semantic_type": "referenced_date"
+        }
+      ],
+      "route": "needs_action"
+    },
+    {
+      "id": "v2c_implicit_01",
+      "email_type": "administrative",
+      "action_kind": "required",
+      "needs_reply": "uncertain",
+      "contains_event": false,
+      "event_status": "uncertain",
+      "registration_available": "false",
+      "registration_required": "false",
+      "registration_completed": "uncertain",
+      "dates": [
+        {
+          "value": "2026-09-14",
+          "semantic_type": "deadline"
+        }
+      ],
+      "route": "needs_action"
+    },
+    {
+      "id": "v2c_implicit_02",
+      "email_type": "administrative",
+      "action_kind": "required",
+      "needs_reply": "uncertain",
+      "contains_event": false,
+      "event_status": "uncertain",
+      "registration_available": "false",
+      "registration_required": "false",
+      "registration_completed": "uncertain",
+      "dates": [],
+      "route": "needs_action"
+    },
+    {
+      "id": "v2c_implicit_03",
+      "email_type": "unknown",
+      "action_kind": "required",
+      "needs_reply": "uncertain",
+      "contains_event": false,
+      "event_status": "uncertain",
+      "registration_available": "false",
+      "registration_required": "false",
+      "registration_completed": "uncertain",
+      "dates": [
+        {
+          "value": "2026-09-11",
+          "semantic_type": "deadline"
+        }
+      ],
+      "route": "needs_action"
+    },
+    {
+      "id": "v2c_implicit_04",
+      "email_type": "administrative",
+      "action_kind": "required",
+      "needs_reply": "uncertain",
+      "contains_event": false,
+      "event_status": "uncertain",
+      "registration_available": "false",
+      "registration_required": "false",
+      "registration_completed": "uncertain",
+      "dates": [
+        {
+          "value": "2026-09-22",
+          "semantic_type": "referenced_date"
+        }
+      ],
+      "route": "needs_action"
+    },
+    {
+      "id": "v2c_long_01",
+      "email_type": "newsletter",
+      "action_kind": "optional",
+      "needs_reply": "false",
+      "contains_event": true,
+      "event_status": "upcoming",
+      "registration_available": "true",
+      "registration_required": "false",
+      "registration_completed": "false",
+      "dates": [
+        {
+          "value": "2026-08-18",
+          "semantic_type": "publication_date"
+        },
+        {
+          "value": "2026-09-17T17:00:00-07:00",
+          "semantic_type": "event_time"
+        },
+        {
+          "value": "2025-05-04",
+          "semantic_type": "historical_date"
+        },
+        {
+          "value": "2026-09-30",
+          "semantic_type": "referenced_date"
+        },
+        {
+          "value": "2026-09-06T02:00:00-07:00",
+          "semantic_type": "referenced_date"
+        }
+      ],
+      "route": "upcoming_events"
+    },
+    {
+      "id": "v2c_long_02",
+      "email_type": "event",
+      "action_kind": "optional",
+      "needs_reply": "false",
+      "contains_event": true,
+      "event_status": "past",
+      "registration_available": "true",
+      "registration_required": "false",
+      "registration_completed": "false",
+      "dates": [
+        {
+          "value": "2024-07-07",
+          "semantic_type": "historical_date"
+        },
+        {
+          "value": "2026-09-20",
+          "semantic_type": "promotion_date"
+        }
+      ],
+      "route": "low_priority"
+    },
+    {
+      "id": "v2c_marketing_01",
+      "email_type": "promotional",
+      "action_kind": "optional",
+      "needs_reply": "false",
+      "contains_event": false,
+      "event_status": "uncertain",
+      "registration_available": "false",
+      "registration_required": "false",
+      "registration_completed": "uncertain",
+      "dates": [
+        {
+          "value": "2026-09-01",
+          "semantic_type": "promotion_date"
+        }
+      ],
+      "route": "low_priority"
+    },
+    {
+      "id": "v2c_marketing_02",
+      "email_type": "administrative",
+      "action_kind": "optional",
+      "needs_reply": "uncertain",
+      "contains_event": false,
+      "event_status": "uncertain",
+      "registration_available": "false",
+      "registration_required": "false",
+      "registration_completed": "uncertain",
+      "dates": [],
+      "route": "manual_review"
+    },
+    {
+      "id": "v2c_marketing_03",
+      "email_type": "unknown",
+      "action_kind": "required",
+      "needs_reply": "uncertain",
+      "contains_event": false,
+      "event_status": "uncertain",
+      "registration_available": "false",
+      "registration_required": "false",
+      "registration_completed": "uncertain",
+      "dates": [],
+      "route": "needs_action"
+    },
+    {
+      "id": "v2c_marketing_04",
+      "email_type": "event",
+      "action_kind": "optional",
+      "needs_reply": "false",
+      "contains_event": true,
+      "event_status": "uncertain",
+      "registration_available": "true",
+      "registration_required": "false",
+      "registration_completed": "false",
+      "dates": [],
+      "route": "low_priority"
+    },
+    {
+      "id": "v2c_mime_01",
+      "email_type": "event",
+      "action_kind": "optional",
+      "needs_reply": "false",
+      "contains_event": true,
+      "event_status": "uncertain",
+      "registration_available": "true",
+      "registration_required": "false",
+      "registration_completed": "false",
+      "dates": [
+        {
+          "value": "2026-09-28T18:00:00-07:00",
+          "semantic_type": "referenced_date"
+        }
+      ],
+      "route": "informational"
+    },
+    {
+      "id": "v2c_mime_02",
+      "email_type": "personal",
+      "action_kind": "required",
+      "needs_reply": "true",
+      "contains_event": false,
+      "event_status": "uncertain",
+      "registration_available": "false",
+      "registration_required": "false",
+      "registration_completed": "uncertain",
+      "dates": [
+        {
+          "value": "2026-09-07",
+          "semantic_type": "deadline"
+        }
+      ],
+      "route": "needs_action"
+    },
+    {
+      "id": "v2c_pair_action_opt",
+      "email_type": "unknown",
+      "action_kind": "uncertain",
+      "needs_reply": "uncertain",
+      "contains_event": false,
+      "event_status": "uncertain",
+      "registration_available": "false",
+      "registration_required": "false",
+      "registration_completed": "uncertain",
+      "dates": [],
+      "route": "manual_review"
+    },
+    {
+      "id": "v2c_pair_action_req",
+      "email_type": "event",
+      "action_kind": "none",
+      "needs_reply": "false",
+      "contains_event": true,
+      "event_status": "uncertain",
+      "registration_available": "uncertain",
+      "registration_required": "uncertain",
+      "registration_completed": "false",
+      "dates": [],
+      "route": "informational"
+    },
+    {
+      "id": "v2c_pair_reg_opt",
+      "email_type": "event",
+      "action_kind": "none",
+      "needs_reply": "false",
+      "contains_event": true,
+      "event_status": "upcoming",
+      "registration_available": "true",
+      "registration_required": "false",
+      "registration_completed": "false",
+      "dates": [
+        {
+          "value": "2026-09-19",
+          "semantic_type": "event_time"
+        }
+      ],
+      "route": "upcoming_events"
+    },
+    {
+      "id": "v2c_pair_reg_req",
+      "email_type": "administrative",
+      "action_kind": "required",
+      "needs_reply": "false",
+      "contains_event": true,
+      "event_status": "upcoming",
+      "registration_available": "uncertain",
+      "registration_required": "uncertain",
+      "registration_completed": "false",
+      "dates": [
+        {
+          "value": "2026-09-19",
+          "semantic_type": "event_time"
+        }
+      ],
+      "route": "needs_action"
+    },
+    {
+      "id": "v2c_quote_01",
+      "email_type": "administrative",
+      "action_kind": "none",
+      "needs_reply": "uncertain",
+      "contains_event": false,
+      "event_status": "uncertain",
+      "registration_available": "false",
+      "registration_required": "false",
+      "registration_completed": "uncertain",
+      "dates": [],
+      "route": "manual_review"
+    },
+    {
+      "id": "v2c_quote_02",
+      "email_type": "event",
+      "action_kind": "none",
+      "needs_reply": "false",
+      "contains_event": true,
+      "event_status": "uncertain",
+      "registration_available": "uncertain",
+      "registration_required": "uncertain",
+      "registration_completed": "false",
+      "dates": [],
+      "route": "informational"
+    },
+    {
+      "id": "v2c_regdates_01",
+      "email_type": "event",
+      "action_kind": "required",
+      "needs_reply": "false",
+      "contains_event": true,
+      "event_status": "upcoming",
+      "registration_available": "true",
+      "registration_required": "uncertain",
+      "registration_completed": "false",
+      "dates": [
+        {
+          "value": null,
+          "semantic_type": "deadline"
+        },
+        {
+          "value": "2026-09-18T13:00:00-07:00",
+          "semantic_type": "event_time"
+        }
+      ],
+      "route": "needs_action"
+    },
+    {
+      "id": "v2c_regdates_02",
+      "email_type": "event",
+      "action_kind": "none",
+      "needs_reply": "false",
+      "contains_event": true,
+      "event_status": "uncertain",
+      "registration_available": "true",
+      "registration_required": "uncertain",
+      "registration_completed": "false",
+      "dates": [
+        {
+          "value": "2026-09-18T13:00:00-07:00",
+          "semantic_type": "referenced_date"
+        },
+        {
+          "value": null,
+          "semantic_type": "registration_deadline"
+        }
+      ],
+      "route": "informational"
+    },
+    {
+      "id": "v2c_reply_01",
+      "email_type": "personal",
+      "action_kind": "required",
+      "needs_reply": "true",
+      "contains_event": false,
+      "event_status": "uncertain",
+      "registration_available": "false",
+      "registration_required": "false",
+      "registration_completed": "uncertain",
+      "dates": [],
+      "route": "needs_action"
+    },
+    {
+      "id": "v2c_reply_02",
+      "email_type": "automated",
+      "action_kind": "uncertain",
+      "needs_reply": "false",
+      "contains_event": false,
+      "event_status": "uncertain",
+      "registration_available": "false",
+      "registration_required": "false",
+      "registration_completed": "uncertain",
+      "dates": [],
+      "route": "informational"
+    },
+    {
+      "id": "v2c_roles_01",
+      "email_type": "unknown",
+      "action_kind": "none",
+      "needs_reply": "uncertain",
+      "contains_event": false,
+      "event_status": "uncertain",
+      "registration_available": "false",
+      "registration_required": "false",
+      "registration_completed": "uncertain",
+      "dates": [
+        {
+          "value": "2026-08-20",
+          "semantic_type": "publication_date"
+        },
+        {
+          "value": null,
+          "semantic_type": "deadline"
+        },
+        {
+          "value": null,
+          "semantic_type": "referenced_date"
+        }
+      ],
+      "route": "informational"
+    },
+    {
+      "id": "v2c_roles_02",
+      "email_type": "unknown",
+      "action_kind": "uncertain",
+      "needs_reply": "uncertain",
+      "contains_event": false,
+      "event_status": "uncertain",
+      "registration_available": "false",
+      "registration_required": "false",
+      "registration_completed": "uncertain",
+      "dates": [
+        {
+          "value": "2026-08-15",
+          "semantic_type": "historical_date"
+        },
+        {
+          "value": null,
+          "semantic_type": "deadline"
+        },
+        {
+          "value": null,
+          "semantic_type": "referenced_date"
+        }
+      ],
+      "route": "manual_review"
+    },
+    {
+      "id": "v2c_roles_03",
+      "email_type": "unknown",
+      "action_kind": "uncertain",
+      "needs_reply": "uncertain",
+      "contains_event": false,
+      "event_status": "uncertain",
+      "registration_available": "false",
+      "registration_required": "false",
+      "registration_completed": "uncertain",
+      "dates": [
+        {
+          "value": "2025-09-20",
+          "semantic_type": "historical_date"
+        },
+        {
+          "value": "2025-10-02",
+          "semantic_type": "historical_date"
+        },
+        {
+          "value": "2026-08-15",
+          "semantic_type": "publication_date"
+        }
+      ],
+      "route": "manual_review"
+    },
+    {
+      "id": "v2c_roles_04",
+      "email_type": "event",
+      "action_kind": "optional",
+      "needs_reply": "false",
+      "contains_event": true,
+      "event_status": "upcoming",
+      "registration_available": "true",
+      "registration_required": "false",
+      "registration_completed": "false",
+      "dates": [
+        {
+          "value": "2026-09-08",
+          "semantic_type": "registration_deadline"
+        },
+        {
+          "value": "2026-10-14",
+          "semantic_type": "event_time"
+        }
+      ],
+      "route": "upcoming_events"
+    },
+    {
+      "id": "v2c_short_01",
+      "email_type": "unknown",
+      "action_kind": "uncertain",
+      "needs_reply": "uncertain",
+      "contains_event": false,
+      "event_status": "uncertain",
+      "registration_available": "false",
+      "registration_required": "false",
+      "registration_completed": "uncertain",
+      "dates": [],
+      "route": "manual_review"
+    },
+    {
+      "id": "v2c_short_02",
+      "email_type": "unknown",
+      "action_kind": "uncertain",
+      "needs_reply": "uncertain",
+      "contains_event": false,
+      "event_status": "uncertain",
+      "registration_available": "false",
+      "registration_required": "false",
+      "registration_completed": "uncertain",
+      "dates": [],
+      "route": "manual_review"
+    },
+    {
+      "id": "v2c_short_03",
+      "email_type": "unknown",
+      "action_kind": "uncertain",
+      "needs_reply": "uncertain",
+      "contains_event": false,
+      "event_status": "uncertain",
+      "registration_available": "false",
+      "registration_required": "false",
+      "registration_completed": "uncertain",
+      "dates": [
+        {
+          "value": "2026-09-02",
+          "semantic_type": "referenced_date"
+        }
+      ],
+      "route": "manual_review"
+    },
+    {
+      "id": "v2c_short_04",
+      "email_type": "unknown",
+      "action_kind": "uncertain",
+      "needs_reply": "uncertain",
+      "contains_event": false,
+      "event_status": "uncertain",
+      "registration_available": "false",
+      "registration_required": "false",
+      "registration_completed": "uncertain",
+      "dates": [
+        {
+          "value": "2026-09-02",
+          "semantic_type": "referenced_date"
+        }
+      ],
+      "route": "manual_review"
+    },
+    {
+      "id": "v2c_time_01",
+      "email_type": "event",
+      "action_kind": "none",
+      "needs_reply": "false",
+      "contains_event": true,
+      "event_status": "uncertain",
+      "registration_available": "uncertain",
+      "registration_required": "uncertain",
+      "registration_completed": "false",
+      "dates": [
+        {
+          "value": "2026-09-02T00:15:00-07:00",
+          "semantic_type": "referenced_date"
+        }
+      ],
+      "route": "informational"
+    },
+    {
+      "id": "v2c_time_02",
+      "email_type": "event",
+      "action_kind": "none",
+      "needs_reply": "false",
+      "contains_event": true,
+      "event_status": "uncertain",
+      "registration_available": "uncertain",
+      "registration_required": "uncertain",
+      "registration_completed": "false",
+      "dates": [
+        {
+          "value": "2026-09-01T23:50:00-07:00",
+          "semantic_type": "referenced_date"
+        }
+      ],
+      "route": "informational"
+    },
+    {
+      "id": "v2c_time_03",
+      "email_type": "event",
+      "action_kind": "none",
+      "needs_reply": "false",
+      "contains_event": true,
+      "event_status": "upcoming",
+      "registration_available": "uncertain",
+      "registration_required": "uncertain",
+      "registration_completed": "false",
+      "dates": [
+        {
+          "value": "2026-09-04",
+          "semantic_type": "referenced_date"
+        },
+        {
+          "value": "2026-09-04T15:30:00-07:00",
+          "semantic_type": "event_time"
+        }
+      ],
+      "route": "upcoming_events"
+    },
+    {
+      "id": "v2c_time_04",
+      "email_type": "event",
+      "action_kind": "none",
+      "needs_reply": "false",
+      "contains_event": true,
+      "event_status": "upcoming",
+      "registration_available": "uncertain",
+      "registration_required": "uncertain",
+      "registration_completed": "false",
+      "dates": [
+        {
+          "value": "2026-09-11",
+          "semantic_type": "referenced_date"
+        },
+        {
+          "value": "2026-09-11T15:30:00-07:00",
+          "semantic_type": "event_time"
+        }
+      ],
+      "route": "upcoming_events"
+    }
+  ],
+  "failures": [
+    {
+      "id": "v2c_marketing_01",
+      "tags": [
+        "adversarial",
+        "promotion",
+        "trigger_negative"
+      ],
+      "expected": {
+        "registration_completed": "false"
+      },
+      "predicted": {
+        "registration_completed": "uncertain"
+      }
+    },
+    {
+      "id": "v2c_marketing_02",
+      "tags": [
+        "adversarial",
+        "promotion",
+        "registration",
+        "trigger_negative"
+      ],
+      "expected": {
+        "email_type": "promotional",
+        "needs_reply": "false",
+        "registration_completed": "false",
+        "route": "low_priority"
+      },
+      "predicted": {
+        "email_type": "administrative",
+        "needs_reply": "uncertain",
+        "registration_completed": "uncertain",
+        "route": "manual_review"
+      }
+    },
+    {
+      "id": "v2c_marketing_03",
+      "tags": [
+        "adversarial",
+        "deadline",
+        "promotion",
+        "trigger_negative"
+      ],
+      "expected": {
+        "email_type": "promotional",
+        "action_kind": "optional",
+        "needs_reply": "false",
+        "registration_completed": "false",
+        "route": "low_priority",
+        "dates": [
+          "2026-09-01|promotion_date"
+        ]
+      },
+      "predicted": {
+        "email_type": "unknown",
+        "action_kind": "required",
+        "needs_reply": "uncertain",
+        "registration_completed": "uncertain",
+        "route": "needs_action",
+        "dates": []
+      }
+    },
+    {
+      "id": "v2c_marketing_04",
+      "tags": [
+        "adversarial",
+        "event",
+        "promotion",
+        "registration",
+        "trigger_negative"
+      ],
+      "expected": {
+        "email_type": "promotional",
+        "event_status": "upcoming",
+        "route": "upcoming_events"
+      },
+      "predicted": {
+        "email_type": "event",
+        "event_status": "uncertain",
+        "route": "low_priority"
+      }
+    },
+    {
+      "id": "v2c_implicit_01",
+      "tags": [
+        "adversarial",
+        "deadline",
+        "implicit_obligation",
+        "required_action"
+      ],
+      "expected": {
+        "needs_reply": "false",
+        "registration_completed": "false"
+      },
+      "predicted": {
+        "needs_reply": "uncertain",
+        "registration_completed": "uncertain"
+      }
+    },
+    {
+      "id": "v2c_implicit_02",
+      "tags": [
+        "adversarial",
+        "implicit_obligation",
+        "relative_date",
+        "required_action"
+      ],
+      "expected": {
+        "email_type": "security",
+        "needs_reply": "false",
+        "registration_completed": "false",
+        "dates": [
+          "2026-09-04|deadline"
+        ]
+      },
+      "predicted": {
+        "email_type": "administrative",
+        "needs_reply": "uncertain",
+        "registration_completed": "uncertain",
+        "dates": []
+      }
+    },
+    {
+      "id": "v2c_implicit_03",
+      "tags": [
+        "adversarial",
+        "implicit_obligation",
+        "reply",
+        "required_action"
+      ],
+      "expected": {
+        "email_type": "academic",
+        "needs_reply": "true",
+        "registration_completed": "false"
+      },
+      "predicted": {
+        "email_type": "unknown",
+        "needs_reply": "uncertain",
+        "registration_completed": "uncertain"
+      }
+    },
+    {
+      "id": "v2c_implicit_04",
+      "tags": [
+        "adversarial",
+        "deadline",
+        "implicit_obligation",
+        "required_action"
+      ],
+      "expected": {
+        "email_type": "academic",
+        "needs_reply": "false",
+        "registration_completed": "false",
+        "dates": [
+          "2026-09-22|deadline"
+        ]
+      },
+      "predicted": {
+        "email_type": "administrative",
+        "needs_reply": "uncertain",
+        "registration_completed": "uncertain",
+        "dates": [
+          "2026-09-22|referenced_date"
+        ]
+      }
+    },
+    {
+      "id": "v2c_pair_action_req",
+      "tags": [
+        "minimal_pair",
+        "relative_date",
+        "required_action"
+      ],
+      "expected": {
+        "email_type": "administrative",
+        "action_kind": "required",
+        "contains_event": false,
+        "registration_available": "false",
+        "registration_required": "false",
+        "route": "needs_action",
+        "dates": [
+          "2026-09-04|deadline"
+        ]
+      },
+      "predicted": {
+        "email_type": "event",
+        "action_kind": "none",
+        "contains_event": true,
+        "registration_available": "uncertain",
+        "registration_required": "uncertain",
+        "route": "informational",
+        "dates": []
+      }
+    },
+    {
+      "id": "v2c_pair_action_opt",
+      "tags": [
+        "minimal_pair",
+        "promotion",
+        "relative_date"
+      ],
+      "expected": {
+        "email_type": "promotional",
+        "action_kind": "optional",
+        "needs_reply": "false",
+        "registration_completed": "false",
+        "route": "low_priority",
+        "dates": [
+          "2026-09-04|promotion_date"
+        ]
+      },
+      "predicted": {
+        "email_type": "unknown",
+        "action_kind": "uncertain",
+        "needs_reply": "uncertain",
+        "registration_completed": "uncertain",
+        "route": "manual_review",
+        "dates": []
+      }
+    },
+    {
+      "id": "v2c_pair_reg_req",
+      "tags": [
+        "event",
+        "minimal_pair",
+        "registration"
+      ],
+      "expected": {
+        "email_type": "event",
+        "registration_available": "true",
+        "registration_required": "true"
+      },
+      "predicted": {
+        "email_type": "administrative",
+        "registration_available": "uncertain",
+        "registration_required": "uncertain"
+      }
+    },
+    {
+      "id": "v2c_pair_reg_opt",
+      "tags": [
+        "event",
+        "minimal_pair",
+        "registration"
+      ],
+      "expected": {
+        "action_kind": "optional"
+      },
+      "predicted": {
+        "action_kind": "none"
+      }
+    },
+    {
+      "id": "v2c_conditional_01",
+      "tags": [
+        "conditional",
+        "event",
+        "multiple_dates",
+        "registration"
+      ],
+      "expected": {
+        "dates": [
+          "2026-09-25|registration_deadline",
+          "2026-10-06|event_time"
+        ]
+      },
+      "predicted": {
+        "dates": [
+          "2026-10-06|event_time"
+        ]
+      }
+    },
+    {
+      "id": "v2c_conditional_02",
+      "tags": [
+        "conditional",
+        "event",
+        "multiple_dates",
+        "registration_completed"
+      ],
+      "expected": {
+        "action_kind": "required",
+        "registration_available": "true",
+        "registration_required": "false",
+        "registration_completed": "true",
+        "route": "needs_action",
+        "dates": [
+          "2026-09-25|deadline",
+          "2026-10-06|event_time"
+        ]
+      },
+      "predicted": {
+        "action_kind": "none",
+        "registration_available": "uncertain",
+        "registration_required": "uncertain",
+        "registration_completed": "false",
+        "route": "upcoming_events",
+        "dates": [
+          "2026-10-06|event_time"
+        ]
+      }
+    },
+    {
+      "id": "v2c_complete_01",
+      "tags": [
+        "event",
+        "registration_completed"
+      ],
+      "expected": {
+        "email_type": "event",
+        "needs_reply": "false",
+        "contains_event": true,
+        "event_status": "upcoming",
+        "registration_available": "true",
+        "route": "upcoming_events",
+        "dates": [
+          "2026-10-09|event_time"
+        ]
+      },
+      "predicted": {
+        "email_type": "unknown",
+        "needs_reply": "uncertain",
+        "contains_event": false,
+        "event_status": "uncertain",
+        "registration_available": "false",
+        "route": "manual_review",
+        "dates": []
+      }
+    },
+    {
+      "id": "v2c_complete_02",
+      "tags": [
+        "event",
+        "multiple_dates",
+        "registration_completed"
+      ],
+      "expected": {
+        "registration_available": "true",
+        "registration_required": "false",
+        "registration_completed": "true"
+      },
+      "predicted": {
+        "registration_available": "uncertain",
+        "registration_required": "uncertain",
+        "registration_completed": "false"
+      }
+    },
+    {
+      "id": "v2c_history_01",
+      "tags": [
+        "event",
+        "minimal_pair",
+        "recruiting"
+      ],
+      "expected": {
+        "registration_available": "false",
+        "registration_required": "false",
+        "dates": [
+          "2026-09-18 10:00:00-07:00|event_time"
+        ]
+      },
+      "predicted": {
+        "registration_available": "uncertain",
+        "registration_required": "uncertain",
+        "dates": [
+          "2026-09-18|event_time",
+          "2026-09-18|referenced_date"
+        ]
+      }
+    },
+    {
+      "id": "v2c_history_02",
+      "tags": [
+        "event",
+        "historical_date",
+        "minimal_pair"
+      ],
+      "expected": {
+        "event_status": "past",
+        "registration_available": "false",
+        "registration_required": "false",
+        "route": "informational",
+        "dates": [
+          "2025-09-18|historical_date"
+        ]
+      },
+      "predicted": {
+        "event_status": "upcoming",
+        "registration_available": "uncertain",
+        "registration_required": "uncertain",
+        "route": "upcoming_events",
+        "dates": [
+          "2025-09-18|historical_date",
+          "2026-09-18|event_time"
+        ]
+      }
+    },
+    {
+      "id": "v2c_history_03",
+      "tags": [
+        "event",
+        "newsletter",
+        "trigger_negative"
+      ],
+      "expected": {
+        "email_type": "newsletter",
+        "contains_event": false,
+        "registration_available": "false",
+        "registration_required": "false",
+        "route": "low_priority"
+      },
+      "predicted": {
+        "email_type": "event",
+        "contains_event": true,
+        "registration_available": "uncertain",
+        "registration_required": "uncertain",
+        "route": "informational"
+      }
+    },
+    {
+      "id": "v2c_history_04",
+      "tags": [
+        "deadline",
+        "event",
+        "historical_date",
+        "trigger_negative"
+      ],
+      "expected": {
+        "registration_available": "false",
+        "registration_required": "false"
+      },
+      "predicted": {
+        "registration_available": "uncertain",
+        "registration_required": "uncertain"
+      }
+    },
+    {
+      "id": "v2c_roles_01",
+      "tags": [
+        "date_semantics",
+        "event",
+        "multiple_dates",
+        "registration",
+        "reply"
+      ],
+      "expected": {
+        "email_type": "event",
+        "action_kind": "required",
+        "needs_reply": "true",
+        "contains_event": true,
+        "event_status": "upcoming",
+        "registration_completed": "false",
+        "route": "needs_action",
+        "dates": [
+          "2026-08-20|publication_date",
+          "2026-09-07|registration_deadline",
+          "2026-09-14 09:00:00-07:00|event_time"
+        ]
+      },
+      "predicted": {
+        "email_type": "unknown",
+        "action_kind": "none",
+        "needs_reply": "uncertain",
+        "contains_event": false,
+        "event_status": "uncertain",
+        "registration_completed": "uncertain",
+        "route": "informational",
+        "dates": [
+          "2026-08-20|publication_date"
+        ]
+      }
+    },
+    {
+      "id": "v2c_roles_02",
+      "tags": [
+        "date_semantics",
+        "deadline",
+        "event",
+        "multiple_dates"
+      ],
+      "expected": {
+        "email_type": "recruiting",
+        "action_kind": "required",
+        "needs_reply": "false",
+        "contains_event": true,
+        "event_status": "upcoming",
+        "registration_completed": "false",
+        "route": "needs_action",
+        "dates": [
+          "2026-08-15|publication_date",
+          "2026-09-20|deadline",
+          "2026-10-02 13:00:00-07:00|event_time"
+        ]
+      },
+      "predicted": {
+        "email_type": "unknown",
+        "action_kind": "uncertain",
+        "needs_reply": "uncertain",
+        "contains_event": false,
+        "event_status": "uncertain",
+        "registration_completed": "uncertain",
+        "route": "manual_review",
+        "dates": [
+          "2026-08-15|historical_date"
+        ]
+      }
+    },
+    {
+      "id": "v2c_roles_03",
+      "tags": [
+        "date_semantics",
+        "historical_date",
+        "multiple_dates"
+      ],
+      "expected": {
+        "email_type": "recruiting",
+        "action_kind": "none",
+        "needs_reply": "false",
+        "contains_event": true,
+        "event_status": "past",
+        "registration_completed": "false",
+        "route": "informational"
+      },
+      "predicted": {
+        "email_type": "unknown",
+        "action_kind": "uncertain",
+        "needs_reply": "uncertain",
+        "contains_event": false,
+        "event_status": "uncertain",
+        "registration_completed": "uncertain",
+        "route": "manual_review"
+      }
+    },
+    {
+      "id": "v2c_roles_04",
+      "tags": [
+        "date_semantics",
+        "event",
+        "multiple_dates",
+        "registration"
+      ],
+      "expected": {
+        "dates": [
+          "2026-09-08|promotion_date",
+          "2026-10-14|event_time"
+        ]
+      },
+      "predicted": {
+        "dates": [
+          "2026-09-08|registration_deadline",
+          "2026-10-14|event_time"
+        ]
+      }
+    },
+    {
+      "id": "v2c_time_01",
+      "tags": [
+        "event",
+        "relative_date",
+        "timezone",
+        "utc_boundary"
+      ],
+      "expected": {
+        "event_status": "upcoming",
+        "registration_available": "false",
+        "registration_required": "false",
+        "route": "upcoming_events",
+        "dates": [
+          "2026-09-02 00:15:00-07:00|event_time"
+        ]
+      },
+      "predicted": {
+        "event_status": "uncertain",
+        "registration_available": "uncertain",
+        "registration_required": "uncertain",
+        "route": "informational",
+        "dates": [
+          "2026-09-02 00:15:00-07:00|referenced_date"
+        ]
+      }
+    },
+    {
+      "id": "v2c_time_02",
+      "tags": [
+        "event",
+        "relative_date",
+        "timezone",
+        "utc_boundary"
+      ],
+      "expected": {
+        "event_status": "ongoing",
+        "registration_available": "false",
+        "registration_required": "false",
+        "route": "upcoming_events",
+        "dates": [
+          "2026-09-01 23:50:00-07:00|event_time"
+        ]
+      },
+      "predicted": {
+        "event_status": "uncertain",
+        "registration_available": "uncertain",
+        "registration_required": "uncertain",
+        "route": "informational",
+        "dates": [
+          "2026-09-01 23:50:00-07:00|referenced_date"
+        ]
+      }
+    },
+    {
+      "id": "v2c_time_03",
+      "tags": [
+        "event",
+        "relative_date",
+        "timezone"
+      ],
+      "expected": {
+        "registration_available": "false",
+        "registration_required": "false",
+        "dates": [
+          "2026-09-04 15:30:00-07:00|event_time"
+        ]
+      },
+      "predicted": {
+        "registration_available": "uncertain",
+        "registration_required": "uncertain",
+        "dates": [
+          "2026-09-04 15:30:00-07:00|event_time",
+          "2026-09-04|referenced_date"
+        ]
+      }
+    },
+    {
+      "id": "v2c_time_04",
+      "tags": [
+        "event",
+        "minimal_pair",
+        "relative_date",
+        "timezone"
+      ],
+      "expected": {
+        "registration_available": "false",
+        "registration_required": "false",
+        "dates": [
+          "2026-09-11 15:30:00-07:00|event_time"
+        ]
+      },
+      "predicted": {
+        "registration_available": "uncertain",
+        "registration_required": "uncertain",
+        "dates": [
+          "2026-09-11 15:30:00-07:00|event_time",
+          "2026-09-11|referenced_date"
+        ]
+      }
+    },
+    {
+      "id": "v2c_dst_01",
+      "tags": [
+        "ambiguous_time",
+        "dst_boundary",
+        "event",
+        "timezone"
+      ],
+      "expected": {
+        "email_type": "event",
+        "needs_reply": "false",
+        "contains_event": true,
+        "event_status": "upcoming",
+        "registration_completed": "false",
+        "route": "upcoming_events",
+        "dates": [
+          "2026-11-01|event_time"
+        ]
+      },
+      "predicted": {
+        "email_type": "unknown",
+        "needs_reply": "uncertain",
+        "contains_event": false,
+        "event_status": "uncertain",
+        "registration_completed": "uncertain",
+        "route": "informational",
+        "dates": [
+          "2026-11-01 01:30:00-07:00|referenced_date"
+        ]
+      }
+    },
+    {
+      "id": "v2c_dst_02",
+      "tags": [
+        "ambiguous_time",
+        "dst_boundary",
+        "event",
+        "timezone"
+      ],
+      "expected": {
+        "email_type": "event",
+        "action_kind": "none",
+        "needs_reply": "false",
+        "contains_event": true,
+        "event_status": "upcoming",
+        "registration_completed": "false",
+        "route": "upcoming_events",
+        "dates": [
+          "2026-03-08|event_time"
+        ]
+      },
+      "predicted": {
+        "email_type": "unknown",
+        "action_kind": "uncertain",
+        "needs_reply": "uncertain",
+        "contains_event": false,
+        "event_status": "uncertain",
+        "registration_completed": "uncertain",
+        "route": "manual_review",
+        "dates": [
+          "2026-03-08 02:15:00-07:00|referenced_date"
+        ]
+      }
+    },
+    {
+      "id": "v2c_quote_01",
+      "tags": [
+        "obsolete_deadline",
+        "quoted_reply",
+        "trigger_negative"
+      ],
+      "expected": {
+        "needs_reply": "false",
+        "registration_completed": "false",
+        "route": "informational"
+      },
+      "predicted": {
+        "needs_reply": "uncertain",
+        "registration_completed": "uncertain",
+        "route": "manual_review"
+      }
+    },
+    {
+      "id": "v2c_quote_02",
+      "tags": [
+        "event",
+        "obsolete_deadline",
+        "quoted_reply",
+        "registration_completed"
+      ],
+      "expected": {
+        "event_status": "past",
+        "registration_available": "false",
+        "registration_required": "false",
+        "registration_completed": "true"
+      },
+      "predicted": {
+        "event_status": "uncertain",
+        "registration_available": "uncertain",
+        "registration_required": "uncertain",
+        "registration_completed": "false"
+      }
+    },
+    {
+      "id": "v2c_forward_01",
+      "tags": [
+        "event",
+        "forwarded",
+        "multiple_dates",
+        "reply"
+      ],
+      "expected": {
+        "email_type": "personal",
+        "action_kind": "required",
+        "registration_available": "false",
+        "registration_required": "false",
+        "route": "needs_action",
+        "dates": [
+          "2026-09-05|deadline",
+          "2026-09-08|event_time"
+        ]
+      },
+      "predicted": {
+        "email_type": "event",
+        "action_kind": "none",
+        "registration_available": "uncertain",
+        "registration_required": "uncertain",
+        "route": "needs_reply",
+        "dates": [
+          "2026-09-08|event_time"
+        ]
+      }
+    },
+    {
+      "id": "v2c_forward_02",
+      "tags": [
+        "event",
+        "forwarded",
+        "historical_date",
+        "trigger_negative"
+      ],
+      "expected": {
+        "email_type": "administrative",
+        "action_kind": "none",
+        "needs_reply": "false",
+        "registration_available": "false",
+        "registration_required": "false",
+        "route": "informational"
+      },
+      "predicted": {
+        "email_type": "event",
+        "action_kind": "required",
+        "needs_reply": "true",
+        "registration_available": "uncertain",
+        "registration_required": "uncertain",
+        "route": "needs_action"
+      }
+    },
+    {
+      "id": "v2c_digest_01",
+      "tags": [
+        "container",
+        "digest",
+        "multiple_sections",
+        "trigger_negative"
+      ],
+      "expected": {
+        "email_type": "digest",
+        "action_kind": "none",
+        "contains_event": false,
+        "event_status": "uncertain",
+        "registration_available": "false",
+        "registration_required": "false",
+        "route": "informational",
+        "dates": []
+      },
+      "predicted": {
+        "email_type": "security",
+        "action_kind": "required",
+        "contains_event": true,
+        "event_status": "upcoming",
+        "registration_available": "true",
+        "registration_required": "uncertain",
+        "route": "needs_action",
+        "dates": [
+          "2026-09-12|event_time"
+        ]
+      }
+    },
+    {
+      "id": "v2c_digest_02",
+      "tags": [
+        "container",
+        "digest",
+        "quoted_reply",
+        "trigger_negative"
+      ],
+      "expected": {
+        "email_type": "digest",
+        "action_kind": "none",
+        "needs_reply": "false",
+        "registration_completed": "false",
+        "route": "informational",
+        "dates": []
+      },
+      "predicted": {
+        "email_type": "unknown",
+        "action_kind": "required",
+        "needs_reply": "uncertain",
+        "registration_completed": "uncertain",
+        "route": "needs_action",
+        "dates": [
+          "2026-09-02|registration_deadline"
+        ]
+      }
+    },
+    {
+      "id": "v2c_long_01",
+      "tags": [
+        "event",
+        "long_body",
+        "multiple_dates",
+        "multiple_sections",
+        "newsletter"
+      ],
+      "expected": {
+        "registration_available": "false",
+        "dates": [
+          "2025-05-04|historical_date",
+          "2026-08-18|publication_date",
+          "2026-09-06 02:00:00-07:00|event_time",
+          "2026-09-17 17:00:00-07:00|event_time",
+          "2026-09-30|promotion_date"
+        ]
+      },
+      "predicted": {
+        "registration_available": "true",
+        "dates": [
+          "2025-05-04|historical_date",
+          "2026-08-18|publication_date",
+          "2026-09-06 02:00:00-07:00|referenced_date",
+          "2026-09-17 17:00:00-07:00|event_time",
+          "2026-09-30|referenced_date"
+        ]
+      }
+    },
+    {
+      "id": "v2c_long_02",
+      "tags": [
+        "long_body",
+        "multiple_sections",
+        "newsletter",
+        "promotion",
+        "trigger_negative"
+      ],
+      "expected": {
+        "email_type": "newsletter",
+        "contains_event": false,
+        "event_status": "uncertain",
+        "registration_available": "false"
+      },
+      "predicted": {
+        "email_type": "event",
+        "contains_event": true,
+        "event_status": "past",
+        "registration_available": "true"
+      }
+    },
+    {
+      "id": "v2c_html_01",
+      "tags": [
+        "boilerplate",
+        "html_noise",
+        "preheader",
+        "tracking",
+        "trigger_negative"
+      ],
+      "expected": {
+        "email_type": "automated",
+        "action_kind": "none",
+        "needs_reply": "false",
+        "registration_completed": "false",
+        "route": "informational"
+      },
+      "predicted": {
+        "email_type": "unknown",
+        "action_kind": "uncertain",
+        "needs_reply": "uncertain",
+        "registration_completed": "uncertain",
+        "route": "manual_review"
+      }
+    },
+    {
+      "id": "v2c_html_02",
+      "tags": [
+        "html_noise",
+        "implicit_obligation",
+        "preheader",
+        "required_action",
+        "tracking"
+      ],
+      "expected": {
+        "needs_reply": "false",
+        "registration_completed": "false",
+        "dates": [
+          "2026-09-13|deadline"
+        ]
+      },
+      "predicted": {
+        "needs_reply": "uncertain",
+        "registration_completed": "uncertain",
+        "dates": [
+          "2026-09-13|referenced_date"
+        ]
+      }
+    },
+    {
+      "id": "v2c_mime_01",
+      "tags": [
+        "attachment_excluded",
+        "event",
+        "nested_mime",
+        "registration"
+      ],
+      "expected": {
+        "event_status": "upcoming",
+        "route": "upcoming_events",
+        "dates": [
+          "2026-09-28 18:00:00-07:00|event_time"
+        ]
+      },
+      "predicted": {
+        "event_status": "uncertain",
+        "route": "informational",
+        "dates": [
+          "2026-09-28 18:00:00-07:00|referenced_date"
+        ]
+      }
+    },
+    {
+      "id": "v2c_mime_02",
+      "tags": [
+        "deadline",
+        "nested_mime",
+        "reply"
+      ],
+      "expected": {
+        "registration_completed": "false"
+      },
+      "predicted": {
+        "registration_completed": "uncertain"
+      }
+    },
+    {
+      "id": "v2c_encoding_01",
+      "tags": [
+        "malformed_encoding",
+        "manual_review"
+      ],
+      "expected": {
+        "registration_available": "false",
+        "registration_required": "false",
+        "registration_completed": "false"
+      },
+      "predicted": {
+        "registration_available": "uncertain",
+        "registration_required": "uncertain",
+        "registration_completed": "uncertain"
+      }
+    },
+    {
+      "id": "v2c_encoding_02",
+      "tags": [
+        "malformed_encoding",
+        "manual_review"
+      ],
+      "expected": {
+        "registration_completed": "false"
+      },
+      "predicted": {
+        "registration_completed": "uncertain"
+      }
+    },
+    {
+      "id": "v2c_ambiguous_01",
+      "tags": [
+        "ambiguous",
+        "manual_review",
+        "short_message"
+      ],
+      "expected": {
+        "registration_completed": "false"
+      },
+      "predicted": {
+        "registration_completed": "uncertain"
+      }
+    },
+    {
+      "id": "v2c_ambiguous_02",
+      "tags": [
+        "ambiguous",
+        "conditional",
+        "manual_review"
+      ],
+      "expected": {
+        "action_kind": "uncertain",
+        "needs_reply": "false",
+        "registration_completed": "false",
+        "route": "manual_review"
+      },
+      "predicted": {
+        "action_kind": "required",
+        "needs_reply": "uncertain",
+        "registration_completed": "uncertain",
+        "route": "needs_action"
+      }
+    },
+    {
+      "id": "v2c_ambiguous_03",
+      "tags": [
+        "ambiguous",
+        "conditional",
+        "event",
+        "registration"
+      ],
+      "expected": {
+        "action_kind": "uncertain",
+        "registration_available": "uncertain",
+        "registration_required": "uncertain"
+      },
+      "predicted": {
+        "action_kind": "none",
+        "registration_available": "true",
+        "registration_required": "false"
+      }
+    },
+    {
+      "id": "v2c_ambiguous_04",
+      "tags": [
+        "ambiguous",
+        "conditional",
+        "manual_review"
+      ],
+      "expected": {
+        "email_type": "administrative",
+        "registration_completed": "false"
+      },
+      "predicted": {
+        "email_type": "unknown",
+        "registration_completed": "uncertain"
+      }
+    },
+    {
+      "id": "v2c_ambiguous_05",
+      "tags": [
+        "ambiguous",
+        "event",
+        "manual_review",
+        "relative_date"
+      ],
+      "expected": {
+        "email_type": "personal",
+        "registration_available": "false",
+        "registration_required": "false",
+        "route": "manual_review",
+        "dates": [
+          "2026-09-04|unknown"
+        ]
+      },
+      "predicted": {
+        "email_type": "event",
+        "registration_available": "uncertain",
+        "registration_required": "uncertain",
+        "route": "informational",
+        "dates": []
+      }
+    },
+    {
+      "id": "v2c_ambiguous_06",
+      "tags": [
+        "ambiguous",
+        "event",
+        "manual_review",
+        "relative_date"
+      ],
+      "expected": {
+        "email_type": "personal",
+        "action_kind": "none",
+        "needs_reply": "false",
+        "contains_event": true,
+        "registration_completed": "false",
+        "dates": [
+          "2026-09-11|unknown"
+        ]
+      },
+      "predicted": {
+        "email_type": "unknown",
+        "action_kind": "uncertain",
+        "needs_reply": "uncertain",
+        "contains_event": false,
+        "registration_completed": "uncertain",
+        "dates": [
+          "2026-09-11|referenced_date"
+        ]
+      }
+    },
+    {
+      "id": "v2c_auto_01",
+      "tags": [
+        "automated",
+        "registration_completed",
+        "trigger_negative"
+      ],
+      "expected": {
+        "email_type": "automated",
+        "needs_reply": "false",
+        "registration_completed": "true"
+      },
+      "predicted": {
+        "email_type": "unknown",
+        "needs_reply": "uncertain",
+        "registration_completed": "uncertain"
+      }
+    },
+    {
+      "id": "v2c_auto_02",
+      "tags": [
+        "automated",
+        "deadline",
+        "required_action"
+      ],
+      "expected": {
+        "needs_reply": "false",
+        "registration_completed": "false"
+      },
+      "predicted": {
+        "needs_reply": "uncertain",
+        "registration_completed": "uncertain"
+      }
+    },
+    {
+      "id": "v2c_auto_03",
+      "tags": [
+        "automated",
+        "financial",
+        "historical_date"
+      ],
+      "expected": {
+        "email_type": "receipt",
+        "registration_completed": "false"
+      },
+      "predicted": {
+        "email_type": "administrative",
+        "registration_completed": "uncertain"
+      }
+    },
+    {
+      "id": "v2c_auto_04",
+      "tags": [
+        "automated",
+        "deadline",
+        "financial",
+        "implicit_obligation"
+      ],
+      "expected": {
+        "needs_reply": "false",
+        "registration_completed": "false"
+      },
+      "predicted": {
+        "needs_reply": "uncertain",
+        "registration_completed": "uncertain"
+      }
+    },
+    {
+      "id": "v2c_short_01",
+      "tags": [
+        "ambiguous",
+        "reply",
+        "short_message"
+      ],
+      "expected": {
+        "email_type": "personal",
+        "action_kind": "none",
+        "needs_reply": "true",
+        "registration_completed": "false",
+        "route": "needs_reply"
+      },
+      "predicted": {
+        "email_type": "unknown",
+        "action_kind": "uncertain",
+        "needs_reply": "uncertain",
+        "registration_completed": "uncertain",
+        "route": "manual_review"
+      }
+    },
+    {
+      "id": "v2c_short_02",
+      "tags": [
+        "personal",
+        "short_message"
+      ],
+      "expected": {
+        "email_type": "personal",
+        "action_kind": "none",
+        "needs_reply": "false",
+        "registration_completed": "false",
+        "route": "informational"
+      },
+      "predicted": {
+        "email_type": "unknown",
+        "action_kind": "uncertain",
+        "needs_reply": "uncertain",
+        "registration_completed": "uncertain",
+        "route": "manual_review"
+      }
+    },
+    {
+      "id": "v2c_short_03",
+      "tags": [
+        "ambiguous",
+        "relative_date",
+        "reply",
+        "short_message"
+      ],
+      "expected": {
+        "email_type": "personal",
+        "action_kind": "none",
+        "needs_reply": "true",
+        "contains_event": true,
+        "registration_completed": "false",
+        "route": "needs_reply",
+        "dates": [
+          "2026-09-02|unknown"
+        ]
+      },
+      "predicted": {
+        "email_type": "unknown",
+        "action_kind": "uncertain",
+        "needs_reply": "uncertain",
+        "contains_event": false,
+        "registration_completed": "uncertain",
+        "route": "manual_review",
+        "dates": [
+          "2026-09-02|referenced_date"
+        ]
+      }
+    },
+    {
+      "id": "v2c_short_04",
+      "tags": [
+        "event",
+        "relative_date",
+        "short_message"
+      ],
+      "expected": {
+        "email_type": "personal",
+        "action_kind": "none",
+        "needs_reply": "false",
+        "contains_event": true,
+        "event_status": "past",
+        "registration_completed": "false",
+        "route": "informational"
+      },
+      "predicted": {
+        "email_type": "unknown",
+        "action_kind": "uncertain",
+        "needs_reply": "uncertain",
+        "contains_event": false,
+        "event_status": "uncertain",
+        "registration_completed": "uncertain",
+        "route": "manual_review"
+      }
+    },
+    {
+      "id": "v2c_datepair_01",
+      "tags": [
+        "deadline",
+        "minimal_pair"
+      ],
+      "expected": {
+        "needs_reply": "false",
+        "registration_completed": "false"
+      },
+      "predicted": {
+        "needs_reply": "uncertain",
+        "registration_completed": "uncertain"
+      }
+    },
+    {
+      "id": "v2c_datepair_02",
+      "tags": [
+        "minimal_pair",
+        "publication_date"
+      ],
+      "expected": {
+        "email_type": "administrative",
+        "action_kind": "none",
+        "needs_reply": "false",
+        "registration_completed": "false",
+        "route": "informational",
+        "dates": [
+          "2026-09-20|publication_date"
+        ]
+      },
+      "predicted": {
+        "email_type": "unknown",
+        "action_kind": "uncertain",
+        "needs_reply": "uncertain",
+        "registration_completed": "uncertain",
+        "route": "manual_review",
+        "dates": [
+          "2026-09-20|referenced_date"
+        ]
+      }
+    },
+    {
+      "id": "v2c_datepair_03",
+      "tags": [
+        "historical_date",
+        "minimal_pair"
+      ],
+      "expected": {
+        "email_type": "administrative",
+        "action_kind": "none",
+        "needs_reply": "false",
+        "registration_completed": "false",
+        "route": "informational"
+      },
+      "predicted": {
+        "email_type": "unknown",
+        "action_kind": "uncertain",
+        "needs_reply": "uncertain",
+        "registration_completed": "uncertain",
+        "route": "manual_review"
+      }
+    },
+    {
+      "id": "v2c_datepair_04",
+      "tags": [
+        "deadline",
+        "event",
+        "minimal_pair",
+        "trigger_negative"
+      ],
+      "expected": {
+        "registration_available": "false",
+        "registration_required": "false"
+      },
+      "predicted": {
+        "registration_available": "uncertain",
+        "registration_required": "uncertain"
+      }
+    },
+    {
+      "id": "v2c_regdates_01",
+      "tags": [
+        "deadline",
+        "event",
+        "multiple_dates",
+        "registration"
+      ],
+      "expected": {
+        "registration_required": "true",
+        "dates": [
+          "2026-09-10|registration_deadline",
+          "2026-09-18 13:00:00-07:00|event_time"
+        ]
+      },
+      "predicted": {
+        "registration_required": "uncertain",
+        "dates": [
+          "2026-09-18 13:00:00-07:00|event_time"
+        ]
+      }
+    },
+    {
+      "id": "v2c_regdates_02",
+      "tags": [
+        "event",
+        "multiple_dates",
+        "registration_completed",
+        "trigger_negative"
+      ],
+      "expected": {
+        "event_status": "upcoming",
+        "registration_required": "false",
+        "registration_completed": "true",
+        "route": "upcoming_events",
+        "dates": [
+          "2026-09-10|referenced_date",
+          "2026-09-18 13:00:00-07:00|event_time"
+        ]
+      },
+      "predicted": {
+        "event_status": "uncertain",
+        "registration_required": "uncertain",
+        "registration_completed": "false",
+        "route": "informational",
+        "dates": [
+          "2026-09-18 13:00:00-07:00|referenced_date"
+        ]
+      }
+    },
+    {
+      "id": "v2c_reply_01",
+      "tags": [
+        "relative_date",
+        "reply",
+        "required_action"
+      ],
+      "expected": {
+        "registration_completed": "false",
+        "dates": [
+          "2026-09-03|deadline"
+        ]
+      },
+      "predicted": {
+        "registration_completed": "uncertain",
+        "dates": []
+      }
+    },
+    {
+      "id": "v2c_reply_02",
+      "tags": [
+        "automated",
+        "reply",
+        "trigger_negative"
+      ],
+      "expected": {
+        "action_kind": "none",
+        "registration_completed": "false"
+      },
+      "predicted": {
+        "action_kind": "uncertain",
+        "registration_completed": "uncertain"
+      }
+    }
+  ]
+}

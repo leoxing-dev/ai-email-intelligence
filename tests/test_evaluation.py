@@ -3,6 +3,7 @@
 from __future__ import annotations
 
 import json
+import hashlib
 from datetime import datetime, timedelta
 from pathlib import Path
 
@@ -397,3 +398,42 @@ def test_stored_v2_reports_match_current_dataset_without_fixture_text():
         assert '"subject"' not in serialized
         assert '"body"' not in serialized
         assert '"sender"' not in serialized
+
+
+def test_deterministic_rules_v2_snapshots_match_frozen_splits():
+    root = Path(__file__).parents[1]
+    manifest_path = DATA_DIRECTORY / "manifest_v2.json"
+    for split in ("v2_dev", "v2_test", "challenge"):
+        report = EvaluationReport.model_validate_json(
+            (
+                root
+                / "evaluation"
+                / "baselines"
+                / f"deterministic-rules-v2-{split.removeprefix('v2_')}.json"
+            ).read_text(encoding="utf-8")
+        )
+        _, cases, counts = load_cases(split, manifest_path=manifest_path)
+        assert report.baseline_id == "deterministic-rules-v2"
+        assert report.split == split
+        assert report.split_counts == counts
+        assert report.dataset_fingerprint == dataset_fingerprint(cases)
+        serialized = report.model_dump_json().casefold()
+        assert '"subject"' not in serialized
+        assert '"body"' not in serialized
+        assert '"sender"' not in serialized
+
+
+def test_historical_data_and_baseline_hashes_are_frozen():
+    root = Path(__file__).parents[1]
+    expected = json.loads(
+        (root / "evaluation" / "data" / "FROZEN_SHA256.json").read_text(
+            encoding="utf-8"
+        )
+    )
+
+    observed = {
+        relative: hashlib.sha256((root / relative).read_bytes()).hexdigest().upper()
+        for relative in expected
+    }
+
+    assert observed == expected

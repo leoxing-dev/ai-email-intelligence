@@ -171,7 +171,7 @@ def main() -> int:
         baseline_id=(
             "deterministic-baseline-v1"
             if args.dataset == "v1"
-            else "unchanged-deterministic-classifier-v2"
+            else "deterministic-rules-v2"
         ),
     )
     serialized = report.model_dump_json(indent=2)

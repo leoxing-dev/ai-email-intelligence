@@ -383,6 +383,11 @@ leakage findings, limitations, and unchanged-classifier results. Lower v2 scores
 are expected: the benchmark is designed to expose weaknesses, not optimize the
 classifier.
 
+The bounded `deterministic-rules-v2` experiment is documented in
+[its comparison report](evaluation/DETERMINISTIC_RULES_V2_REPORT.md). V2 test and
+challenge are now observed and frozen; do not tune against them. Future final
+performance reporting requires a new blind V3 benchmark.
+
 ## Verify no secrets or personal data are tracked
 
 Before every commit, run:
