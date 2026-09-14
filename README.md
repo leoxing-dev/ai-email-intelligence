@@ -276,6 +276,113 @@ attachment exclusion, quoted-thread trimming, encoded headers, date confidence,
 priority/action/reply heuristics, digest grouping, read-only Gmail operations,
 privacy-safe logging, non-caching API responses, and Git ignore rules.
 
+## Offline classifier evaluation
+
+The evaluation harness measures the current deterministic classifier before any
+future rules-only, model-only, or hybrid experiments. It never authenticates to
+Gmail or uses network access. Every committed case is synthetic and is converted
+in memory to a Gmail-shaped MIME payload, then processed by the production email
+parser, `LocalSummarizer`, and production digest-routing function.
+
+Run the complete benchmark:
+
+```powershell
+python -m evaluation.run
+```
+
+Run only one fixed split or write a machine-readable report:
+
+```powershell
+python -m evaluation.run --split dev
+python -m evaluation.run --split test
+python -m evaluation.run --split test --output evaluation/results/test.json
+```
+
+Normal failure output contains case IDs, tags, and differing labels—not fixture
+bodies. `--verbose` may display fixture text because this committed dataset is
+synthetic; do not use that option with any future private dataset.
+
+Dataset version `synthetic-email-benchmark-v1` contains 100 hand-authored cases:
+65 development cases and 35 held-out test cases. Split membership and order are
+fixed in `evaluation/data/manifest.json`. Development cases expose representative
+scenario families for diagnostics. Test cases use independently worded variants
+and must not be used to tune classifier rules.
+
+Metrics are reported separately rather than collapsed into one score:
+
+- Binary precision is the fraction of positive predictions that are correct;
+  recall is the fraction of labeled positives found; F1 is their harmonic mean.
+- Empty positive classes are reported as `n/a`, not silently converted to zero or
+  one.
+- Date extraction precision/recall uses normalized calendar-date matching within
+  each case. Exact match additionally distinguishes all-day dates from datetimes.
+- Time-tolerance accuracy uses a documented ±15-minute default for labeled times.
+- Route confusion records expected-to-predicted counts across urgent, action,
+  reply, upcoming-event, informational, low-priority, and manual-review routes.
+- Coverage is the fraction not routed to manual review. Accepted error rate is
+  route error among those non-abstained cases.
+- Per-tag metrics isolate promotion, digest, HTML noise, relative-date, timezone,
+  registration, security, and other failure families.
+
+False required actions are highlighted because they can misrepresent optional or
+promotional content as an obligation. The report also prominently shows required
+action, upcoming-event, and deadline false negatives. No pass/fail regression
+thresholds are imposed yet.
+
+### deterministic-baseline-v1
+
+The stored machine-readable snapshot at
+`evaluation/baselines/deterministic-baseline-v1.json` is for the 35-case held-out
+test split. The current unchanged deterministic classifier measured:
+
+| Task | Precision | Recall | F1 |
+| --- | ---: | ---: | ---: |
+| Required action | 1.000 | 1.000 | 1.000 |
+| Contains event | 0.933 | 1.000 | 0.966 |
+| Upcoming event | 1.000 | 0.923 | 0.960 |
+| Required registration | 1.000 | 1.000 | 1.000 |
+| Completed registration | 1.000 | 1.000 | 1.000 |
+| Deadline detection | 1.000 | 0.714 | 0.833 |
+| Needs reply | 1.000 | 1.000 | 1.000 |
+
+Held-out route accuracy was 0.943; coverage was 0.971; accepted-route error rate
+was 0.029. Date extraction precision and recall were both 1.000, exact normalized
+date match was 0.875, and ±15-minute time accuracy was 0.250. Protected counts
+were 0 false required actions, 0 required-action false negatives, 1 upcoming-event
+false negative, and 2 deadline false negatives.
+
+These figures are direct measurements from the labeled fixtures, not estimates.
+**Synthetic benchmark performance is not equivalent to real-world accuracy.**
+The cases are small, intentionally scoped, and cannot establish safety, policy
+compliance, fairness, or performance on a live mailbox.
+
+### Adversarial benchmark v2
+
+The v1 quality audit found short/easy fixtures, sparse held-out classes, and
+cross-split template similarity. V2 preserves v1 and its stored baseline,
+isolates all historical v1 cases as development material, and adds newly
+authored family-level held-out and challenge splits:
+
+```powershell
+python -m evaluation.run --dataset v2 --split all
+python -m evaluation.run --dataset v2 --split v2_test
+python -m evaluation.run --dataset v2 --split challenge
+```
+
+V2 contains 218 synthetic cases: 100 development, 52 held-out test, and 66
+challenge cases. Closely related variants share a `family_id`, and automated
+validation prevents a family from crossing splits. The challenge set covers
+trigger-word hard negatives, implicit obligations, semantic minimal pairs,
+conditional and completed registration, event/history confusion, multiple date
+roles, timezone and DST boundaries, quoted/forwarded content, digest isolation,
+long newsletters, HTML/preheader noise, nested MIME, malformed encoding, and
+manual-review ambiguity.
+
+See [the benchmark audit](evaluation/BENCHMARK_AUDIT_V2.md) for composition,
+leakage findings, limitations, and unchanged-classifier results. Lower v2 scores
+are expected: the benchmark is designed to expose weaknesses, not optimize the
+classifier.
+
 ## Verify no secrets or personal data are tracked
 
 Before every commit, run:

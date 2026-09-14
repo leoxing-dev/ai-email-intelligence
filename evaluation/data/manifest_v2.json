@@ -1,0 +1,11 @@
+{
+  "dataset_version": "synthetic-email-benchmark-v2",
+  "default_timezone": "America/Los_Angeles",
+  "split_order": ["v2_dev", "v2_test", "challenge"],
+  "split_files": {
+    "v2_dev": "v2_dev/cases.jsonl",
+    "v2_test": "v2_test/cases.jsonl",
+    "challenge": "challenge/cases.jsonl"
+  },
+  "assignment_policy": "All 100 v1 fixtures are retained as development-only legacy_v1 material. Every newly authored scenario family is assigned wholly to either v2_test or challenge; no family_id may cross splits. Challenge contains adversarial minimal pairs, realistic structure, ambiguity, and boundary cases. Membership and order are fixed for v2."
+}

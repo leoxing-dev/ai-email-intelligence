@@ -27,6 +27,7 @@ venv/
 *.sqlite3
 email-exports/
 exports/
+evaluation/results/
 *.eml
 *.mbox
 *.log

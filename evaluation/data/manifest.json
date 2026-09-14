@@ -1,0 +1,10 @@
+{
+  "dataset_version": "synthetic-email-benchmark-v1",
+  "default_timezone": "America/Los_Angeles",
+  "split_order": ["dev", "test"],
+  "split_files": {
+    "dev": "dev/cases.jsonl",
+    "test": "test/cases.jsonl"
+  },
+  "assignment_policy": "Cases are manually assigned by scenario family before measurement. Dev exposes representative phrasing for diagnostics; test uses independently worded held-out variations. Case order and split membership are fixed for dataset version v1."
+}
