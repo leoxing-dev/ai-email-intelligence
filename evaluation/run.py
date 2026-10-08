@@ -40,6 +40,11 @@ def render_console(
     verbose: bool = False,
     max_failures: int = 20,
 ) -> str:
+    final_route_accuracy = (
+        report.normalized_route_accuracy
+        if report.normalized_route_accuracy is not None
+        else report.route_accuracy
+    )
     lines = [
         f"{report.baseline_id} — {report.dataset_version}",
         f"Split: {report.split} | Cases: {report.case_count} | "
@@ -64,7 +69,10 @@ def render_console(
             f"±{dates.tolerance_minutes}m)",
             "",
             "ABSTENTION / ROUTING",
-            f"Route accuracy:       {_metric(report.route_accuracy)}",
+            "Model route accuracy: "
+            f"{_metric(report.model_proposed_route_accuracy)}",
+            "Final route accuracy: "
+            f"{_metric(final_route_accuracy)}",
             f"Coverage:             {_metric(report.abstention.coverage)}",
             "Accepted error rate:  "
             f"{_metric(report.abstention.error_rate_among_accepted)}",
@@ -80,7 +88,7 @@ def render_console(
             "Deadline false negatives:        "
             f"{report.protected_metrics.deadline_false_negative_count}",
             "",
-            "ROUTE CONFUSION (expected -> predicted nonzero counts)",
+            "FINAL ROUTE CONFUSION (expected -> predicted nonzero counts)",
         ]
     )
     for expected, row in report.route_confusion.items():

@@ -1,0 +1,284 @@
+{
+  "cases_per_family": {
+    "anniversary_event_reference": 6,
+    "attendance_requires_enrollment": 6,
+    "autumn_clock_overlap": 6,
+    "background_sync_notice": 6,
+    "benefit_eligibility_gap": 6,
+    "bilingual_document_window": 6,
+    "certification_booking_window": 6,
+    "completion_body_overrides_subject": 6,
+    "conditional_travel_preference": 6,
+    "confirmed_signup_with_stale_steps": 6,
+    "contradictory_section_bundle": 6,
+    "credential_access_consequence": 6,
+    "damaged_transfer_payload": 6,
+    "device_recovery_lock": 6,
+    "digest_child_obligation_trap": 6,
+    "district_bulletin_sections": 6,
+    "editorial_release_calendar": 6,
+    "facility_orientation_gate": 6,
+    "forward_chain_closed_task": 6,
+    "forwarded_expired_checklist": 6,
+    "global_showcase_clock": 6,
+    "historical_required_quote": 6,
+    "imperative_advertising_banner": 6,
+    "instrument_access_enrollment": 6,
+    "mentor_choice_question": 6,
+    "midnight_zone_crossover": 6,
+    "neighborhood_science_talk": 6,
+    "nested_authority_conflict": 6,
+    "optional_studio_session": 6,
+    "parallel_program_schedule": 6,
+    "policy_revision_question": 6,
+    "portal_html_summary": 6,
+    "profile_change_completed": 6,
+    "question_without_reply_word": 6,
+    "quoted_design_question": 6,
+    "recording_archive_recap": 6,
+    "relative_planning_circle": 6,
+    "schedule_grid_implied_event": 6,
+    "sealed_no_reply_receipt": 6,
+    "seminar_enrollment_confirmed": 6,
+    "service_digest_container": 6,
+    "silent_access_revocation": 6,
+    "simulation_roster_gate": 6,
+    "spring_shift_clinic": 6,
+    "superseded_cutoff_history": 6,
+    "symposium_signup_choice": 6,
+    "unclear_delegated_authority": 6,
+    "unmonitored_reply_excerpt": 6,
+    "voluntary_registration_prompt": 6,
+    "winter_catalog_offer": 6,
+    "workshop_registration_receipt": 6,
+    "zero_width_compliance_line": 6
+  },
+  "class_balance": {
+    "total": {
+      "deadline": {
+        "non_positive": 222,
+        "positive": 90
+      },
+      "event": {
+        "non_positive": 168,
+        "positive": 144
+      },
+      "needs_reply": {
+        "non_positive": 276,
+        "positive": 36
+      },
+      "registration_completed": {
+        "non_positive": 288,
+        "positive": 24
+      },
+      "registration_required": {
+        "non_positive": 282,
+        "positive": 30
+      },
+      "required_action": {
+        "non_positive": 246,
+        "positive": 66
+      },
+      "upcoming_event": {
+        "non_positive": 186,
+        "positive": 126
+      }
+    },
+    "v3_challenge": {
+      "deadline": {
+        "non_positive": 84,
+        "positive": 42
+      },
+      "event": {
+        "non_positive": 66,
+        "positive": 60
+      },
+      "needs_reply": {
+        "non_positive": 114,
+        "positive": 12
+      },
+      "registration_completed": {
+        "non_positive": 114,
+        "positive": 12
+      },
+      "registration_required": {
+        "non_positive": 114,
+        "positive": 12
+      },
+      "required_action": {
+        "non_positive": 102,
+        "positive": 24
+      },
+      "upcoming_event": {
+        "non_positive": 78,
+        "positive": 48
+      }
+    },
+    "v3_test": {
+      "deadline": {
+        "non_positive": 138,
+        "positive": 48
+      },
+      "event": {
+        "non_positive": 102,
+        "positive": 84
+      },
+      "needs_reply": {
+        "non_positive": 162,
+        "positive": 24
+      },
+      "registration_completed": {
+        "non_positive": 174,
+        "positive": 12
+      },
+      "registration_required": {
+        "non_positive": 168,
+        "positive": 18
+      },
+      "required_action": {
+        "non_positive": 144,
+        "positive": 42
+      },
+      "upcoming_event": {
+        "non_positive": 108,
+        "positive": 78
+      }
+    }
+  },
+  "dataset_fingerprint": "4f8b557fffce59a4b51ccdefb3b29d7bf1f01d82c14c26e0d82eaacbb98f97b5",
+  "dataset_version": "synthetic-email-benchmark-v3-blind",
+  "difficulty_by_split": {
+    "v3_challenge": {
+      "adversarial": 90,
+      "hard": 36
+    },
+    "v3_test": {
+      "easy": 30,
+      "hard": 90,
+      "medium": 66
+    }
+  },
+  "difficulty_distribution": {
+    "adversarial": 90,
+    "easy": 30,
+    "hard": 126,
+    "medium": 66
+  },
+  "duplicate_audit": {
+    "cross_family_jaccard_threshold": 0.75,
+    "cross_family_near_duplicate_count": 0,
+    "cross_family_top_matches": [],
+    "cross_split_jaccard_threshold": 0.55,
+    "cross_split_near_duplicate_count": 0,
+    "cross_split_top_matches": [],
+    "exact_duplicate_count": 0,
+    "prior_version_jaccard_threshold": 0.45,
+    "prior_version_near_duplicate_count": 0,
+    "prior_version_top_matches": [],
+    "same_template_variant_families": 52,
+    "variants_per_family": 6
+  },
+  "families_by_split": {
+    "v3_challenge": 21,
+    "v3_test": 31
+  },
+  "family_count": 52,
+  "privacy": {
+    "all_sender_domains_reserved_example": true,
+    "all_synthetic_marker_present": true,
+    "metadata_rationale_count": 312,
+    "sender_domains": [
+      "v3.example"
+    ]
+  },
+  "route_counts": {
+    "informational": 84,
+    "low_priority": 12,
+    "manual_review": 30,
+    "needs_action": 60,
+    "needs_reply": 30,
+    "upcoming_events": 90,
+    "urgent": 6
+  },
+  "shared_scenario_families": [],
+  "split_counts": {
+    "v3_challenge": 126,
+    "v3_test": 186
+  },
+  "split_fingerprints": {
+    "v3_challenge": "361453edda92fd4d7878d382aecb5af0ce42c0ca7896e50fb0109aa464173d83",
+    "v3_test": "e6dd6d54ea3470712a1cec375ae7bd672cb4be924b394c435b0406e9dc747cfd"
+  },
+  "structural_counts": {
+    "ambiguous_or_manual_review_cases": 30,
+    "average_body_characters": 745.8237179487179,
+    "average_body_words": 97.92948717948718,
+    "average_subject_characters": 39.71153846153846,
+    "digest_or_container_cases": 12,
+    "html_or_noise_cases": 30,
+    "long_form_cases": 48,
+    "multi_date_cases": 144,
+    "multi_event_cases": 18,
+    "multilingual_or_encoding_cases": 18,
+    "timezone_or_dst_cases": 30
+  },
+  "tag_counts": {
+    "administrative": 30,
+    "adversarial": 90,
+    "ambiguous": 30,
+    "applicability": 6,
+    "automated": 24,
+    "completed_action": 6,
+    "conditional": 6,
+    "confirmation": 24,
+    "container": 12,
+    "contradiction": 12,
+    "contradictory_subject": 6,
+    "deadline": 84,
+    "digest": 12,
+    "direct_question": 36,
+    "dst_boundary": 12,
+    "easy": 30,
+    "eligibility": 6,
+    "encoding": 18,
+    "event": 132,
+    "forwarded_content": 12,
+    "hard": 126,
+    "historical_date": 24,
+    "html_noise": 24,
+    "implicit_event": 6,
+    "implicit_obligation": 30,
+    "implicit_reply": 6,
+    "informational": 6,
+    "long_form": 48,
+    "malformed_encoding": 6,
+    "manual_review": 30,
+    "medium": 66,
+    "multilingual": 18,
+    "multiple_dates": 144,
+    "multiple_events": 24,
+    "nested_quote": 12,
+    "newsletter": 12,
+    "no_reply": 12,
+    "notification": 6,
+    "optional_action": 24,
+    "past_event": 12,
+    "personal": 12,
+    "promotion": 12,
+    "publication_date": 12,
+    "quoted_content": 30,
+    "registration": 48,
+    "registration_completed": 24,
+    "relative_date": 6,
+    "reply": 30,
+    "required_action": 54,
+    "security": 12,
+    "structured_content": 6,
+    "timezone": 30,
+    "trigger_negative": 60,
+    "urgent": 6,
+    "utc_boundary": 6,
+    "v3_blind": 312,
+    "zero_width": 6
+  }
+}

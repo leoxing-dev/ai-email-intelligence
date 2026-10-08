@@ -1,0 +1,13 @@
+{
+  "dataset_version": "synthetic-email-benchmark-v3-blind",
+  "default_timezone": "America/Los_Angeles",
+  "split_order": [
+    "v3_test",
+    "v3_challenge"
+  ],
+  "split_files": {
+    "v3_test": "v3_test/cases.jsonl",
+    "v3_challenge": "v3_challenge/cases.jsonl"
+  },
+  "assignment_policy": "All V3 scenario families are synthetic and isolated to exactly one blind split. V3 has no tuning split. Labels come only from authored scenario specifications; classifier predictions are prohibited during construction."
+}

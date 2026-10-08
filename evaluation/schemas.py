@@ -180,6 +180,7 @@ class CasePrediction(BaseModel):
     registration_completed: Assessment
     dates: list[PredictedDate]
     route: EvaluationRoute
+    model_proposed_route: EvaluationRoute | None = None
 
 
 class CaseFailure(BaseModel):
@@ -204,6 +205,10 @@ class EvaluationReport(BaseModel):
     route_labels: list[EvaluationRoute]
     route_confusion: dict[str, dict[str, int]]
     route_accuracy: float | None
+    model_proposed_route_confusion: dict[str, dict[str, int]] | None = None
+    model_proposed_route_accuracy: float | None = None
+    normalized_route_confusion: dict[str, dict[str, int]] | None = None
+    normalized_route_accuracy: float | None = None
     date_metrics: DateMetrics
     abstention: AbstentionMetrics
     protected_metrics: ProtectedMetrics

@@ -1,0 +1,75 @@
+{
+  "evaluation": "one-time-frozen-v2-test-and-challenge",
+  "policy_version": "hybrid-v1-policy-1",
+  "policy_sha256": "BC4D050E68BBEC56EF49069A66D7902E1278DE4EED623139DAA72544AD6B50BE",
+  "prompt_sha256": "292B97B5AF14AE1C682666E8DC2DEE99C78264F36176B204E0ACAA31FB393AF7",
+  "provider_adapter_sha256": "C1D81BD83B1616DC02770AA9B92B31A20B8532F50683652F9AFC948BED91DFBE",
+  "structured_schema_sha256": "67D8CC5EC69A2F9EA9785422D45092DD17E4C9CA72F6F0020C2A46E74DD37E15",
+  "route_policy_sha256": "D3FF08AD9156B9D7A68D374F557E75052825E184F870A193E5EBEE1CDFB07B74",
+  "model": {
+    "provider": "openai",
+    "name": "gpt-5.6-terra",
+    "reasoning_effort": "medium",
+    "service_tier": "default",
+    "prompt_version": "model-only-v1-prompt-1",
+    "store": false
+  },
+  "datasets": {
+    "v2_test": {
+      "case_count": 52,
+      "fingerprint": "0e3a356b4a899a5e156699fec1d5c7973145fee36d855f898aa08f4d37dce116",
+      "fixture_sha256": "C8379BD6501047E69D02EF83770761E0CA6B7C864C9597CE33958363D9478EC9"
+    },
+    "challenge": {
+      "case_count": 66,
+      "fingerprint": "aa04684441e802e7a2959ea05d56a4ec4f101ff7943691c9c1d76511ebd643ed",
+      "fixture_sha256": "98D37BF901CAE5F815FE0A41EF38201F8B959B0E9A37CC76E92F82C3842EE87F"
+    }
+  },
+  "artifacts": {
+    "deterministic_rules_v2_test": {
+      "path": "evaluation/baselines/deterministic-rules-v2-test.json",
+      "sha256": "74171B186079914EF77300B29EFF7165C903972AB00FFA10115BB39AF3F9F605"
+    },
+    "deterministic_rules_v2_challenge": {
+      "path": "evaluation/baselines/deterministic-rules-v2-challenge.json",
+      "sha256": "49ACC9C76BE28E59D0912FD399EB03B34B741B85E81682265665D2928569A2E2"
+    },
+    "model_only_v1_test": {
+      "path": "evaluation/results/model-only-v1-v2-test-frozen.json",
+      "sha256": "EBB095036AF3996E19FE0D7921074735DCB199288A06B71C834F0CD74EB2F83F"
+    },
+    "model_only_v1_challenge": {
+      "path": "evaluation/results/model-only-v1-challenge-frozen.json",
+      "sha256": "102E8CE7C57597445F11406C93727E5D65B4E24ED2ACDBAE962F3463192A4884"
+    },
+    "hybrid_v1_test": {
+      "path": "evaluation/results/hybrid-v1-v2-test-frozen.json",
+      "sha256": "F1166B456878569096F6BCDFF2D5CB6EC79B5482F96675BC4B74688DAB75DE66"
+    },
+    "hybrid_v1_challenge": {
+      "path": "evaluation/results/hybrid-v1-challenge-frozen.json",
+      "sha256": "3AD69EDC967CB8058F7365745410E1CA040396CB9BB22FB2C717E57DE51903B7"
+    },
+    "comparison_report": {
+      "path": "evaluation/FROZEN_V2_TEST_CHALLENGE_COMPARISON.md",
+      "sha256": "A6F654D21A9FCFCC0C2C91DF42BFF3DBF30BDB4584C072DEAD292F0BF018CA58"
+    }
+  },
+  "new_model_usage": {
+    "attempted_requests": 118,
+    "billable_responses": 118,
+    "retries": 0,
+    "input_tokens": 114305,
+    "output_tokens": 21422,
+    "total_tokens": 135727,
+    "measured_usage_cost_usd": 0.485674,
+    "average_cost_per_message_usd": 0.004115881355932203,
+    "estimated_cost_per_1000_usd": 4.115881355932203,
+    "average_latency_ms": 3240.753868644711,
+    "p50_latency_ms": 3020.1396999982535,
+    "p95_latency_ms": 4529.836970004541
+  },
+  "hybrid_incremental_api_cost_usd": 0,
+  "post_evaluation_tuning": false
+}

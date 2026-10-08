@@ -1,0 +1,25 @@
+{
+  "artifacts": {
+    "evaluation/FROZEN_V3_FINAL_COMPARISON.md": "99BD41574A47533B62BB7CA722FF2F1C20A8E95278F12BA3F77D0F0590914656",
+    "evaluation/FROZEN_V3_FINAL_RESULTS.json": "292CE1B59C221F48B70FD15D319A2400E200AB4789BD8440249BE549012BE14D",
+    "evaluation/baselines/deterministic-rules-v2-v3-challenge.json": "DFF717BDE8989C40E5EC99A0B38C4ECC9B3707FBC3674894907F1693D92FF62C",
+    "evaluation/baselines/deterministic-rules-v2-v3-test.json": "3ED8CF2142080ED5AF83FDD4D3274F423311BADB57780E1B08641EF06971B6F3",
+    "evaluation/data/FROZEN_V3_SHA256.json": "BCFE0E9B89F0D4C11B5E64ED0290E1979B666F5C3E74C694538E8FF9F6D9BC9D",
+    "evaluation/results/hybrid-v1-v3-challenge-frozen.json": "1DE48F965A133D2A10A2D93F319D59DD0B4D1049E3EE0C16C0D65A2F05E25F3C",
+    "evaluation/results/hybrid-v1-v3-test-frozen.json": "EB1B06548F2EFC905090E4D52E3D1E2D49040950D63275B7A8850914868AAA61",
+    "evaluation/results/model-only-v1-v3-challenge-frozen.json": "F08FBA484DBEFE89D38AF30FCDBA2C83BE4579797C15550D8671E1DEE9B3552A",
+    "evaluation/results/model-only-v1-v3-test-attempt1-network-failure.json": "F38C1EA6A540631BA21B6999E02AC5F8192C5D3D571BA20BE68545B99B47B149",
+    "evaluation/results/model-only-v1-v3-test-frozen.json": "91D3F54E0DCC0D5A2D21E8A2146AE1902A20D247AECB41D22B59B8719EE181DF",
+    "evaluation/v3_final_report.py": "0EF28F4636AFD7C0CBB40B123324BCE0C57DFD9964695EA0910AB783E716B6CA",
+    "evaluation/v3_final_run.py": "10CD9823186D2C791CB149A1A585939843A102470C1192A756F63722B01F8085"
+  },
+  "bounded_retry_batches": 1,
+  "case_count": 312,
+  "dataset_fingerprint": "4f8b557fffce59a4b51ccdefb3b29d7bf1f01d82c14c26e0d82eaacbb98f97b5",
+  "evaluation": "final-one-time-blind-v3",
+  "external_model_calls_final_runs": 312,
+  "failed_local_transport_attempts": 186,
+  "hash_algorithm": "SHA-256",
+  "hybrid_incremental_api_cost_usd": 0,
+  "post_evaluation_tuning": false
+}

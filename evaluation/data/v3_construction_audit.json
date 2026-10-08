@@ -1,0 +1,11 @@
+{
+  "case_count": 312,
+  "split_counts": {
+    "v3_test": 186,
+    "v3_challenge": 126
+  },
+  "family_count": 52,
+  "exact_duplicate_count": 0,
+  "cross_split_near_duplicate_count_at_0_55": 0,
+  "cross_split_near_duplicates_top_25": []
+}

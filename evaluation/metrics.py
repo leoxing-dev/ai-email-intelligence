@@ -112,7 +112,10 @@ def compute_binary_metrics(
 
 
 def route_confusion(
-    cases: list[EvaluationCase], predictions: list[CasePrediction]
+    cases: list[EvaluationCase],
+    predictions: list[CasePrediction],
+    *,
+    use_model_proposed: bool = False,
 ) -> dict[str, dict[str, int]]:
     labels = list(EvaluationRoute)
     matrix = {
@@ -121,7 +124,11 @@ def route_confusion(
     }
     by_id = {prediction.id: prediction for prediction in predictions}
     for case in cases:
-        matrix[case.ground_truth.expected_route.value][by_id[case.id].route.value] += 1
+        prediction = by_id[case.id]
+        route = prediction.route
+        if use_model_proposed:
+            route = prediction.model_proposed_route or prediction.route
+        matrix[case.ground_truth.expected_route.value][route.value] += 1
     return matrix
 
 
@@ -233,6 +240,10 @@ def _case_differences(
             prediction.registration_completed.value,
         ),
         "route": (truth.expected_route.value, prediction.route.value),
+        "model_proposed_route": (
+            truth.expected_route.value,
+            (prediction.model_proposed_route or prediction.route).value,
+        ),
         "dates": (
             sorted(
                 f"{item.value}|{item.semantic_type.value}" for item in truth.dates
@@ -263,9 +274,17 @@ def evaluate(
         raise ValueError("cases and predictions must have identical IDs")
     by_id = {prediction.id: prediction for prediction in predictions}
     binary = compute_binary_metrics(cases, predictions)
-    confusion = route_confusion(cases, predictions)
-    route_correct = sum(
+    normalized_confusion = route_confusion(cases, predictions)
+    model_proposed_confusion = route_confusion(
+        cases, predictions, use_model_proposed=True
+    )
+    normalized_route_correct = sum(
         case.ground_truth.expected_route is by_id[case.id].route for case in cases
+    )
+    model_proposed_route_correct = sum(
+        case.ground_truth.expected_route
+        is (by_id[case.id].model_proposed_route or by_id[case.id].route)
+        for case in cases
     )
     accepted_cases = [
         case for case in cases if by_id[case.id].route is not EvaluationRoute.MANUAL_REVIEW
@@ -318,8 +337,14 @@ def evaluate(
         split_counts=split_counts,
         binary_metrics=binary,
         route_labels=list(EvaluationRoute),
-        route_confusion=confusion,
-        route_accuracy=_ratio(route_correct, len(cases)),
+        route_confusion=normalized_confusion,
+        route_accuracy=_ratio(normalized_route_correct, len(cases)),
+        model_proposed_route_confusion=model_proposed_confusion,
+        model_proposed_route_accuracy=_ratio(
+            model_proposed_route_correct, len(cases)
+        ),
+        normalized_route_confusion=normalized_confusion,
+        normalized_route_accuracy=_ratio(normalized_route_correct, len(cases)),
         date_metrics=compute_date_metrics(
             cases, predictions, tolerance_minutes=tolerance_minutes
         ),

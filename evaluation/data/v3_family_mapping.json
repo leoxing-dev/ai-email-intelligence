@@ -1,0 +1,678 @@
+{
+  "anniversary_event_reference": {
+    "case_ids": [
+      "v3c_34_01",
+      "v3c_34_02",
+      "v3c_34_03",
+      "v3c_34_04",
+      "v3c_34_05",
+      "v3c_34_06"
+    ],
+    "difficulty": "adversarial",
+    "pattern": "past_event",
+    "split": "v3_challenge"
+  },
+  "attendance_requires_enrollment": {
+    "case_ids": [
+      "v3c_41_01",
+      "v3c_41_02",
+      "v3c_41_03",
+      "v3c_41_04",
+      "v3c_41_05",
+      "v3c_41_06"
+    ],
+    "difficulty": "hard",
+    "pattern": "required_registration",
+    "split": "v3_challenge"
+  },
+  "autumn_clock_overlap": {
+    "case_ids": [
+      "v3c_46_01",
+      "v3c_46_02",
+      "v3c_46_03",
+      "v3c_46_04",
+      "v3c_46_05",
+      "v3c_46_06"
+    ],
+    "difficulty": "adversarial",
+    "pattern": "dst_ambiguous_event",
+    "split": "v3_challenge"
+  },
+  "background_sync_notice": {
+    "case_ids": [
+      "v3t_18_01",
+      "v3t_18_02",
+      "v3t_18_03",
+      "v3t_18_04",
+      "v3t_18_05",
+      "v3t_18_06"
+    ],
+    "difficulty": "easy",
+    "pattern": "automated_notice",
+    "split": "v3_test"
+  },
+  "benefit_eligibility_gap": {
+    "case_ids": [
+      "v3t_02_01",
+      "v3t_02_02",
+      "v3t_02_03",
+      "v3t_02_04",
+      "v3t_02_05",
+      "v3t_02_06"
+    ],
+    "difficulty": "hard",
+    "pattern": "implicit_required",
+    "split": "v3_test"
+  },
+  "bilingual_document_window": {
+    "case_ids": [
+      "v3t_24_01",
+      "v3t_24_02",
+      "v3t_24_03",
+      "v3t_24_04",
+      "v3t_24_05",
+      "v3t_24_06"
+    ],
+    "difficulty": "hard",
+    "pattern": "mixed_language_required",
+    "split": "v3_test"
+  },
+  "certification_booking_window": {
+    "case_ids": [
+      "v3t_11_01",
+      "v3t_11_02",
+      "v3t_11_03",
+      "v3t_11_04",
+      "v3t_11_05",
+      "v3t_11_06"
+    ],
+    "difficulty": "hard",
+    "pattern": "required_registration",
+    "split": "v3_test"
+  },
+  "completion_body_overrides_subject": {
+    "case_ids": [
+      "v3c_50_01",
+      "v3c_50_02",
+      "v3c_50_03",
+      "v3c_50_04",
+      "v3c_50_05",
+      "v3c_50_06"
+    ],
+    "difficulty": "adversarial",
+    "pattern": "completion_over_subject",
+    "split": "v3_challenge"
+  },
+  "conditional_travel_preference": {
+    "case_ids": [
+      "v3t_04_01",
+      "v3t_04_02",
+      "v3t_04_03",
+      "v3t_04_04",
+      "v3t_04_05",
+      "v3t_04_06"
+    ],
+    "difficulty": "medium",
+    "pattern": "conditional_reply",
+    "split": "v3_test"
+  },
+  "confirmed_signup_with_stale_steps": {
+    "case_ids": [
+      "v3c_48_01",
+      "v3c_48_02",
+      "v3c_48_03",
+      "v3c_48_04",
+      "v3c_48_05",
+      "v3c_48_06"
+    ],
+    "difficulty": "adversarial",
+    "pattern": "completion_over_stale",
+    "split": "v3_challenge"
+  },
+  "contradictory_section_bundle": {
+    "case_ids": [
+      "v3c_43_01",
+      "v3c_43_02",
+      "v3c_43_03",
+      "v3c_43_04",
+      "v3c_43_05",
+      "v3c_43_06"
+    ],
+    "difficulty": "adversarial",
+    "pattern": "section_conflict",
+    "split": "v3_challenge"
+  },
+  "credential_access_consequence": {
+    "case_ids": [
+      "v3t_01_01",
+      "v3t_01_02",
+      "v3t_01_03",
+      "v3t_01_04",
+      "v3t_01_05",
+      "v3t_01_06"
+    ],
+    "difficulty": "medium",
+    "pattern": "implicit_required",
+    "split": "v3_test"
+  },
+  "damaged_transfer_payload": {
+    "case_ids": [
+      "v3c_44_01",
+      "v3c_44_02",
+      "v3c_44_03",
+      "v3c_44_04",
+      "v3c_44_05",
+      "v3c_44_06"
+    ],
+    "difficulty": "adversarial",
+    "pattern": "malformed_encoding",
+    "split": "v3_challenge"
+  },
+  "device_recovery_lock": {
+    "case_ids": [
+      "v3t_20_01",
+      "v3t_20_02",
+      "v3t_20_03",
+      "v3t_20_04",
+      "v3t_20_05",
+      "v3t_20_06"
+    ],
+    "difficulty": "hard",
+    "pattern": "security_required",
+    "split": "v3_test"
+  },
+  "digest_child_obligation_trap": {
+    "case_ids": [
+      "v3c_49_01",
+      "v3c_49_02",
+      "v3c_49_03",
+      "v3c_49_04",
+      "v3c_49_05",
+      "v3c_49_06"
+    ],
+    "difficulty": "adversarial",
+    "pattern": "digest_container",
+    "split": "v3_challenge"
+  },
+  "district_bulletin_sections": {
+    "case_ids": [
+      "v3t_14_01",
+      "v3t_14_02",
+      "v3t_14_03",
+      "v3t_14_04",
+      "v3t_14_05",
+      "v3t_14_06"
+    ],
+    "difficulty": "hard",
+    "pattern": "long_newsletter",
+    "split": "v3_test"
+  },
+  "editorial_release_calendar": {
+    "case_ids": [
+      "v3t_13_01",
+      "v3t_13_02",
+      "v3t_13_03",
+      "v3t_13_04",
+      "v3t_13_05",
+      "v3t_13_06"
+    ],
+    "difficulty": "hard",
+    "pattern": "multi_role_dates",
+    "split": "v3_test"
+  },
+  "facility_orientation_gate": {
+    "case_ids": [
+      "v3t_09_01",
+      "v3t_09_02",
+      "v3t_09_03",
+      "v3t_09_04",
+      "v3t_09_05",
+      "v3t_09_06"
+    ],
+    "difficulty": "hard",
+    "pattern": "required_registration",
+    "split": "v3_test"
+  },
+  "forward_chain_closed_task": {
+    "case_ids": [
+      "v3c_37_01",
+      "v3c_37_02",
+      "v3c_37_03",
+      "v3c_37_04",
+      "v3c_37_05",
+      "v3c_37_06"
+    ],
+    "difficulty": "adversarial",
+    "pattern": "forwarded_stale",
+    "split": "v3_challenge"
+  },
+  "forwarded_expired_checklist": {
+    "case_ids": [
+      "v3t_17_01",
+      "v3t_17_02",
+      "v3t_17_03",
+      "v3t_17_04",
+      "v3t_17_05",
+      "v3t_17_06"
+    ],
+    "difficulty": "hard",
+    "pattern": "forwarded_stale",
+    "split": "v3_test"
+  },
+  "global_showcase_clock": {
+    "case_ids": [
+      "v3t_25_01",
+      "v3t_25_02",
+      "v3t_25_03",
+      "v3t_25_04",
+      "v3t_25_05",
+      "v3t_25_06"
+    ],
+    "difficulty": "hard",
+    "pattern": "timezone_event",
+    "split": "v3_test"
+  },
+  "historical_required_quote": {
+    "case_ids": [
+      "v3c_32_01",
+      "v3c_32_02",
+      "v3c_32_03",
+      "v3c_32_04",
+      "v3c_32_05",
+      "v3c_32_06"
+    ],
+    "difficulty": "adversarial",
+    "pattern": "quoted_required",
+    "split": "v3_challenge"
+  },
+  "imperative_advertising_banner": {
+    "case_ids": [
+      "v3c_31_01",
+      "v3c_31_02",
+      "v3c_31_03",
+      "v3c_31_04",
+      "v3c_31_05",
+      "v3c_31_06"
+    ],
+    "difficulty": "adversarial",
+    "pattern": "advertising_must",
+    "split": "v3_challenge"
+  },
+  "instrument_access_enrollment": {
+    "case_ids": [
+      "v3t_51_01",
+      "v3t_51_02",
+      "v3t_51_03",
+      "v3t_51_04",
+      "v3t_51_05",
+      "v3t_51_06"
+    ],
+    "difficulty": "hard",
+    "pattern": "required_registration",
+    "split": "v3_test"
+  },
+  "mentor_choice_question": {
+    "case_ids": [
+      "v3t_19_01",
+      "v3t_19_02",
+      "v3t_19_03",
+      "v3t_19_04",
+      "v3t_19_05",
+      "v3t_19_06"
+    ],
+    "difficulty": "medium",
+    "pattern": "direct_question",
+    "split": "v3_test"
+  },
+  "midnight_zone_crossover": {
+    "case_ids": [
+      "v3c_47_01",
+      "v3c_47_02",
+      "v3c_47_03",
+      "v3c_47_04",
+      "v3c_47_05",
+      "v3c_47_06"
+    ],
+    "difficulty": "hard",
+    "pattern": "timezone_event",
+    "split": "v3_challenge"
+  },
+  "neighborhood_science_talk": {
+    "case_ids": [
+      "v3t_06_01",
+      "v3t_06_02",
+      "v3t_06_03",
+      "v3t_06_04",
+      "v3t_06_05",
+      "v3t_06_06"
+    ],
+    "difficulty": "easy",
+    "pattern": "event_announcement",
+    "split": "v3_test"
+  },
+  "nested_authority_conflict": {
+    "case_ids": [
+      "v3c_38_01",
+      "v3c_38_02",
+      "v3c_38_03",
+      "v3c_38_04",
+      "v3c_38_05",
+      "v3c_38_06"
+    ],
+    "difficulty": "adversarial",
+    "pattern": "nested_conflict",
+    "split": "v3_challenge"
+  },
+  "optional_studio_session": {
+    "case_ids": [
+      "v3t_03_01",
+      "v3t_03_02",
+      "v3t_03_03",
+      "v3t_03_04",
+      "v3t_03_05",
+      "v3t_03_06"
+    ],
+    "difficulty": "easy",
+    "pattern": "optional_event",
+    "split": "v3_test"
+  },
+  "parallel_program_schedule": {
+    "case_ids": [
+      "v3t_12_01",
+      "v3t_12_02",
+      "v3t_12_03",
+      "v3t_12_04",
+      "v3t_12_05",
+      "v3t_12_06"
+    ],
+    "difficulty": "hard",
+    "pattern": "multiple_events",
+    "split": "v3_test"
+  },
+  "policy_revision_question": {
+    "case_ids": [
+      "v3t_21_01",
+      "v3t_21_02",
+      "v3t_21_03",
+      "v3t_21_04",
+      "v3t_21_05",
+      "v3t_21_06"
+    ],
+    "difficulty": "medium",
+    "pattern": "administrative_reply",
+    "split": "v3_test"
+  },
+  "portal_html_summary": {
+    "case_ids": [
+      "v3t_23_01",
+      "v3t_23_02",
+      "v3t_23_03",
+      "v3t_23_04",
+      "v3t_23_05",
+      "v3t_23_06"
+    ],
+    "difficulty": "medium",
+    "pattern": "html_summary",
+    "split": "v3_test"
+  },
+  "profile_change_completed": {
+    "case_ids": [
+      "v3t_05_01",
+      "v3t_05_02",
+      "v3t_05_03",
+      "v3t_05_04",
+      "v3t_05_05",
+      "v3t_05_06"
+    ],
+    "difficulty": "easy",
+    "pattern": "completed_action",
+    "split": "v3_test"
+  },
+  "question_without_reply_word": {
+    "case_ids": [
+      "v3c_40_01",
+      "v3c_40_02",
+      "v3c_40_03",
+      "v3c_40_04",
+      "v3c_40_05",
+      "v3c_40_06"
+    ],
+    "difficulty": "hard",
+    "pattern": "direct_question",
+    "split": "v3_challenge"
+  },
+  "quoted_design_question": {
+    "case_ids": [
+      "v3t_16_01",
+      "v3t_16_02",
+      "v3t_16_03",
+      "v3t_16_04",
+      "v3t_16_05",
+      "v3t_16_06"
+    ],
+    "difficulty": "medium",
+    "pattern": "quoted_reply",
+    "split": "v3_test"
+  },
+  "recording_archive_recap": {
+    "case_ids": [
+      "v3t_07_01",
+      "v3t_07_02",
+      "v3t_07_03",
+      "v3t_07_04",
+      "v3t_07_05",
+      "v3t_07_06"
+    ],
+    "difficulty": "medium",
+    "pattern": "past_event",
+    "split": "v3_test"
+  },
+  "relative_planning_circle": {
+    "case_ids": [
+      "v3t_27_01",
+      "v3t_27_02",
+      "v3t_27_03",
+      "v3t_27_04",
+      "v3t_27_05",
+      "v3t_27_06"
+    ],
+    "difficulty": "hard",
+    "pattern": "relative_event",
+    "split": "v3_test"
+  },
+  "schedule_grid_implied_event": {
+    "case_ids": [
+      "v3c_42_01",
+      "v3c_42_02",
+      "v3c_42_03",
+      "v3c_42_04",
+      "v3c_42_05",
+      "v3c_42_06"
+    ],
+    "difficulty": "hard",
+    "pattern": "structured_event",
+    "split": "v3_challenge"
+  },
+  "sealed_no_reply_receipt": {
+    "case_ids": [
+      "v3t_29_01",
+      "v3t_29_02",
+      "v3t_29_03",
+      "v3t_29_04",
+      "v3t_29_05",
+      "v3t_29_06"
+    ],
+    "difficulty": "medium",
+    "pattern": "no_reply_confirmation",
+    "split": "v3_test"
+  },
+  "seminar_enrollment_confirmed": {
+    "case_ids": [
+      "v3t_30_01",
+      "v3t_30_02",
+      "v3t_30_03",
+      "v3t_30_04",
+      "v3t_30_05",
+      "v3t_30_06"
+    ],
+    "difficulty": "medium",
+    "pattern": "registration_completed",
+    "split": "v3_test"
+  },
+  "service_digest_container": {
+    "case_ids": [
+      "v3t_15_01",
+      "v3t_15_02",
+      "v3t_15_03",
+      "v3t_15_04",
+      "v3t_15_05",
+      "v3t_15_06"
+    ],
+    "difficulty": "hard",
+    "pattern": "digest_container",
+    "split": "v3_test"
+  },
+  "silent_access_revocation": {
+    "case_ids": [
+      "v3c_39_01",
+      "v3c_39_02",
+      "v3c_39_03",
+      "v3c_39_04",
+      "v3c_39_05",
+      "v3c_39_06"
+    ],
+    "difficulty": "hard",
+    "pattern": "implicit_required",
+    "split": "v3_challenge"
+  },
+  "simulation_roster_gate": {
+    "case_ids": [
+      "v3c_52_01",
+      "v3c_52_02",
+      "v3c_52_03",
+      "v3c_52_04",
+      "v3c_52_05",
+      "v3c_52_06"
+    ],
+    "difficulty": "adversarial",
+    "pattern": "required_registration",
+    "split": "v3_challenge"
+  },
+  "spring_shift_clinic": {
+    "case_ids": [
+      "v3t_26_01",
+      "v3t_26_02",
+      "v3t_26_03",
+      "v3t_26_04",
+      "v3t_26_05",
+      "v3t_26_06"
+    ],
+    "difficulty": "hard",
+    "pattern": "dst_event",
+    "split": "v3_test"
+  },
+  "superseded_cutoff_history": {
+    "case_ids": [
+      "v3c_35_01",
+      "v3c_35_02",
+      "v3c_35_03",
+      "v3c_35_04",
+      "v3c_35_05",
+      "v3c_35_06"
+    ],
+    "difficulty": "adversarial",
+    "pattern": "historical_deadline",
+    "split": "v3_challenge"
+  },
+  "symposium_signup_choice": {
+    "case_ids": [
+      "v3t_08_01",
+      "v3t_08_02",
+      "v3t_08_03",
+      "v3t_08_04",
+      "v3t_08_05",
+      "v3t_08_06"
+    ],
+    "difficulty": "medium",
+    "pattern": "optional_registration",
+    "split": "v3_test"
+  },
+  "unclear_delegated_authority": {
+    "case_ids": [
+      "v3t_28_01",
+      "v3t_28_02",
+      "v3t_28_03",
+      "v3t_28_04",
+      "v3t_28_05",
+      "v3t_28_06"
+    ],
+    "difficulty": "hard",
+    "pattern": "ambiguous",
+    "split": "v3_test"
+  },
+  "unmonitored_reply_excerpt": {
+    "case_ids": [
+      "v3c_36_01",
+      "v3c_36_02",
+      "v3c_36_03",
+      "v3c_36_04",
+      "v3c_36_05",
+      "v3c_36_06"
+    ],
+    "difficulty": "adversarial",
+    "pattern": "no_reply_language",
+    "split": "v3_challenge"
+  },
+  "voluntary_registration_prompt": {
+    "case_ids": [
+      "v3c_33_01",
+      "v3c_33_02",
+      "v3c_33_03",
+      "v3c_33_04",
+      "v3c_33_05",
+      "v3c_33_06"
+    ],
+    "difficulty": "hard",
+    "pattern": "optional_registration",
+    "split": "v3_challenge"
+  },
+  "winter_catalog_offer": {
+    "case_ids": [
+      "v3t_22_01",
+      "v3t_22_02",
+      "v3t_22_03",
+      "v3t_22_04",
+      "v3t_22_05",
+      "v3t_22_06"
+    ],
+    "difficulty": "easy",
+    "pattern": "promotion",
+    "split": "v3_test"
+  },
+  "workshop_registration_receipt": {
+    "case_ids": [
+      "v3t_10_01",
+      "v3t_10_02",
+      "v3t_10_03",
+      "v3t_10_04",
+      "v3t_10_05",
+      "v3t_10_06"
+    ],
+    "difficulty": "medium",
+    "pattern": "registration_completed",
+    "split": "v3_test"
+  },
+  "zero_width_compliance_line": {
+    "case_ids": [
+      "v3c_45_01",
+      "v3c_45_02",
+      "v3c_45_03",
+      "v3c_45_04",
+      "v3c_45_05",
+      "v3c_45_06"
+    ],
+    "difficulty": "adversarial",
+    "pattern": "zero_width_required",
+    "split": "v3_challenge"
+  }
+}
