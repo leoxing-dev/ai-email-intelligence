@@ -43,6 +43,7 @@ evaluation/results/*
 node_modules/
 dist/
 build/
+*.tsbuildinfo
 
 # Editors and operating systems
 .idea/

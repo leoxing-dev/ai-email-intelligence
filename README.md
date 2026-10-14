@@ -17,6 +17,27 @@ For the complete evidence, see:
 - [Frozen V3 final comparison](evaluation/FROZEN_V3_FINAL_COMPARISON.md)
 - [V3 benchmark construction audit](evaluation/BENCHMARK_AUDIT_V3.md)
 
+## Public recruiter demo
+
+**Live demo:** [leoxing-dev.github.io/ai-email-intelligence](https://leoxing-dev.github.io/ai-email-intelligence/)
+
+The static React demo presents twelve new synthetic messages, precomputed
+structured predictions, browser-only correction interactions, the frozen V3
+evidence, architecture, privacy boundaries, and known limitations. It requires
+no Gmail login, API key, backend, or external model request.
+
+To run it locally:
+
+```powershell
+cd web
+npm install
+npm run dev
+```
+
+Production validation uses `npm test`, `npm run typecheck`, and `npm run build`.
+The screenshot target is `docs/public-demo.png`; capture it after the first
+Pages deployment so the image represents the public build exactly.
+
 ## What the repository includes
 
 - A local Gmail reader restricted to the `gmail.readonly` OAuth scope.
@@ -66,9 +87,9 @@ SDK is not required.
 
 ### Public demo mode
 
-The public demo is upcoming and is not implemented yet. Its intended boundary
-is synthetic data and precomputed predictions only, with no Gmail login and no
-frontend API key.
+The public recruiter demo is implemented as a static React application under
+`web/`. Its boundary is synthetic data and precomputed predictions only, with
+no Gmail login, frontend API key, backend, or external model request.
 
 ## Architecture
 
