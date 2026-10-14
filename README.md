@@ -1,186 +1,159 @@
-# Local Gmail Unread Digest — Phase 1
+# Privacy-First AI Email Intelligence Platform
 
-A local, read-only Gmail assistant that retrieves messages matching
-`in:inbox is:unread` and produces a deterministic digest without sending Gmail
-content to an external AI service.
+This project turns unstructured email into structured actions, deadlines,
+events, registration and reply signals, and deterministic routing decisions.
+It combines a read-only local Gmail pipeline with a synthetic evaluation system
+for deterministic rules, structured-output language-model predictions, and a
+frozen hybrid policy.
 
-This project is designed for privacy-sensitive mailboxes, including USC email,
-but software design alone does not establish legal or institutional approval.
-Confirm any role-, department-, research-, device-, or account-specific
-requirements with the appropriate USC office before using it with protected data.
+The strongest result from the final frozen experiment is straightforward:
+**model-only-v1 generalized best on the blind V3 benchmark**. Hybrid-v1 was
+strong on development data, but overfit and underperformed model-only-v1 on
+blind V3. These are synthetic benchmark results, not claims about production
+Gmail accuracy.
 
-## Privacy and security warning
+For the complete evidence, see:
 
-> **Do not commit credentials.json, token.json, .env,**
-> **API keys, OAuth tokens, or exported email data.**
+- [Frozen V3 final comparison](evaluation/FROZEN_V3_FINAL_COMPARISON.md)
+- [V3 benchmark construction audit](evaluation/BENCHMARK_AUDIT_V3.md)
 
-Do not paste live USC email content, application output, OAuth errors containing
-tokens, or credentials into ChatGPT or another external AI tool. Run live mailbox
-operations only in a trusted local terminal.
+## What the repository includes
 
-### Phase 1 privacy boundary
+- A local Gmail reader restricted to the `gmail.readonly` OAuth scope.
+- MIME parsing, HTML sanitization, attachment exclusion, quoted-thread
+  trimming, and transient body processing.
+- Structured extraction of action, event, registration, deadline, reply, and
+  route fields.
+- Strict model-output schema and domain validation.
+- Deterministic normalization and routing precedence that keeps semantic
+  signals separate from presentation routing.
+- Synthetic V1, adversarial V2, and blind V3 benchmarks with frozen artifacts.
+- Offline tests for privacy controls, read-only Gmail behavior, parsing,
+  classification, evaluation, and benchmark integrity.
 
-- Gmail retrieval and analysis happen in the local Python process.
-- The only OAuth scope is
-  `https://www.googleapis.com/auth/gmail.readonly`.
-- Raw bodies are held temporarily in memory while each message is analyzed.
-- Full raw messages and bodies are not stored in a database or cache.
-- The in-memory sync cache contains derived `EmailSummary` objects only.
-- The application does not separately fetch Gmail attachments. Gmail may include
-  small inline MIME-part data in a message response. Attachment-part data is
-  discarded locally before parsing or analysis and is not logged, persisted,
-  summarized, or transmitted to another service.
-- Inline `text/plain` is preferred; HTML is locally converted to text after
-  scripts, styles, images, and other active/tracking elements are removed.
-- Logs contain counts and one-way, truncated message-ID hashes. They do not
-  intentionally contain senders, subjects, bodies, or OAuth values.
-- API responses contain selected metadata and derived summaries, never a raw
-  body or MIME payload field.
-- HTTP responses use `Cache-Control: no-store`.
-- No OpenAI library, external AI provider, telemetry SDK, or analytics service is
-  included.
+## Three operating modes
 
-The `EmailSummarizer` interface isolates analysis. Phase 1 provides only
-`LocalSummarizer`. A future USC-approved enterprise implementation can replace it
-after a formal privacy and policy review; there is deliberately no raw-email
-OpenAI implementation.
+### Live Gmail mode
 
-## What Phase 1 does
+The live application is local and read-only:
 
-- Uses the official Gmail API and installed-application OAuth 2.0 flow.
-- Retrieves unread inbox messages without changing Gmail state.
-- Parses nested MIME messages and base64url-encoded inline text.
-- Removes likely quoted history and long signatures where practical.
-- Produces a concise extractive summary and explainable heuristic assessments.
-- Distinguishes required, recommended, optional, absent, and uncertain action.
-- Classifies explicit dates as deadlines, events, historical, publication,
-  promotional, referenced, or unknown without treating every date as urgent.
-- Resolves relative date phrases against the message receipt time converted to
-  the configured local IANA timezone (America/Los_Angeles by default).
-- Represents event presence, attendance requirements, and registration
-  availability, requirements, completion, and deadlines separately from general
-  action.
-- Distinguishes upcoming, ongoing, past, and uncertain event status relative to
-  the message's received date.
-- Conservatively groups near-identical unread messages while retaining the
-  original unread count and showing the number of similar messages.
-- Groups results into urgent, action, reply, informational, promotional, and
-  manual-review sections with counts.
-- Offers FastAPI endpoints and a terminal digest command.
+- OAuth scope is exactly `https://www.googleapis.com/auth/gmail.readonly`.
+- Gmail operations are message list/get only; there are no Gmail writes.
+- Attachments are not retrieved separately, and attachment-part data is
+  discarded before parsing.
+- Raw Gmail bodies are processed transiently and are not persisted.
+- The in-memory cache holds derived summaries, not raw message bodies.
+- Current live Gmail semantic processing remains local and deterministic.
 
-## Deliberately not implemented
+The application does not send or reply, mark messages read, modify labels,
+archive or delete messages, create calendar events, or transmit live Gmail data
+to the model benchmark pipeline.
 
-Phase 1 does **not** send or reply to email, mark messages read, modify labels,
-archive or delete mail, separately fetch or analyze attachments, monitor in the background, create
-calendar events, deploy a service, persist mailbox bodies, or submit Gmail data
-to external AI.
+### AI benchmark mode
 
-Heuristic results are aids for review, not authoritative determinations. The app
-can miss important language or assign the wrong category. It never treats a
-date without enough context as a confirmed deadline.
+The model evaluation path is separate from live Gmail:
 
-Promotional wording is not sufficient for urgency or required action. Sender
-domains, including institutional domains, do not determine importance by
-themselves. Ambiguous academic or administrative messages remain available for
-manual review instead of being automatically hidden as low priority.
+- Inputs are committed synthetic fixtures only.
+- The frozen provider configuration uses OpenAI `gpt-5.6-terra` with structured
+  outputs and medium reasoning.
+- Outputs pass strict schema validation, domain validation, and deterministic
+  normalization.
+- Provider requests use `store=false`.
+- No live Gmail data enters this path.
 
-Message format and user value are separate. A newsletter may remain a newsletter
-while being routed to `UPCOMING EVENTS`, and a bulk or promotional message with a
-credible academic, administrative, security, or required-registration deadline
-can route to `NEEDS ACTION`. Optional registration for an upcoming event remains
-optional and stays under `UPCOMING EVENTS`; confirmed or explicitly unnecessary
-registration does not create another action. Past events alone do not keep a
-promotional newsletter out of low priority.
+The OpenAI Responses integration uses `httpx` directly, so the OpenAI Python
+SDK is not required.
 
-Consistency checks prevent required actions, applicable future deadlines, and
-upcoming events from becoming low priority. Required registration for an upcoming
-event routes to `NEEDS ACTION` unless registration is already complete.
+### Public demo mode
 
-Digest/container messages are classified as containers. Phase 1 deliberately
-does not interpret dates, events, registration language, or calls to action inside
-their embedded child-message summaries as direct properties of the container.
+The public demo is upcoming and is not implemented yet. Its intended boundary
+is synthetic data and precomputed predictions only, with no Gmail login and no
+frontend API key.
 
-Digest sections are ordered as follows:
+## Architecture
 
-1. `URGENT / TIME-SENSITIVE`
-2. `NEEDS ACTION`
-3. `NEEDS REPLY`
-4. `UPCOMING EVENTS`
-5. `IMPORTANT INFORMATIONAL`
-6. `OTHER INFORMATIONAL / NEWSLETTERS`
-7. `LOW PRIORITY / PROMOTIONAL`
-8. `REVIEW MANUALLY`
-
-## USC policy considerations
-
-USC's policies and guidance can change. Review the current official sources:
-
-- [Generative AI General Policy](https://policy.usc.edu/generative-ai-general-policy/)
-- [Data Protection Policy](https://policy.usc.edu/data-protection/)
-- [Data Privacy Policy](https://policy.usc.edu/data-privacy-policy/)
-- [Student Records Policy](https://policy.usc.edu/student-records/)
-- [FERPA guidance for faculty and staff](https://arr.usc.edu/ferpa-for-faculty-and-staff/)
-- [Acceptable Use Policy](https://policy.usc.edu/acceptable-use/)
-
-USC identifies internal emails and USC IDs as Internal Use Only examples, and
-student records, health data, and nonpublic financial data may be Confidential or
-more restricted. USC guidance warns that uploading student information to a
-generative AI platform may violate FERPA. This is why Phase 1 has no external AI
-path at all.
-
-If USC administrators block the OAuth client, or if your account/device rules do
-not permit this use, do not work around those controls. Contact USC ITS,
-Cybersecurity, the Office of Ethics and Compliance, or the relevant data owner.
-
-## Requirements
-
-- Python 3.12 or newer
-- A trusted local computer with full-disk encryption and a protected OS account
-- A Google Cloud project allowed to access the intended Gmail account
-- Gmail API enabled for that project
-- An OAuth 2.0 Desktop app credential
-
-This repository does not bundle Python. Confirm the runtime first:
-
-```powershell
-python --version
+```text
+LIVE GMAIL (read-only)                 SYNTHETIC BENCHMARKS
+          |                                      |
+          v                                      v
+list/get MIME payloads                 deterministic / model-only
+          |                                      |
+          v                                      v
+local parser + LocalSummarizer          schema + domain validation
+          |                                      |
+          v                                      v
+derived EmailSummary objects            deterministic normalization
+          |                                      |
+          v                                      v
+local CLI / localhost API               frozen metrics and snapshots
 ```
 
-## Google Cloud, Gmail API, and OAuth setup
+The semantic dimensions—action kind, reply need, event presence, registration
+state, and deadlines—are independent. A deterministic policy maps those fields
+to one primary presentation route without treating valid multi-signal messages
+as contradictions.
 
-Google's current [Python Gmail quickstart](https://developers.google.com/workspace/gmail/api/quickstart/python)
-is the authoritative reference. Console labels can change.
+## Frozen blind V3 results
 
-1. Sign in to Google Cloud using an account authorized to create the project.
-2. Create or select a dedicated project for this local application.
-3. In **APIs & Services → Library**, find and enable **Gmail API**.
-4. In **Google Auth Platform**, configure Branding and Audience.
-   - Choose **Internal** only if the project belongs to the applicable Google
-     Workspace organization and USC permits this configuration.
-   - Otherwise use **External / Testing** and add only the intended account as a
-     test user. Do not publish the app merely to bypass access controls.
-5. Under **Data Access**, configure only:
+`synthetic-email-benchmark-v3-blind` contains 312 cases across 52 isolated
+scenario families. Hard and adversarial cases account for 216/312 (69.2%). It
+was frozen before evaluation and has no tuning split.
 
-   ```text
-   https://www.googleapis.com/auth/gmail.readonly
-   ```
+| Metric | deterministic-rules-v2 | model-only-v1 | hybrid-v1 |
+| --- | ---: | ---: | ---: |
+| Required-action F1 | 0.731 | **0.961** | 0.768 |
+| Event F1 | 0.927 | **0.964** | 0.937 |
+| Upcoming-event F1 | 0.952 | **0.992** | 0.969 |
+| Deadline F1 | **0.828** | 0.816 | **0.828** |
+| Route accuracy | 0.532 | **0.849** | 0.679 |
 
-6. Under **Clients**, create an OAuth client with application type **Desktop app**.
-7. Download the client JSON, rename it `credentials.json`, and place it in the
-   repository root beside this README.
-8. Verify Git ignores it before doing anything else:
+These are **synthetic blind benchmark results**, not production Gmail accuracy.
+Model-only-v1 was the best overall generalizing architecture and had the best
+aggregate protected-error profile. Hybrid-v1 improved deadline F1 slightly over
+model-only-v1 but worsened required-action safety, routing, and accepted-case
+errors, repeating the overfitting pattern first exposed on V2.
 
-   ```powershell
-   git check-ignore -v credentials.json
-   ```
+### Experimental progression
 
-Google Workspace administrators can restrict third-party or internal OAuth apps.
-Authorization failure may therefore require administrator review—not broader
-scopes or a workaround.
+```text
+deterministic baseline
+    -> adversarial V2
+    -> model-only-v1
+    -> hybrid-v1
+    -> V2 exposed hybrid overfitting
+    -> blind V3 confirmed a model-first architecture
+```
 
-## Local installation
+The model is not uniformly better. Deadline false negatives remain significant,
+reply recall remains weak, and the model may abstain. Synthetic evaluation does
+not establish safety, fairness, policy compliance, or real-mailbox performance.
 
-From the repository root in PowerShell:
+## Privacy and security boundary
+
+> Never commit `credentials.json`, `token.json`, `.env`, API keys, OAuth tokens,
+> or exported email data.
+
+- API responses use `Cache-Control: no-store`.
+- Logs are designed to exclude message content and redact credential-like data.
+- Result snapshots contain case IDs, predictions, diagnostics, aggregate
+  metrics, latency, and token accounting—not raw subjects, bodies, senders,
+  evidence text, rationales, API keys, or authorization headers.
+- Synthetic sender domains use the reserved `.example` namespace.
+- Gmail credentials and tokens remain local and ignored by Git.
+
+Software controls do not by themselves establish organizational, legal, or
+institutional approval. Review the applicable rules before using any mailbox,
+especially one containing regulated or protected data.
+
+## Requirements and installation
+
+- Python 3.12 or newer
+- A trusted local computer for live Gmail use
+- For live Gmail only: an authorized Google Cloud project, Gmail API enabled,
+  and an OAuth Desktop application credential
+
+Gmail dependencies are explicitly declared in `requirements.txt`. The model
+provider uses the same declared `httpx` dependency directly.
 
 ```powershell
 python -m venv .venv
@@ -190,178 +163,49 @@ python -m pip install -r requirements.txt
 Copy-Item .env.example .env
 ```
 
-`.env` contains paths and behavior settings, not Google client secrets. It is
-still ignored because local configuration can reveal sensitive operational
-details.
+No dependency upgrade or lockfile is implied by these instructions.
 
-Available settings:
+## Local Gmail setup and use
 
-| Variable | Default | Purpose |
-| --- | --- | --- |
-| `GMAIL_ASSISTANT_CREDENTIALS_PATH` | `credentials.json` | Local OAuth client file |
-| `GMAIL_ASSISTANT_TOKEN_PATH` | `token.json` | Local OAuth token file |
-| `GMAIL_ASSISTANT_QUERY` | `in:inbox is:unread` | Gmail search query; the legacy `GMAIL_ASSISTANT_UNREAD_QUERY` name is also accepted |
-| `GMAIL_ASSISTANT_MAX_MESSAGES` | `100` | Per-run cap, from 1 through 500 |
-| `GMAIL_ASSISTANT_DEFAULT_TIMEZONE` | `America/Los_Angeles` | IANA timezone used to resolve relative date language |
-| `GMAIL_ASSISTANT_LOG_LEVEL` | `INFO` | Operational log level |
+Follow Google's official Gmail Python quickstart to enable the API and create a
+Desktop OAuth client. Configure only this scope:
 
-Do not change the query to retrieve data you are not authorized to process.
+```text
+https://www.googleapis.com/auth/gmail.readonly
+```
 
-## Authenticate and generate a digest
+Save the downloaded client file as `credentials.json` in the repository root
+and confirm it is ignored:
 
-The first Gmail-dependent command opens Google's local OAuth consent flow:
+```powershell
+git check-ignore -v credentials.json
+```
+
+Generate a local digest:
 
 ```powershell
 python -m app.cli digest
-```
-
-Confirm that the consent screen requests read-only Gmail access. After approval,
-Google credentials are stored locally in `token.json`. That file can contain a
-refresh token: protect the device, restrict access to your OS account, and never
-copy the file into email, chat, cloud-sync folders, tickets, or repositories.
-Google's [OAuth security guidance](https://developers.google.com/identity/protocols/oauth2/resources/best-practices)
-recommends secure platform storage for user tokens; local JSON storage here is a
-Phase 1 compatibility choice and should be revisited before broader use.
-
-The local OAuth callback can contain a short-lived authorization code and state
-value. The application suppresses the OAuth library's callback-request INFO log,
-does not print the authorization URL when the browser opens automatically, and
-defensively redacts OAuth query parameters from application log handlers.
-
-For JSON output:
-
-```powershell
 python -m app.cli digest --json
 ```
 
-The output itself can contain sensitive derived information. Do not redirect it
-to a tracked file or share it with an external AI service.
+The first Gmail-dependent command opens the local OAuth flow and stores the
+result in ignored `token.json`. Digest output contains derived mailbox
+information and should still be treated as sensitive.
 
-## Run the local API
-
-Bind only to the loopback interface:
+Run the development API on loopback only:
 
 ```powershell
 python -m uvicorn app.main:app --host 127.0.0.1 --port 8000
 ```
 
-Endpoints:
+Available endpoints are `GET /health`, `GET /unread`,
+`GET /digest/unread`, and `POST /sync`. Do not expose this unauthenticated local
+development API through a public interface, proxy, or tunnel.
 
-- `GET /health` — local status and declared security posture; no Gmail call
-- `GET /unread` — fresh derived summaries, without raw bodies
-- `GET /digest/unread` — fresh grouped digest and counts
-- `POST /sync` — refreshes the in-memory derived-summary cache only
+## Evaluation and reproducibility
 
-Example local request:
-
-```powershell
-Invoke-RestMethod http://127.0.0.1:8000/digest/unread
-```
-
-Do not use `--host 0.0.0.0`, expose the port through a firewall or tunnel, or put
-this development API behind a public proxy. Phase 1 has no user-authentication
-layer because it is intentionally localhost-only.
-
-## Run tests
-
-Tests are offline, use synthetic content, and mock Gmail calls. They require no
-Google account, Gmail credentials, OpenAI key, or internet connection.
-
-```powershell
-python -m pytest -q
-```
-
-Coverage areas include MIME parsing, HTML sanitization, nested multiparts,
-attachment exclusion, quoted-thread trimming, encoded headers, date confidence,
-priority/action/reply heuristics, digest grouping, read-only Gmail operations,
-privacy-safe logging, non-caching API responses, and Git ignore rules.
-
-## Offline classifier evaluation
-
-The evaluation harness measures the current deterministic classifier before any
-future rules-only, model-only, or hybrid experiments. It never authenticates to
-Gmail or uses network access. Every committed case is synthetic and is converted
-in memory to a Gmail-shaped MIME payload, then processed by the production email
-parser, `LocalSummarizer`, and production digest-routing function.
-
-Run the complete benchmark:
-
-```powershell
-python -m evaluation.run
-```
-
-Run only one fixed split or write a machine-readable report:
-
-```powershell
-python -m evaluation.run --split dev
-python -m evaluation.run --split test
-python -m evaluation.run --split test --output evaluation/results/test.json
-```
-
-Normal failure output contains case IDs, tags, and differing labels—not fixture
-bodies. `--verbose` may display fixture text because this committed dataset is
-synthetic; do not use that option with any future private dataset.
-
-Dataset version `synthetic-email-benchmark-v1` contains 100 hand-authored cases:
-65 development cases and 35 held-out test cases. Split membership and order are
-fixed in `evaluation/data/manifest.json`. Development cases expose representative
-scenario families for diagnostics. Test cases use independently worded variants
-and must not be used to tune classifier rules.
-
-Metrics are reported separately rather than collapsed into one score:
-
-- Binary precision is the fraction of positive predictions that are correct;
-  recall is the fraction of labeled positives found; F1 is their harmonic mean.
-- Empty positive classes are reported as `n/a`, not silently converted to zero or
-  one.
-- Date extraction precision/recall uses normalized calendar-date matching within
-  each case. Exact match additionally distinguishes all-day dates from datetimes.
-- Time-tolerance accuracy uses a documented ±15-minute default for labeled times.
-- Route confusion records expected-to-predicted counts across urgent, action,
-  reply, upcoming-event, informational, low-priority, and manual-review routes.
-- Coverage is the fraction not routed to manual review. Accepted error rate is
-  route error among those non-abstained cases.
-- Per-tag metrics isolate promotion, digest, HTML noise, relative-date, timezone,
-  registration, security, and other failure families.
-
-False required actions are highlighted because they can misrepresent optional or
-promotional content as an obligation. The report also prominently shows required
-action, upcoming-event, and deadline false negatives. No pass/fail regression
-thresholds are imposed yet.
-
-### deterministic-baseline-v1
-
-The stored machine-readable snapshot at
-`evaluation/baselines/deterministic-baseline-v1.json` is for the 35-case held-out
-test split. The current unchanged deterministic classifier measured:
-
-| Task | Precision | Recall | F1 |
-| --- | ---: | ---: | ---: |
-| Required action | 1.000 | 1.000 | 1.000 |
-| Contains event | 0.933 | 1.000 | 0.966 |
-| Upcoming event | 1.000 | 0.923 | 0.960 |
-| Required registration | 1.000 | 1.000 | 1.000 |
-| Completed registration | 1.000 | 1.000 | 1.000 |
-| Deadline detection | 1.000 | 0.714 | 0.833 |
-| Needs reply | 1.000 | 1.000 | 1.000 |
-
-Held-out route accuracy was 0.943; coverage was 0.971; accepted-route error rate
-was 0.029. Date extraction precision and recall were both 1.000, exact normalized
-date match was 0.875, and ±15-minute time accuracy was 0.250. Protected counts
-were 0 false required actions, 0 required-action false negatives, 1 upcoming-event
-false negative, and 2 deadline false negatives.
-
-These figures are direct measurements from the labeled fixtures, not estimates.
-**Synthetic benchmark performance is not equivalent to real-world accuracy.**
-The cases are small, intentionally scoped, and cannot establish safety, policy
-compliance, fairness, or performance on a live mailbox.
-
-### Adversarial benchmark v2
-
-The v1 quality audit found short/easy fixtures, sparse held-out classes, and
-cross-split template similarity. V2 preserves v1 and its stored baseline,
-isolates all historical v1 cases as development material, and adds newly
-authored family-level held-out and challenge splits:
+The committed benchmarks are fully synthetic. Offline deterministic evaluation
+does not authenticate to Gmail or call OpenAI:
 
 ```powershell
 python -m evaluation.run --dataset v2 --split all
@@ -369,67 +213,46 @@ python -m evaluation.run --dataset v2 --split v2_test
 python -m evaluation.run --dataset v2 --split challenge
 ```
 
-V2 contains 218 synthetic cases: 100 development, 52 held-out test, and 66
-challenge cases. Closely related variants share a `family_id`, and automated
-validation prevents a family from crossing splits. The challenge set covers
-trigger-word hard negatives, implicit obligations, semantic minimal pairs,
-conditional and completed registration, event/history confusion, multiple date
-roles, timezone and DST boundaries, quoted/forwarded content, digest isolation,
-long newsletters, HTML/preheader noise, nested MIME, malformed encoding, and
-manual-review ambiguity.
+V3 was a one-time blind evaluation. Its construction, freeze rules, composition,
+and leakage audit are documented in
+[`evaluation/BENCHMARK_AUDIT_V3.md`](evaluation/BENCHMARK_AUDIT_V3.md). The final
+comparison and limitations are in
+[`evaluation/FROZEN_V3_FINAL_COMPARISON.md`](evaluation/FROZEN_V3_FINAL_COMPARISON.md).
 
-See [the benchmark audit](evaluation/BENCHMARK_AUDIT_V2.md) for composition,
-leakage findings, limitations, and unchanged-classifier results. Lower v2 scores
-are expected: the benchmark is designed to expose weaknesses, not optimize the
-classifier.
+The repository tracks only the privacy-safe result snapshots referenced by
+`evaluation/FROZEN_V3_FINAL_RESULT_MANIFEST.json`; other generated runs remain
+ignored. Verify dataset and artifact integrity with the tests before relying on
+the reported numbers.
 
-The bounded `deterministic-rules-v2` experiment is documented in
-[its comparison report](evaluation/DETERMINISTIC_RULES_V2_REPORT.md). V2 test and
-challenge are now observed and frozen; do not tune against them. Future final
-performance reporting requires a new blind V3 benchmark.
+## Tests
 
-## Verify no secrets or personal data are tracked
+Tests are offline, use synthetic content, and mock Gmail operations. They need
+no Google account, Gmail credentials, OpenAI key, or network access.
 
-Before every commit, run:
+```powershell
+python -m pytest -q
+```
+
+Coverage includes MIME and HTML handling, attachment exclusion, date/time and
+timezone behavior, semantic validation, routing precedence, provider-contract
+handling with mocked responses, privacy-safe logging, read-only Gmail access,
+evaluation metrics, and frozen V3 integrity.
+
+## Pre-commit privacy check
+
+Inspect both filenames and staged contents before every public commit:
 
 ```powershell
 git status --short
 git diff --cached --name-only
+git diff --cached
 git ls-files
-git grep -n -I -E "(access[_-]?token|refresh[_-]?token|client[_-]?secret|api[_-]?key|Authorization: Bearer)"
 git check-ignore -v credentials.json token.json .env
 ```
 
-Inspect all staged diffs, not just filenames:
+If a secret was ever committed, removing the current file is not enough: revoke
+or rotate it and treat the Git history as exposed.
 
-```powershell
-git diff --cached
-```
+## License
 
-Expected: `credentials.json`, `token.json`, and `.env` are ignored and absent
-from both `git ls-files` and staged output. Also manually check for exported
-messages, names, account identifiers, student IDs, grades, financial or health
-information, research data, and other personal or USC data. Automated pattern
-checks cannot prove a repository is clean.
-
-If a secret was ever committed, removing the current file is insufficient.
-Revoke/rotate the credential and treat Git history as exposed.
-
-## Architecture and future extension
-
-```text
-READ-ONLY GMAIL
-      ↓
-UNREAD MIME PAYLOADS (attachment-part data discarded immediately)
-      ↓
-LOCAL PARSER → LocalSummarizer
-      ↓
-DERIVED EmailSummary OBJECTS
-      ↓
-LOCAL CLI / LOCALHOST API DIGEST
-```
-
-Future phases may add calendar suggestions, appointments, reply tracking,
-scheduled digests, archiving, and an institution-approved AI summarizer. None is
-implemented or authorized by this Phase 1 code. Any new data flow requires a new
-privacy, security, OAuth-scope, and USC-policy review first.
+Licensed under the [MIT License](LICENSE).

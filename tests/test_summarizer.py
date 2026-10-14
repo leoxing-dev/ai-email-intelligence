@@ -198,7 +198,7 @@ def test_promotional_dates_are_not_deadlines():
 
 def test_generic_institutional_newsletter_is_low_not_high_because_of_domain():
     result = summarize(
-        sender="Synthetic University News <news@usc.edu>",
+        sender="Synthetic University News <news@usc.example>",
         subject="Synthetic institutional newsletter",
         body="This monthly newsletter contains general community updates.",
     )

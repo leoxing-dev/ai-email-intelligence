@@ -4,6 +4,8 @@
 !.env.example
 credentials.json
 token.json
+service-account*.json
+client_secret*.json
 *.pem
 *.key
 secrets/
@@ -27,10 +29,20 @@ venv/
 *.sqlite3
 email-exports/
 exports/
-evaluation/results/
+evaluation/results/*
+!evaluation/results/hybrid-v1-v3-challenge-frozen.json
+!evaluation/results/hybrid-v1-v3-test-frozen.json
+!evaluation/results/model-only-v1-v3-challenge-frozen.json
+!evaluation/results/model-only-v1-v3-test-attempt1-network-failure.json
+!evaluation/results/model-only-v1-v3-test-frozen.json
 *.eml
 *.mbox
 *.log
+
+# JavaScript and frontend build output
+node_modules/
+dist/
+build/
 
 # Editors and operating systems
 .idea/
